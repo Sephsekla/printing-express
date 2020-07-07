@@ -1,0 +1,13 @@
+{
+    "name": "sephsekla/printing-express",
+    "description": "Custom theme for Printing Express website",
+    "type": "theme",
+    "license": "GPL2",
+    "authors": [
+        {
+            "name": "Joe Bailey-Roberts",
+            "email": "dev@jbr.digital"
+        }
+    ],
+    "require": {}
+}
