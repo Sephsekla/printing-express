@@ -10,7 +10,7 @@ namespace printing\setup;
 
 function init() {
 
-	load_theme_textdomain( 'jbr', get_template_directory() . '/languages' );
+	load_theme_textdomain( 'printing-express', get_template_directory() . '/languages' );
 
 	// Add default posts and comments RSS feed links to head.
 	add_theme_support( 'automatic-feed-links' );
@@ -33,8 +33,8 @@ function init() {
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus(
 		array(
-			'menu-1' => esc_html__( 'Primary', 'jbr' ),
-			'footer' => esc_html__( 'Footer', 'jbr' ),
+			'menu-1' => esc_html__( 'Primary', 'printing-express' ),
+			'footer' => esc_html__( 'Footer', 'printing-express' ),
 		)
 	);
 

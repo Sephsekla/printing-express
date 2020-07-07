@@ -58,7 +58,6 @@
 						array(
 							'theme_location' => 'menu-1',
 							'menu_id'        => 'primary-menu',
-							'walker'         => new nav\jbr_Nav_Menu(),
 						)
 					);
 					?>
