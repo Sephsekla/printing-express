@@ -25,3 +25,30 @@ function init() {
 }
 
  add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\\init' );
+
+
+ /**
+  * Add block editor scripts and styles
+  *
+  * @return void
+  */
+ function blocks(){
+
+	wp_enqueue_script(
+		'printing-blocks-js',
+		get_template_directory_uri() . '/dist/blocks/blocks.js',
+		[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
+		filemtime( get_template_directory() . '/dist/blocks/blocks.js' )
+	);
+
+	// Enqueue optional editor only styles
+	wp_enqueue_style(
+		'printing-blocks-editor-css',
+		get_template_directory_uri() . '/dist/blocks/editor-blocks.css',
+		[ ],
+		filemtime( get_template_directory() . '/dist/blocks/editor-blocks.css' )
+	);
+
+ }
+
+ add_action( 'enqueue_block_assets', __NAMESPACE__ . '\blocks' );

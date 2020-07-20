@@ -11,7 +11,7 @@ const extractSass = new ExtractTextPlugin({
 });
 
 const extractAdmin = new ExtractTextPlugin({
-  filename: "admin.min.css",
+  filename: "blocks/editor-blocks.css",
 });
 
 const extractSettings = {
@@ -60,7 +60,7 @@ module.exports = {
   entry: {
 
     'main': './src/index.js',
-    'blocks/grid': './src/grid.js',
+    'blocks/blocks': './src/blocks.js',
 
   },
   plugins: [
@@ -104,12 +104,12 @@ module.exports = {
 
       {
         test: /\.scss$/,
-        exclude: /admin\.scss$/,
+        exclude: /blocks\.scss$/,
         use: extractSass.extract(extractSettings)
       },
 
       {
-        test: /admin\.scss$/,
+        test: /blocks\.scss$/,
         use: extractAdmin.extract(extractSettings)
       },
 
