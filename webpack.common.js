@@ -27,9 +27,7 @@ const extractSettings = {
     {
       loader: 'postcss-loader',
       options: {
-        plugins: () => [autoprefixer({
-          'browsers': ['> 1%', 'last 2 versions']
-        })],
+        plugins: () => [autoprefixer],
         sourceMap: true
       }
     },

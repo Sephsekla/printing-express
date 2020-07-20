@@ -24,7 +24,7 @@ module.exports = merge(common, {
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env'],
+            presets: ["@wordpress/default"],
             sourceMap: true
 
           }

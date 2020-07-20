@@ -29,10 +29,12 @@
     "typed.js": "^2.0.11"
   },
   "devDependencies": {
-    "autoprefixer": "^9.8.0",
-    "babel": "^6.23.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
+    "@babel/core": "^7.10.5",
+    "@babel/preset-env": "^7.10.4",
+    "@wordpress/babel-preset-default": "^4.17.0",
+    "@wordpress/element": "^2.16.0",
+    "autoprefixer": "^9.8.5",
+    "babel-loader": "^8.1.0",
     "babel-plugin-prismjs": "^1.1.1",
     "babel-preset-env": "^1.7.0",
     "concurrently": "^4.1.2",
@@ -49,7 +51,7 @@
     "style-loader": "^0.21.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.11",
+    "webpack-cli": "^3.3.12",
     "webpack-merge": "^4.2.2",
     "webpack-shell-plugin": "^0.5.0"
   }
