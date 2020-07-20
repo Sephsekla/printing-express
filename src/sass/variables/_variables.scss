@@ -1,17 +1,1 @@
-$jbr_blue: #1c8fdb;
-$jbr_grey: #e7f3fc;
-$jbr_teal: #1cdbc8;
-$jbr_white: #f8fcfe;
-
-$font_sans: 'Roboto', sans-serif;
-
-$font_serif: 'PT Serif', serif;
-
-
-$clip-85: polygon(0% 0%, 15% 100%, 100% 100%, 85% 0);
-
-$clip-collapsed: polygon(0% 0%, 0% 100%, 0% 100%, -15% 0);
-$clip-expanded: polygon(0% 0%, 0% 100%, 115% 100%, 100% 0);
-
-$clip-collapsed-r: polygon(100% 0%, 115% 100%, 100% 100%, 100% 0%);
-$clip-expanded-r: polygon(-15% 0%, 0% 100%, 100% 100%, 100% 0);
+@import 'colors';
