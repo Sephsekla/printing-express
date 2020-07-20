@@ -59,7 +59,8 @@ module.exports = {
 
   entry: {
 
-    main: './src/index.js'
+    'main': './src/index.js',
+    'blocks/grid': './src/grid.js',
 
   },
   plugins: [
