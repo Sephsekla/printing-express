@@ -1,7 +1,7 @@
 .banner{
     @include picture-cover;
 
-    background-color: black;
+    background-color: $grey;
 
     height: 25vw;
     min-height: 280px;
@@ -28,6 +28,7 @@
         bottom: 0;
         left: 0;
         width: 100%;
-        border-top: 3px solid teal;
+        border-top: 3px solid;
+        border-color: inherit;
     }
 }

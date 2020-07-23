@@ -1,0 +1,6 @@
+.site-header{
+    background-color: $white;
+    position: sticky;
+    z-index: 20;
+    @include shadow;
+}
