@@ -18,4 +18,8 @@ yellow: $pink
         background-color: $color;
     }
 
+    .border-#{$name}{
+        border-color: $color;
+    }
+
 }

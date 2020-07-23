@@ -1,3 +1,11 @@
-<section class="banner">
-    
+<?php
+
+use printing\utilities as utilities;
+
+$banner_id = utilities\get_banner_id();
+
+?>
+
+<section class="banner" style="background-image: url('<?php echo wp_get_attachment_image_url( $banner_id, 'banner')?>')">
+
 </section>

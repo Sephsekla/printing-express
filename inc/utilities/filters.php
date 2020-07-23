@@ -24,7 +24,6 @@ function custom_logo() {
 add_filter( 'get_custom_logo', __NAMESPACE__ . '\\custom_logo' );
 
 
-add_filter( 'body_class', __NAMESPACE__ . '\\body' );
 
 function custom_form_submit( $html ) {
 	// return '123';

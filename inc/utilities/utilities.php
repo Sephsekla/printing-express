@@ -56,3 +56,20 @@ function construct_linkbox($url,$img_1,$img_2,$text, $classes='')
     <?php
 
 }
+
+function get_banner_id(){
+
+    if(is_singular() && has_post_thumbnail( 0 )){
+        $id = get_post_thumbnail_id( 0 );
+    }
+    elseif (function_exists('is_woocommerce') && is_woocommerce()) {
+        # code...
+        $id = 123;
+    }
+    else{
+        $id = 123;
+    }
+
+    return $id;
+
+}

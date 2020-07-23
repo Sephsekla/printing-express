@@ -1,3 +1,33 @@
 .banner{
-    @include picture-cover
+    @include picture-cover;
+
+    background-color: black;
+
+    height: 25vw;
+    min-height: 280px;
+
+    &::before{
+        display: block;
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 50%;
+        height: 100%;
+        background-image: url('./assets/spirograph.svg');
+        opacity: 0.5;
+        background-size: 120% auto;
+        background-position: left center;
+
+    }
+
+    &::after{
+        display: block;
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        border-top: 3px solid teal;
+    }
 }
