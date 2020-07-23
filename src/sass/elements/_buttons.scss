@@ -8,4 +8,8 @@ button, .btn, input[type=submit]{
     font-size: 0.875rem;
     color: $dark;
     background-color: $blue;
+
+    outline: none;
+    border: 0;
+    
 }

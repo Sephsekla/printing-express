@@ -1,0 +1,11 @@
+
+
+$alignments: (left, right, center);
+
+@each $alignment in $alignments {
+    .#{$alignment}{
+        text-align: $alignment;
+    }
+}
+
+

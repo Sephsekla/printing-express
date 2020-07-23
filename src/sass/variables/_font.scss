@@ -10,4 +10,5 @@ $font-title: 'Big John Pro', $font-main;
 @mixin title-font(){
     font-family: $font-title;
     font-weight: bold;
+    text-transform: uppercase;
 }

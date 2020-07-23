@@ -1,4 +1,5 @@
 dependencies:
+  '@sephsekla/picture-cover': 1.0.0
   '@wordpress/block-editor': 4.3.1
   '@wordpress/blocks': 6.20.1
   bootstrap: 4.5.0
@@ -1085,6 +1086,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1oO6+dN5kdIA3sKPZhRGJTfGVP4SWV6KqlMOwry4J3HfyD68sl/3KmG7DeYUzvN+RbhXDnv/D8vNNB8168tAMg==
+  /@sephsekla/picture-cover/1.0.0:
+    dev: false
+    resolution:
+      integrity: sha512-yV42JnGV2jyimMZvzUMScGBrD8zkJsfR3W69mMEBAIqDeGqq68FAh6M/mWa9k30Yf0DRM+uqX0vQTgJnNucuRw==
   /@tannin/compile/1.1.0:
     dependencies:
       '@tannin/evaluate': 1.2.0
@@ -8136,6 +8141,7 @@ packages:
 specifiers:
   '@babel/core': ^7.10.5
   '@babel/preset-env': ^7.10.4
+  '@sephsekla/picture-cover': ^1.0.0
   '@wordpress/babel-preset-default': ^4.17.0
   '@wordpress/block-editor': ^4.3.1
   '@wordpress/blocks': ^6.20.1

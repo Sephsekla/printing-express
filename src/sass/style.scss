@@ -7,6 +7,17 @@
 
 @import '~magnific-popup/src/css/main';
 
+@import '~@sephsekla/picture-cover/mixin';
+
+@import 'utilities/utilities';
+
+html, body, p{
+    font-size: 16px;
+    font-family: $font-main;
+}
+
 @import 'elements/elements';
 
 @import 'blocks/group';
+
+@import 'sections/sections';
