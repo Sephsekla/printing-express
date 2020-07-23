@@ -7,7 +7,6 @@
 $font-main: 'Open Sans', arial, helvetica, sans-serif;
 $font-title: 'Big John Pro', $font-main;
 
-
 @mixin title-font(){
     font-family: $font-title;
     font-weight: bold;
