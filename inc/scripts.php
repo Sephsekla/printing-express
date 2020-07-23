@@ -12,7 +12,7 @@
 
 function init() {
 
-	wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700|Roboto:400,700&display=swap', array(), date( 'M' ), 'all' );
+	wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap', array(), date( 'M' ), 'all' );
 
 	wp_register_style( 'printing-styles', get_template_directory_uri() . '/dist/main.min.css', array( 'google-fonts' ), filemtime( get_template_directory() . '/dist/main.min.css' ), 'all' );
 
