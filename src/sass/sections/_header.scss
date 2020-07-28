@@ -3,4 +3,12 @@
     position: sticky;
     z-index: 20;
     @include shadow;
+
+    .menu{
+        text-align: right;
+
+        ul{
+            list-style: none;
+        }
+    }
 }
