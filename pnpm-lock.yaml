@@ -20,6 +20,7 @@ dependencies:
 devDependencies:
   '@babel/core': 7.10.5
   '@babel/preset-env': 7.10.4_@babel+core@7.10.5
+  '@babel/runtime': 7.10.5
   '@wordpress/babel-preset-default': 4.17.0
   '@wordpress/element': 2.16.0
   autoprefixer: 9.8.5
@@ -933,7 +934,7 @@ packages:
       integrity: sha512-Ra3JXOHBq2xd56xSF7lMKXdjBn3T772Y1Wet3yWnkDly9zHvJki029tAFzvAAK5cf4YV3yoxuP61crYRol6SVg==
   /@babel/runtime/7.10.5:
     dependencies:
-      regenerator-runtime: 0.13.5
+      regenerator-runtime: 0.13.7
     resolution:
       integrity: sha512-otddXKhdNn7d0ptoFRHtMLa8LqDxLYwTjB4nYgM1yy5N6gU/MUf8zqyyLltCH3yAVitBzmwK4us+DD0l/MauAg==
   /@babel/template/7.10.4:
@@ -6687,9 +6688,9 @@ packages:
     dev: true
     resolution:
       integrity: sha512-MguG95oij0fC3QV3URf4V2SDYGJhJnJGqvIIgdECeODCT98wSWDAJ94SSuVpYQUoTcGUIL6L4yNB7j1DFFHSBg==
-  /regenerator-runtime/0.13.5:
+  /regenerator-runtime/0.13.7:
     resolution:
-      integrity: sha512-ZS5w8CpKFinUzOwW3c83oPeVXoNsrLsaCoLtJvAClH135j/R77RuymhiSErhm2lKcwSCIpmvIWSbDkIfAqKQlA==
+      integrity: sha512-a54FxoJDIr27pgf7IgeQGxmqUNYrcV338lf/6gH456HZ/PhX+5BcwHXG9ajESmwe6WRO0tAzRUrRmNONWgkrew==
   /regenerator-transform/0.10.1:
     dependencies:
       babel-runtime: 6.26.0
@@ -8141,6 +8142,7 @@ packages:
 specifiers:
   '@babel/core': ^7.10.5
   '@babel/preset-env': ^7.10.4
+  '@babel/runtime': ^7.10.5
   '@sephsekla/picture-cover': ^1.0.0
   '@wordpress/babel-preset-default': ^4.17.0
   '@wordpress/block-editor': ^4.3.1

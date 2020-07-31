@@ -31,15 +31,15 @@
         <header id="header-main" class="site-header">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col">
+                    <div class="col-6 col-md-4">
                         <?php the_custom_logo(); ?>
                     </div>
-                    <div class="col">
+                    <div class="col-6 col-md-8">
 
 
                         <div class="nav-toggle-wrapper">
                             <button class="toggle-nav toggle-button">
-                                <span class="inner">Menu</span>
+                                <span class="inner screen-reader-text">Menu</span>
                                 <span class="line line-1"></span>
                                 <span class="line line-2"></span>
                                 <span class="line line-3"></span>
