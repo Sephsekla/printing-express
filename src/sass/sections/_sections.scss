@@ -5,4 +5,12 @@
 
 article{
     padding: 50px 0;
+
+    > section:first-child{
+        margin-top: -50px;
+    }
+
+    > section:last-child{
+        margin-bottom: -50px;
+    }
 }
