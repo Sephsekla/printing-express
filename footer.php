@@ -1,3 +1,5 @@
+<?php use function printing\assets\get_social as get_social; ?>
+
 </div> <!-- /content -->
 
 <footer class="site-footer">
@@ -23,6 +25,7 @@
             </div>
 
             <div class="col-12 col-lg-6 right">
+				<?php get_social() ?>
                 <p>&copy; Printing Express <?php echo date('Y') ?> | Website by JBR Digital</p>
             </div>
 

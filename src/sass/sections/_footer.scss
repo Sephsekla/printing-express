@@ -1,22 +1,40 @@
-.site-footer{
+.site-footer {
     background-color: $white;
     @include shadow(-3px);
     padding: 25px 0;
 
-    ul{
-        list-style: none;
-        margin-left: 0;
-        padding-left: 0;
-        li{
-            margin-bottom: 0;
+    .menu {
+
+
+        ul {
+            list-style: none;
             margin-left: 0;
             padding-left: 0;
-            font-weight: bold;
 
-            a{
-                color: $black;
-                text-decoration: none;
+            li {
+                margin-bottom: 0;
+                margin-left: 0;
+                padding-left: 0;
+                font-weight: bold;
+
+                a {
+                    color: $black;
+                    text-decoration: none;
+                }
             }
         }
+    }
+}
+
+.social {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+
+    li {
+        margin-left: 18px;
+        padding-left: 0;
     }
 }
