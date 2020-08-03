@@ -51,4 +51,4 @@ function init() {
 
  }
 
- add_action( 'enqueue_block_assets', __NAMESPACE__ . '\blocks' );
+ add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\blocks' );

@@ -24,3 +24,13 @@ html, body, p{
 @import 'blocks/group';
 
 @import 'sections/sections';
+
+.alignfull.wp-block-group, .pe-grid_wrapper{
+    margin: 0 calc(50% - 50vw);
+    max-width: 100vw;
+    width: 100vw;
+
+    .wp-block-group__inner-container{
+        @extend .container;
+    }
+}

@@ -1,17 +1,26 @@
-.alignfull.wp-block-group{
-    margin: 0 calc(50% - 50vw);
-    max-width: 100vw;
-    width: 100vw;
-
-    .wp-block-group__inner-container{
-        @extend .container;
-    }
-}
 
 .pe-grid{
     &_wrapper{
-        @extend .alignfull.wp-block-group;
-        background-color: red;
+        background-color: $blue;
         color: white;
+
+        .image-wrapper{
+            @include picture-cover();
+            overflow: hidden;
+            padding-bottom: 50%;
+            height: 100%;
+        }
+
+        .grid-content{
+            display: flex;
+            height: 100%;
+            
+            padding-left: 30px;
+            
+            justify-content: center;
+            flex-direction: column;
+
+            
+        }
     }
 }
