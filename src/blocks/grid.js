@@ -1,7 +1,8 @@
 // import { registerBlockType } from '@wordpress/blocks';
 // import { InnerBlocks } from '@wordpress/block-editor';
 
-const { registerBlockType, InnerBlocks } = wp.blocks;
+const { registerBlockType} = wp.blocks;
+const { InnerBlocks } = wp.blockEditor;
  
 export default registerBlockType( 'printing/grid', {
 
@@ -13,16 +14,34 @@ export default registerBlockType( 'printing/grid', {
  
     edit: ( { className } ) => {
         return (
-            <div className={ className }>
-                <InnerBlocks />
+            <div className={ `pe-grid_wrapper ${className}` }>
+                <div className='row no-gutters'>
+                    <div className='col-12 col-lg-6'>
+                    </div>
+                    <div className='col-12 col-lg-6'>
+                        <div className='container split-lg-container'>
+                            <InnerBlocks />
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         );
     },
  
     save: ( { className } ) => {
         return (
-            <div className={ className }>
-                <InnerBlocks.Content />
+            <div className={ `pe-grid_wrapper ${className}` }>
+                <div className='row no-gutters'>
+                    <div className='col-12 col-lg-6'>
+                    </div>
+                    <div className='col-12 col-lg-6'>
+                        <div className='container split-lg-container'>
+                            <InnerBlocks />
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         );
     },
