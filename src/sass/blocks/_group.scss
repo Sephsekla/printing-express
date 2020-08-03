@@ -12,14 +12,19 @@
         }
 
         .grid-content{
-            display: flex;
-            height: 100%;
+
+            &-wrapper{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+          
             
             padding-left: 30px;
             
-            justify-content: center;
-            flex-direction: column;
-
+            padding-top: 30px;
+            padding-bottom: 30px;
+            
             
         }
     }

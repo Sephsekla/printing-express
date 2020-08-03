@@ -16,7 +16,7 @@ const renderGrid = ( { attributes: { imgID, imgURL, imgAlt },
                         </picture>
                     </div>
                 </div>
-                <div className={'col-12 col-lg-6'}>
+                <div className={'col-12 col-lg-6 grid-content-wrapper'}>
                     <div className={'container split-lg-container grid-content'}>
                         <InnerBlocks.Content />
                     </div>
