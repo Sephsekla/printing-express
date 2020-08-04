@@ -27,6 +27,7 @@ devDependencies:
   babel-loader: 8.1.0_13c776b87d2822e76e5e552d0872621e
   babel-plugin-prismjs: 1.1.1_prismjs@1.20.0
   babel-preset-env: 1.7.0
+  classnames: 2.2.6
   concurrently: 4.1.2
   css-loader: 1.0.1_webpack@4.43.0
   extract-text-webpack-plugin: 4.0.0-beta.0_webpack@4.43.0
@@ -2786,7 +2787,6 @@ packages:
     resolution:
       integrity: sha512-qOhPa/Fj7s6TY8H8esGu5QNpMMQxz79h+urzrNYN6mn+9BnxlDGf5QZ+XeCDsxSjPqsSR56XOZOJmpeurnLMeg==
   /classnames/2.2.6:
-    dev: false
     resolution:
       integrity: sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
   /clipboard/2.0.6:
@@ -8153,6 +8153,7 @@ specifiers:
   babel-plugin-prismjs: ^1.1.1
   babel-preset-env: ^1.7.0
   bootstrap: ^4.5.0
+  classnames: ^2.2.6
   compass-mixins: ^0.12.10
   concurrently: ^4.1.2
   css-loader: ^1.0.1

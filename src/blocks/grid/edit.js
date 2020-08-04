@@ -1,3 +1,4 @@
+var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks, MediaUpload, Editable, InspectorControls, BlockControls} = wp.blockEditor;
 const {  Toolbar,
@@ -32,17 +33,17 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
     return [
         <InspectorControls>
              <PanelBody
-                        title={ __( 'High Contrast', 'jsforwpblocks' ) }
+                        title={ __( 'Grid styles', 'jsforwpblocks' ) }
                     >
                         <PanelRow>
                             <label
-                                htmlFor="high-contrast-form-toggle"
+                                htmlFor="reverse-form-toggle"
                             >
-                                { __( 'High Contrast', 'jsforwpblocks' ) }
+                                { __( 'Reverse Order', 'jsforwpblocks' ) }
                             </label>
                             <FormToggle
-                                id="high-contrast-form-toggle"
-                                label={ __( 'High Contrast', 'jsforwpblocks' ) }
+                                id="reverse-form-toggle"
+                                label={ __( 'Reverse Order', 'jsforwpblocks' ) }
                                 checked={ 'checked' }
                                 
                             />
@@ -51,7 +52,7 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
         </InspectorControls>,
 
 
-        <div className={ `pe-grid_wrapper ${className}` }>
+        <div className={ classnames('pe-grid_wrapper',className) }>
             <div className={'row no-gutters'}>
                 <div className={'col-12 col-lg-6'}>
                 { ! imgID ? (
