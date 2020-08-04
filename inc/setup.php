@@ -55,6 +55,39 @@ function init() {
 
 	add_theme_support('align-wide');
 
+	// Adds support for editor color palette.
+add_theme_support( 'editor-color-palette', array(
+	array(
+		'name'  => 'Blue',
+		'slug'  => 'blue',
+		'color'	=> '#219FDA',
+	),
+	array(
+		'name'  => 'Pink',
+		'slug'  => 'pink',
+		'color'	=> '#EC008C',
+	),
+	array(
+		'name'  => 'Yellow',
+		'slug'  => 'yellow',
+		'color'	=> '#FFF200',
+	),
+	array(
+		'name'  => 'White',
+		'slug'  => 'white',
+		'color'	=> '#FFFFFF',
+	),
+	array(
+		'name'  => 'Dark',
+		'slug'  => 'dark',
+		'color'	=> '#231F20',
+	),
+) );
+
+// Disables custom colors in block color palette.
+add_theme_support( 'disable-custom-colors' );
+
+
 }
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\init' );
