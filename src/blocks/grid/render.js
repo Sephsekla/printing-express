@@ -2,7 +2,7 @@ var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks } = wp.blockEditor;
 
-const renderGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder },
+const renderGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background },
     className, setAttributes, isSelected } ) => {
     return (
         <div className={ classnames('pe-grid_wrapper',className) }>

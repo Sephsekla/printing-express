@@ -12,7 +12,7 @@ function __($input,$a){
 return $input;
 }
 
-const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder },
+const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background },
     className, setAttributes, isSelected } ) => {
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );

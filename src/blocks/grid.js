@@ -36,6 +36,10 @@ export default registerBlockType( 'printing/grid', {
             type: 'boolean',
             default: false,
         },
+        background: {
+            type: "string",
+            default: "#000000"
+        }
     },
             
     getEditWrapperProps( attributes ) {
