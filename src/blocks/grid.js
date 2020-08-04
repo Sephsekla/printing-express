@@ -2,7 +2,7 @@
 // import { InnerBlocks } from '@wordpress/block-editor';
 
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks } = wp.blockEditor;
+const { InnerBlocks, InspectorControls } = wp.blockEditor;
 
 import { editGrid } from './grid/edit.js';
 import { renderGrid } from './grid/render.js';
@@ -34,6 +34,9 @@ export default registerBlockType( 'printing/grid', {
         }
     },
             
+    getEditWrapperProps( attributes ) {
+            return { 'data-align': 'full' };
+    },
     // ...
  
     edit: editGrid,
