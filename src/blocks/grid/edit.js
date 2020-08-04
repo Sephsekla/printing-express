@@ -29,7 +29,7 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
             });
         }
 
-    return (
+    return [
         <InspectorControls>
              <PanelBody
                         title={ __( 'High Contrast', 'jsforwpblocks' ) }
@@ -103,7 +103,7 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
             </div>
             
         </div>
-    );
+    ];
 }
 
 export {editGrid};
