@@ -2,11 +2,11 @@ var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks } = wp.blockEditor;
 
-const renderGrid = ( { attributes: { imgID, imgURL, imgAlt },
+const renderGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder },
     className, setAttributes, isSelected } ) => {
     return (
         <div className={ classnames('pe-grid_wrapper',className) }>
-            <div className={'row no-gutters'}>
+            <div className={classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6'}>
                     <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
                         <picture>

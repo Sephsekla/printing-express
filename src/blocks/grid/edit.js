@@ -12,8 +12,11 @@ function __($input,$a){
 return $input;
 }
 
-const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
+const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder },
     className, setAttributes, isSelected } ) => {
+
+        const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
+
 
         const onSelectImage = img => {
             setAttributes( {
@@ -44,7 +47,8 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
                             <FormToggle
                                 id="reverse-form-toggle"
                                 label={ __( 'Reverse Order', 'jsforwpblocks' ) }
-                                checked={ 'checked' }
+                                checked={ reverseOrder }
+                                onChange={ toggleReverse }
                                 
                             />
                         </PanelRow>
@@ -53,7 +57,7 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt },
 
 
         <div className={ classnames('pe-grid_wrapper',className) }>
-            <div className={'row no-gutters'}>
+            <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6'}>
                 { ! imgID ? (
 

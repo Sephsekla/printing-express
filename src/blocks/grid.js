@@ -31,7 +31,11 @@ export default registerBlockType( 'printing/grid', {
             source: 'attribute',
             attribute: 'alt',
             selector: 'img',
-        }
+        },
+        reverseOrder: {
+            type: 'boolean',
+            default: false,
+        },
     },
             
     getEditWrapperProps( attributes ) {
