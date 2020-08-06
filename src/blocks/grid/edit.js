@@ -1,12 +1,13 @@
 var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks, MediaUpload, Editable, InspectorControls, BlockControls} = wp.blockEditor;
+const { InnerBlocks, MediaUpload, Editable, InspectorControls, BlockControls, withColors, PanelColorSettings, getColorClassName} = wp.blockEditor;
 const {  Toolbar,
     Button,
     Tooltip,
     PanelBody,
     PanelRow,
-    FormToggle, } = wp.components;
+    FormToggle,
+    ColorPalette } = wp.components;
 
 function __($input,$a){
 return $input;
@@ -51,7 +52,27 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, backgrou
                                 onChange={ toggleReverse }
                                 
                             />
+                            <ColorPalette
+                                value={background}
+                                onChange={background => {
+                                    console.log(background);
+                                    setAttributes({ background });
+                                            }}
+                            />
                         </PanelRow>
+                        <PanelColorSettings
+          title={__("Color Settings", "jsforwpblocks")}
+          colorSettings={[
+            {
+              value: background,
+              onChange: background => {
+                setAttributes({ background });
+              },
+              label: __("Background Color")
+            }
+          ]}
+        />
+
                     </PanelBody>
         </InspectorControls>,
 
