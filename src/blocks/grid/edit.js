@@ -38,14 +38,13 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder } = props;
+    const { imgID, imgURL, imgAlt, reverseOrder } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
         let setBackground = props.setBackground;
 
         console.log(background);
-        console.log(customBackground);
         console.log(props.attributes);
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
@@ -101,7 +100,7 @@ const editGrid = withColors('background')(( props ) => {
         </InspectorControls>,
 
 
-        <div className={ classnames('pe-grid_wrapper',className) }>
+        <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6'}>
                 { ! imgID ? (

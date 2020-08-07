@@ -5,7 +5,7 @@ const { InnerBlocks } = wp.blockEditor;
 const renderGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background },
     className, setAttributes, isSelected } ) => {
     return (
-        <div className={ classnames('pe-grid_wrapper',className) }>
+        <div className={ classnames('pe-grid_wrapper',className, `bg-${background}`) }>
             <div className={classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6'}>
                     <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
