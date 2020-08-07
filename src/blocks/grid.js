@@ -39,6 +39,10 @@ export default registerBlockType( 'printing/grid', {
         background: {
             type: "string",
             default: "#000000"
+        },
+        backgroundClass: {
+            type: "string",
+            
         }
     },
             

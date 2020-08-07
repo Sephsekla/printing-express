@@ -13,7 +13,7 @@ function __($input,$a){
 return $input;
 }
 
-const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background },
+const editGrid = withColors('background')(( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background, backgroundClass },
     className, setAttributes, isSelected } ) => {
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
@@ -65,8 +65,11 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, backgrou
           colorSettings={[
             {
               value: background,
-              onChange: background => {
-                setAttributes({ background });
+              onChange: selectedColor => {
+                  console.log(selectedColor);
+                setAttributes({ background: selectedColor });
+                console.log(background);
+                console.log(getColorClassName('color',selectedColor));
               },
               label: __("Background Color")
             }
@@ -130,6 +133,6 @@ const editGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, backgrou
             
         </div>
     ];
-}
+})
 
 export {editGrid};
