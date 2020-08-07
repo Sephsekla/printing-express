@@ -13,11 +13,43 @@ function __($input,$a){
 return $input;
 }
 
-const editGrid = withColors('background')(( { attributes: { imgID, imgURL, imgAlt, reverseOrder, background, backgroundClass },
-    className, setAttributes, isSelected } ) => {
+const colorSamples = [
+    {
+        name: 'Coral',
+        slug: 'coral',
+        color: '#FF7F50'
+    },
+    {
+        name: 'Lavender',
+        slug: 'lavender',
+        color: '#E6E6FA'
+    },
+    {
+        name: 'White',
+        slug: 'white',
+        color: '#ffffff'
+    }
+];
+
+const editGrid = withColors('background')(( props ) => {
+
+    const {className, setAttributes, isSelected} = props;
+
+
+
+
+    const { imgID, imgURL, imgAlt, reverseOrder } = props;
+    
+        let background = props.background;
+        let customBackground = props.attributes.customBackground;
+        let setBackground = props.setBackground;
+
+        console.log(background);
+        console.log(customBackground);
+        console.log(props.attributes);
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
-
+        
 
         const onSelectImage = img => {
             setAttributes( {
@@ -52,25 +84,14 @@ const editGrid = withColors('background')(( { attributes: { imgID, imgURL, imgAl
                                 onChange={ toggleReverse }
                                 
                             />
-                            <ColorPalette
-                                value={background}
-                                onChange={background => {
-                                    console.log(background);
-                                    setAttributes({ background });
-                                            }}
-                            />
                         </PanelRow>
                         <PanelColorSettings
           title={__("Color Settings", "jsforwpblocks")}
           colorSettings={[
             {
-              value: background,
-              onChange: selectedColor => {
-                  console.log(selectedColor);
-                setAttributes({ background: selectedColor });
-                console.log(background);
-                console.log(getColorClassName('color',selectedColor));
-              },
+               // colors: colorSamples,
+              value: background.value,
+              onChange: setBackground,
               label: __("Background Color")
             }
           ]}
