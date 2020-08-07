@@ -68,7 +68,7 @@ const editGrid = withColors('background')(( props ) => {
     return [
         <InspectorControls>
              <PanelBody
-                        title={ __( 'Grid styles', 'jsforwpblocks' ) }
+                        title={ __( 'Grid Layout', 'jsforwpblocks' ) }
                     >
                         <PanelRow>
                             <label
@@ -84,7 +84,10 @@ const editGrid = withColors('background')(( props ) => {
                                 
                             />
                         </PanelRow>
-                        <PanelColorSettings
+                       
+
+                    </PanelBody>
+                    <PanelColorSettings
           title={__("Color Settings", "jsforwpblocks")}
           colorSettings={[
             {
@@ -95,14 +98,12 @@ const editGrid = withColors('background')(( props ) => {
             }
           ]}
         />
-
-                    </PanelBody>
         </InspectorControls>,
 
 
         <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
-                <div className={'col-12 col-lg-6'}>
+                <div className={'col-12 col-lg-6 image-column'}>
                 { ! imgID ? (
 
                     <MediaUpload

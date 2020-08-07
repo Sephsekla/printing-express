@@ -2,13 +2,25 @@
 .pe-grid{
     &_wrapper{
 
-        color: white;
+        color: $white;
+
+        &.bg-white, &.bg-yellow{
+            color: $dark;
+        }
+
+        .image-column  button{
+            position: relative;
+            margin-left: 20px;
+            margin-top: 20px;
+        }
 
         .image-wrapper{
             @include picture-cover();
             overflow: hidden;
             padding-bottom: 50%;
             height: 100%;
+
+           
         }
 
         .grid-content{
