@@ -13,23 +13,6 @@ function __($input,$a){
 return $input;
 }
 
-const colorSamples = [
-    {
-        name: 'Coral',
-        slug: 'coral',
-        color: '#FF7F50'
-    },
-    {
-        name: 'Lavender',
-        slug: 'lavender',
-        color: '#E6E6FA'
-    },
-    {
-        name: 'White',
-        slug: 'white',
-        color: '#ffffff'
-    }
-];
 
 const editGrid = withColors('background')(( props ) => {
 
