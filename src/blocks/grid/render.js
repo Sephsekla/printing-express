@@ -18,7 +18,7 @@ const renderGrid = ( { attributes: { imgID, imgURL, imgAlt, reverseOrder, backgr
                     </div>
                 </div>
                 <div className={'col-12 col-lg-6 grid-content-wrapper'}>
-                    <div className={'container split-lg-container grid-content'}>
+                    <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
                         <InnerBlocks.Content />
                     </div>
                 </div>

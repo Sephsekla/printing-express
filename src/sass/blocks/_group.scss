@@ -32,7 +32,17 @@
             }
           
             
-          
+           &.left{
+               @media(min-width: 991px){
+                   margin-right: 0;
+               }
+           }
+
+           &.right{
+            @media(min-width: 991px){
+                margin-right: 0;
+            }
+        }
             
             padding-top: 30px;
             padding-bottom: 30px;
