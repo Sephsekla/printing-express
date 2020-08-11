@@ -4,14 +4,14 @@
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.blockEditor;
 
-import { editGrid } from './grid/edit.js';
-import { renderGrid } from './grid/render.js';
+import { editGrid } from './charity/edit.js';
+import { renderGrid } from './charity/render.js';
 
 
  
-export default registerBlockType( 'printing/grid', {
+export default registerBlockType( 'printing/charity', {
 
-    title: 'Printing Express - Grid',
+    title: 'Printing Express - Charity Grid',
     description: 'An example of how to use the Inspector component for a block.',
     category: 'common',
     supports: { align: ["full"], default: 'full' },
