@@ -7,16 +7,7 @@ const renderGrid = ( { attributes: { background },
     return (
         <div className={ classnames('pe-grid_wrapper',className, `bg-${background}`) }>
             <div className={classnames('row', 'no-gutters')}>
-                <div className={'col-12 col-lg-6 image-column'}>
-                    <div className={'image-wrapper'} >
-                    <InnerBlocks.Content />
-                    </div>
-                </div>
-                <div className={'col-12 col-lg-6 grid-content-wrapper'}>
-                    <div className={classnames('container split-lg-container grid-content right')}>
-                        <InnerBlocks.Content />
-                    </div>
-                </div>
+                <InnerBlocks.content/>
             </div>
             
         </div>

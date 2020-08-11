@@ -47,15 +47,9 @@ const editGrid = withColors('background')(( props ) => {
 
         <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters')}>
-                <div className={'col-12 col-lg-6 image-column'}>
-                <InnerBlocks />
-
-                </div>
-                <div className={'col-12 col-lg-6 grid-content-wrapper'}>
-                    <div className={classnames('container split-lg-container grid-content right')}>
-                        <InnerBlocks />
-                    </div>
-                </div>
+               <InnerBlocks allowedBlocks={['printing/inner' ]}
+	        template={ [['printing/inner',{}], ['printing/inner',{}]]}
+	        templateLock="insert"/>
             </div>
             
         </div>
