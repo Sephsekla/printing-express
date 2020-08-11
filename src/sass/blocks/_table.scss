@@ -1,47 +1,56 @@
-.wp-block-table{
+.wp-block-table {
 
     margin-left: 0;
     margin-right: 0;
 
-    table{
+    table {
         border-spacing: 0px;
-    border-collapse: collapse;
+        border-collapse: collapse;
+        width: auto;
 
-    td, th{
-        border: 1px solid $white;
-        padding: 5px;
-        text-align: left;
-        font-weight: normal;
 
-        &:first-child{
-            border-left: 0;
+        td,
+        th {
+            border: 1px solid $white;
+            padding: 5px 10px;
+            text-align: left;
+            font-weight: normal;
+
+            &:first-child {
+                border-left: 0;
+                padding-left: 0;
+            }
+
+            &:last-child {
+                border-right: 0;
+                padding-right: 0;
+            }
+
         }
 
-        &:last-child{
-            border-right: 0;
+        thead {
+            border-bottom: 1px solid;
+        }
+
+
+        tr:first-child {
+
+            td,
+            th {
+                border-top: 0;
+            }
+        }
+
+
+        tr:last-child {
+
+            td,
+            th {
+                border-bottom: 0;
+            }
         }
 
     }
 
-    thead{
-        border-bottom: 1px solid;
-    }
 
-
-    tr:first-child{
-        td, th{
-            border-top: 0;
-        }
-    }
-
-
-    tr:last-child{
-        td, th{
-            border-bottom: 0;
-        }
-    }
-
-    }
-
-    
 }

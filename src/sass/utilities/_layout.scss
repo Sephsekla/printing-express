@@ -3,7 +3,7 @@
 $alignments: (left, right, center);
 
 @each $alignment in $alignments {
-    .#{$alignment}{
+    .align-#{$alignment}{
         text-align: $alignment;
     }
 }
