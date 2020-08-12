@@ -9,12 +9,15 @@ const {  Toolbar,
     FormToggle,
     ColorPalette } = wp.components;
 
+const {withSelect} = wp.data;
+
 function __($input,$a){
 return $input;
 }
 
 
 const editGrid = withColors('background')(( props ) => {
+        
 
     const {className, setAttributes, isSelected} = props;
 
@@ -88,6 +91,15 @@ const editGrid = withColors('background')(( props ) => {
             
         </div>
     ];
-})
+});
 
-export {editGrid};
+const editGridWithSelect =  
+withSelect((select,props) => {
+        editGrid(props);
+    })
+
+
+
+
+
+export {editGrid, editGridWithSelect};
