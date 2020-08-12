@@ -4,7 +4,7 @@
 const { registerBlockType} = wp.blocks;
 const { InnerBlocks, InspectorControls } = wp.blockEditor;
 
-import { editGrid, editGridWithSelect } from './charity/edit.js';
+import { editGrid, editGridWithHOC} from './charity/edit.js';
 import { renderGrid } from './charity/render.js';
 
 
@@ -36,7 +36,7 @@ export default registerBlockType( 'printing/charity', {
     },
     // ...
  
-    edit: editGridWithSelect,
+    edit: editGridWithHOC,
  
     save: renderGrid,
 } );

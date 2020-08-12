@@ -11,15 +11,38 @@ const {  Toolbar,
 
 const {withSelect} = wp.data;
 
+const {compose, createHigherOrderComponent} = wp.compose;
+
 function __($input,$a){
 return $input;
 }
 
+const DynamicContent = withSelect( ( select ) => {
+    return {
+        posts: select( 'core' ).getEntityRecords( 'postType', 'charity-partners' ),
+    };
+} )( ( { posts, className } ) => {
+    if ( ! posts ) {
+        return 'Loading...';
+    }
 
-const editGrid = withColors('background')(( props ) => {
+    if ( posts && posts.length === 0 ) {
+        return 'No charities found';
+    }
+
+    const post = posts[ 0 ];
+
+    return <a className={ className } href={ post.link }>
+        { post.title.rendered }
+    </a>;
+} )
+
+
+const editGrid = ( props ) => {
         
 
     const {className, setAttributes, isSelected} = props;
+
 
 
 
@@ -78,7 +101,7 @@ const editGrid = withColors('background')(( props ) => {
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 grid-charity-wrapper'}>
                 <div className={classnames('container split-lg-container grid-content', !reverseOrder ? 'left' : 'right')}>
-                        CHARITY BLOCKS
+                        <DynamicContent {...props}/>
                     </div>
 
                 </div>
@@ -91,15 +114,14 @@ const editGrid = withColors('background')(( props ) => {
             
         </div>
     ];
-});
 
-const editGridWithSelect =  
-withSelect((select,props) => {
-        editGrid(props);
-    })
+};
 
+
+const editGridWithHOC = withColors('background')(editGrid);
 
 
 
 
-export {editGrid, editGridWithSelect};
+
+export {editGrid, editGridWithHOC};
