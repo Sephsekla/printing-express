@@ -29,17 +29,11 @@ function register_charity()
 
 }
 
-function render_charity($block_attributes,$content){
+function render_charity($block_attributes,$content)
+{
 
     ob_start();
 
-    echo $content;
-
-    echo '<pre>';
-
-    print_r($block_attributes);
-
-    echo '</pre>';
 
     $block_attributes['background'] = $block_attributes['background'] ?: 'blue';
 
@@ -49,7 +43,22 @@ function render_charity($block_attributes,$content){
     <div class="row no-gutters <?php echo $block_attributes['reverse'] ? 'flex-row-reverse' : '' ?>">
         <div class="col-12 col-lg-6 bg-white color-dark">
             <div class="container split-lg-container grid-content <?php echo !$block_attributes['reverse'] ? 'left' : 'right' ?>">
-                <p><?php echo $content ?></p>
+                <?php 
+                
+                $charity_query = new \WP_Query(
+                    [
+                    'post_type' => 'charity-partners',
+                    'posts_per_page' => -1,
+                    ]
+                    );
+
+                    while($charity_query->have_posts()){
+                        $charity_query->the_post();
+
+                        the_post_thumbnail( 'medium');
+                    }
+                
+                ?>
             </div>
         </div>
         <div class="col-12 col-lg-6 grid-content-wrapper">
@@ -62,7 +71,7 @@ function render_charity($block_attributes,$content){
 </div>
 
 
-<?php
+    <?php
 
     return ob_get_clean();
 }

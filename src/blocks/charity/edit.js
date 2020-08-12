@@ -21,7 +21,7 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder } = props.attributes;
+    const { reverseOrder } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
@@ -33,20 +33,7 @@ const editGrid = withColors('background')(( props ) => {
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
         
 
-        const onSelectImage = img => {
-            setAttributes( {
-                imgID: img.id,
-                imgURL: img.url,
-                imgAlt: img.alt,
-            } );
-        };
-        const onRemoveImage = () => {
-            setAttributes({
-                imgID: null,
-                imgURL: null,
-                imgAlt: null,
-            });
-        }
+ 
 
     return [
         <InspectorControls>
@@ -86,46 +73,10 @@ const editGrid = withColors('background')(( props ) => {
 
         <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
-                <div className={'col-12 col-lg-6 image-column'}>
-                { ! imgID ? (
-
-                    <MediaUpload
-                        onSelect={ onSelectImage }
-                        type="image"
-                        value={ imgID }
-                        render={ ( { open } ) => (
-                            <Button
-                                className={ "button button-large" }
-                                onClick={ open }
-                            >Upload Image
-                            </Button>
-                        ) }
-                    >
-                    </MediaUpload>
-
-                    ) : (
-
-                    <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
-                        <picture>
-                        <img
-                            src={ imgURL }
-                            alt={ imgAlt }
-                        />
-                        </picture>
-
-                        { isSelected ? (
-
-                            <Button
-                                className="remove-image"
-                                onClick={ onRemoveImage }
-                            >
-                            Remove Image
-                            </Button>
-
-                        ) : null }
-
+                <div className={'col-12 col-lg-6 grid-charity-wrapper'}>
+                <div className={classnames('container split-lg-container grid-content', !reverseOrder ? 'left' : 'right')}>
+                        CHARITY BLOCKS
                     </div>
-                    )}
 
                 </div>
                 <div className={'col-12 col-lg-6 grid-content-wrapper'}>

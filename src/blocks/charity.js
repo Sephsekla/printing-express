@@ -17,21 +17,6 @@ export default registerBlockType( 'printing/charity', {
     supports: { align: ["full"], default: 'full' },
 
     attributes: {
-        imgURL: {
-            type: 'string',
-            source: 'attribute',
-            attribute: 'src',
-            selector: 'img',
-        },
-        imgID: {
-            type: 'number',
-        },
-        imgAlt: {
-            type: 'string',
-            source: 'attribute',
-            attribute: 'alt',
-            selector: 'img',
-        },
         reverseOrder: {
             type: 'boolean',
             default: false,
