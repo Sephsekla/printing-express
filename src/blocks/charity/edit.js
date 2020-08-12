@@ -20,6 +20,8 @@ return $input;
 const DynamicContent = withSelect( ( select ) => {
     return {
         posts: select( 'core' ).getEntityRecords( 'postType', 'charity-partners' ),
+       // media: select( 'media' ).getEntityRecords( ),
+
     };
 } )( ( { posts, className } ) => {
     if ( ! posts ) {
@@ -30,11 +32,22 @@ const DynamicContent = withSelect( ( select ) => {
         return 'No charities found';
     }
 
-    const post = posts[ 0 ];
 
-    return <a className={ className } href={ post.link }>
-        { post.title.rendered }
-    </a>;
+
+    return (
+
+        //console.log(media),
+
+    <div className={'row'}>
+        { posts.map( post => {
+           const featuredImageId = post.featured_media;
+           const featuredImage = wp.data.select( 'core').getMedia( featuredImageId );
+           return[ console.log(post),
+            <div className={'col-6 col-lg-4 charity-item'}>
+            { post.title.rendered }
+           </div> ]
+        })}
+    </div>);
 } )
 
 
