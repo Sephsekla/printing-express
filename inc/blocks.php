@@ -48,7 +48,7 @@ function render_charity($block_attributes,$content)
                 $charity_query = new \WP_Query(
                     [
                     'post_type' => 'charity-partners',
-                    'posts_per_page' => -1,
+                    'posts_per_page' => 20,
                     ]
                     );
 
