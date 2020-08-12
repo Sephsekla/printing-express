@@ -42,7 +42,7 @@ function render_charity($block_attributes,$content)
 <div class="wp-block-printing-grid pe-grid_wrapper bg-<?php echo $block_attributes['background'] ?>">
     <div class="row no-gutters <?php echo $block_attributes['reverse'] ? 'flex-row-reverse' : '' ?>">
         <div class="col-12 col-lg-6 bg-white color-dark">
-            <div class="container split-lg-container grid-content <?php echo !$block_attributes['reverse'] ? 'left' : 'right' ?>">
+            <div class="container split-lg-container grid-content charity <?php echo !$block_attributes['reverse'] ? 'left' : 'right' ?>">
                 <?php 
                 
                 $charity_query = new \WP_Query(
@@ -52,10 +52,15 @@ function render_charity($block_attributes,$content)
                     ]
                     );
 
-                    while($charity_query->have_posts()){
-                        $charity_query->the_post();
-
-                        the_post_thumbnail( 'medium');
+                    if($charity_query->have_posts()){
+                        echo '<div class="row">';
+                        while($charity_query->have_posts()){
+                                $charity_query->the_post();
+                            echo '<div class="col-6 col-lg-4 charity-item">';
+                            the_post_thumbnail( 'medium');
+                            echo '</div>';
+                        }
+                        echo '</div>';
                     }
                 
                 ?>

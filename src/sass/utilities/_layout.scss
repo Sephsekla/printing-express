@@ -9,3 +9,8 @@ $alignments: (left, right, center);
 }
 
 
+.container{
+    padding-left: 2*$spacing;
+    padding-right: 2*$spacing;
+
+}
