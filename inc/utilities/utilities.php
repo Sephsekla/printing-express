@@ -31,40 +31,31 @@ function get_years()
 
  add_shortcode('get_years', __NAMESPACE__ . '\\get_years');
 
-function construct_linkbox($url,$img_1,$img_2,$text, $classes='')
-{
 
-    ?>
+ function is_woo_related(){
 
-<a href="<?php echo $url ?>" class="linkbox <?php echo $classes ?>">
-    <div class="image" style="background-image: url(<?php echo wp_get_attachment_image_url($img_1, 'linkbox') ?>)">
+    if(!function_exists('is_woocommerce')){
+        return false;
+    }
 
-    <?php picture($img_1, 'linkbox') ?>
-    </div>
 
-    <div class="image alt" style="background-image: url(<?php echo wp_get_attachment_image_url($img_2, 'linkbox') ?>)">
+     return is_cart() || is_checkout() || is_account_page() || is_woocommerce();
+ }
 
-    <?php picture($img_2, 'linkbox') ?>
-    </div>
-
-    <div class="overlay">
-    <?php echo $text ?>
-    </div>
-
-</a>
-
-    <?php
-
-}
 
 function get_banner_id(){
 
+    
     if(is_singular() && has_post_thumbnail( 0 )){
         $id = get_post_thumbnail_id( 0 );
     }
-    elseif (function_exists('is_woocommerce') && is_woocommerce()) {
+    elseif(is_singular() && has_post_thumbnail( wp_get_post_parent_id(0) )){
+        $id = get_post_thumbnail_id( wp_get_post_parent_id(0) );
+
+    }
+    elseif (is_woo_related() && has_post_thumbnail( wc_get_page_id( 'shop') )) {
         # code...
-        $id = 123;
+        $id = get_post_thumbnail_id( wc_get_page_id( 'shop') );
     }
     else{
         $id = 123;
