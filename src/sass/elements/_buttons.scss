@@ -1,4 +1,4 @@
-button, .btn, input[type=submit]{
+button, .btn, input[type=submit], .wp-block-button__link{
    @include button;
     
 }
