@@ -2,14 +2,16 @@
 
 @import '~@sephsekla/picture-cover/mixin';
 
+@import 'mixins/mixins';
+
 @import './variables/variables';
 @import './utilities/color-classes';
 
 @import 'blocks/group';
 @import 'blocks/table';
 
-.wp-block{
 
-@import 'elements/buttons';
-
-}
+.wp-block-button__link{
+    @include button;
+     
+ }
