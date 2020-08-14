@@ -3,7 +3,7 @@
 
         color: $white;
 
-       
+
 
         &.bg-white,
         &.bg-yellow {
@@ -54,16 +54,18 @@
             padding-top: 30px;
             padding-bottom: 30px;
 
-            &.charity{
+            &.charity {
                 background-color: $white;
-                min-height: 40vh;
+                min-height: 40vw;
                 display: flex;
-    flex-direction: column;
-    justify-content: center;
-                .row{
+                flex-direction: column;
+                justify-content: center;
+
+                .row {
                     align-items: center;
                 }
-                .charity-item{
+
+                .charity-item {
                     padding-top: $spacing;
                     padding-bottom: $spacing;
                 }
