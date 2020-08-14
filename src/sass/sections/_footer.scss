@@ -2,6 +2,7 @@
     background-color: $white;
     @include shadow(-3px);
     padding: 25px 0;
+    position: relative;
 
     .menu {
 
