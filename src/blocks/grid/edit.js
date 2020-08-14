@@ -84,7 +84,7 @@ const editGrid = withColors('background')(( props ) => {
         </InspectorControls>,
 
 
-        <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
+        <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 image-column'}>
                 { ! imgID ? (
@@ -135,7 +135,7 @@ const editGrid = withColors('background')(( props ) => {
                 </div>
             </div>
             
-        </div>
+        </section>
     ];
 })
 

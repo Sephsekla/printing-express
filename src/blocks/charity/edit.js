@@ -126,7 +126,7 @@ const editGrid = ( props ) => {
         </InspectorControls>,
 
 
-        <div className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
+        <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 grid-charity-wrapper'}>
                 <div className={classnames('container split-lg-container grid-content charity', !reverseOrder ? 'left' : 'right')}>
@@ -141,7 +141,7 @@ const editGrid = ( props ) => {
                 </div>
             </div>
             
-        </div>
+        </section>
     ];
 
 };

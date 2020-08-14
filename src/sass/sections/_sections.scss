@@ -3,14 +3,18 @@
 
 @import 'footer';
 
-article{
+article {
     padding: 50px 0;
 
-    > section:first-child{
-        margin-top: -50px;
-    }
+    .container {
 
-    > section:last-child{
-        margin-bottom: -50px;
+        >section:first-child {
+            margin-top: -50px;
+        }
+
+        >section:last-child {
+            margin-bottom: -50px;
+        }
+
     }
 }

@@ -37,12 +37,14 @@ function render_charity($block_attributes,$content)
 
     $block_attributes['background'] = $block_attributes['background'] ?: 'blue';
 
+
+
     ?>
 
-<div class="wp-block-printing-grid pe-grid_wrapper bg-<?php echo $block_attributes['background'] ?>">
-    <div class="row no-gutters <?php echo $block_attributes['reverse'] ? 'flex-row-reverse' : '' ?>">
+<section class="wp-block-printing-grid pe-grid_wrapper bg-<?php echo $block_attributes['background'] ?>">
+    <div class="row no-gutters <?php echo $block_attributes['background'] ? 'flex-row-reverse' : '' ?>">
         <div class="col-12 col-lg-6 bg-white color-dark">
-            <div class="container split-lg-container grid-content charity <?php echo !$block_attributes['reverse'] ? 'left' : 'right' ?>">
+            <div class="container split-lg-container grid-content charity <?php echo !$block_attributes['reverseOrder'] ? 'left' : 'right' ?>">
                 <?php 
                 
                 $charity_query = new \WP_Query(
@@ -68,12 +70,12 @@ function render_charity($block_attributes,$content)
         </div>
         <div class="col-12 col-lg-6 grid-content-wrapper">
             <div
-                class="container split-lg-container grid-content <?php echo $block_attributes['reverse'] ? 'left' : 'right' ?>">
+                class="container split-lg-container grid-content <?php echo $block_attributes['reverseOrder'] ? 'left' : 'right' ?>">
                 <p><?php echo $content ?></p>
             </div>
         </div>
     </div>
-</div>
+                </section>
 
 
     <?php
