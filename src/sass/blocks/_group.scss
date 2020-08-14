@@ -56,6 +56,10 @@
 
             &.charity{
                 background-color: $white;
+                min-height: 40vh;
+                display: flex;
+    flex-direction: column;
+    justify-content: center;
                 .row{
                     align-items: center;
                 }
