@@ -52,7 +52,7 @@ $breakpoint_header: 991px;
         }
     }
 
-    .menu {
+    .menu, .menu>ul {
         text-align: center;
         transform: translatex(100%);
         transition: 0.2s;
@@ -65,7 +65,7 @@ $breakpoint_header: 991px;
         background-color: $white;
 
 
-        ul {
+        //ul {
             list-style: none;
 
             li {
@@ -80,14 +80,14 @@ $breakpoint_header: 991px;
                     color: $black;
                 }
             }
-        }
+        //}
 
         @media(min-width: $breakpoint_header) {
             text-align: right;
             transform: none;
             position: static;
 
-            ul {
+           // ul {
 
                 li {
 
@@ -96,7 +96,7 @@ $breakpoint_header: 991px;
                     margin-left: 20px;
 
                 }
-            }
+           // }
         }
     }
 }
