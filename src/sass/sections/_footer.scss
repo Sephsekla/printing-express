@@ -4,10 +4,10 @@
     padding: 25px 0;
     position: relative;
 
-    .menu {
+    .menu, .menu > ul {
 
 
-        ul {
+        //ul {
             list-style: none;
             margin-left: 0;
             padding-left: 0;
@@ -23,7 +23,7 @@
                     text-decoration: none;
                 }
             }
-        }
+        //}
     }
 }
 
