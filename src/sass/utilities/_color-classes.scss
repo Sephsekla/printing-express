@@ -14,7 +14,7 @@ yellow: $yellow
        color: $color;
     }
 
-    .bg-#{$name}{
+    .bg-#{$name}, .has-#{$name}-background-color{
         background-color: $color;
     }
 

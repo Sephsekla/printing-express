@@ -7,3 +7,9 @@ h2, .h2{
     font-size: 1.5rem;
     line-height: 2rem;
 }
+
+h3, .h3{
+    @include title-font;
+    font-size: 1.375rem;
+    line-height: 1.69rem;
+}
