@@ -1,8 +1,19 @@
-@mixin shadow($offset: 3px){
-    box-shadow: 0px #{$offset} 6px rgba($dark,0.3);
+@mixin shadow($offset: 3px) {
+    box-shadow: 0px #{$offset} 6px rgba($dark, 0.3);
 }
 
-@mixin button{
+@mixin inc_states {
+
+    &,
+    &:hover,
+    &:focus,
+    &:visited,
+    &:active {
+        @content;
+    }
+}
+
+@mixin button {
     padding: 9px 14px;
     min-width: 140px;
     border-radius: 20px;
@@ -15,4 +26,30 @@
 
     outline: none;
     border: 0;
+
+    @each $name,
+    $color in $colors {
+
+        &.color-#{$name},
+        &.has-#{$name}-color {
+            @include inc_states {
+                color: $color;
+            }
+
+        }
+
+        &.bg-#{$name},
+        &.has-#{$name}-background-color {
+            @include inc_states {
+                background-color: $color;
+            }
+        }
+
+        &.border-#{$name} {
+            @include inc_states {
+                border-color: $color;
+            }
+        }
+
+    }
 }
