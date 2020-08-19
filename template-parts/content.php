@@ -2,7 +2,7 @@
 	<div class="container">
 	
 			  <h1><?php the_title(); ?></h1>
-			  <p class="date"><?php echo get_the_date( 'jS F Y' ); ?></p>
+			  <!-- <p class="date"><?php echo get_the_date( 'jS F Y' ); ?></p> -->
 			 
 				<?php
 				the_content();
