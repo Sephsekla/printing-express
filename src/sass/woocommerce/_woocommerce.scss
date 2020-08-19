@@ -1,9 +1,22 @@
 .products{
+    padding-top: 50px;
 
     .product{
         background-color: $blue;
         color: $white;
         text-align: center;
+
+        img{
+            background-color: $white;
+        }
+
+        .add_to_cart_button{
+            display: none;
+        }
+
+        h2, .price{
+            color: $white;
+        }
     }
 }
 
