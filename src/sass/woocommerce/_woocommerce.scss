@@ -1,0 +1,12 @@
+.products{
+
+    .product{
+        background-color: $blue;
+        color: $white;
+        text-align: center;
+    }
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
+    @include button;
+}
