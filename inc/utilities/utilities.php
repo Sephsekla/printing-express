@@ -32,30 +32,32 @@ function get_years()
  add_shortcode('get_years', __NAMESPACE__ . '\\get_years');
 
 
- function is_woo_related(){
+function is_woo_related()
+{
 
-    if(!function_exists('is_woocommerce')){
+    if(!function_exists('is_woocommerce')) {
         return false;
     }
 
 
-     return is_cart() || is_checkout() || is_account_page() || is_woocommerce();
- }
+    return is_cart() || is_checkout() || is_account_page() || is_woocommerce();
+}
 
 
-function get_banner_id(){
+function get_banner_id()
+{
 
     
-    if(is_singular() && has_post_thumbnail( 0 )){
-        $id = get_post_thumbnail_id( 0 );
+    if(is_singular() && 'product' !== get_post_type() && has_post_thumbnail(0)) {
+        $id = get_post_thumbnail_id(0);
     }
-    elseif(is_singular() && has_post_thumbnail( wp_get_post_parent_id(0) )){
-        $id = get_post_thumbnail_id( wp_get_post_parent_id(0) );
+    elseif(is_singular() && 'product' !== get_post_type() && has_post_thumbnail(wp_get_post_parent_id(0))) {
+        $id = get_post_thumbnail_id(wp_get_post_parent_id(0));
 
     }
-    elseif (is_woo_related() && has_post_thumbnail( wc_get_page_id( 'shop') )) {
-        # code...
-        $id = get_post_thumbnail_id( wc_get_page_id( 'shop') );
+    elseif (is_woo_related() && has_post_thumbnail(wc_get_page_id('shop'))) {
+        // code...
+        $id = get_post_thumbnail_id(wc_get_page_id('shop'));
     }
     else{
         $id = 123;
