@@ -6,12 +6,19 @@
         color: $white;
         text-align: center;
 
+        @include shadow;
+
         img{
             background-color: $white;
         }
 
         .add_to_cart_button{
             display: none;
+        }
+
+        h2{
+           font-size: 1rem;
+           text-transform: none;
         }
 
         h2, .price{
