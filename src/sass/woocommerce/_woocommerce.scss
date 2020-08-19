@@ -27,6 +27,22 @@
     }
 }
 
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button{
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+
+.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt
+
+{
     @include button;
+
+    background-color: $yellow;
+}
+
+.woocommerce-variation-add-to-cart{
+    display: flex;
+    flex-direction: column;
+}
+
+.woocommerce div.product p.price, .woocommerce div.product span.price{
+    font-weight: bold;
+    color: $black;
 }
