@@ -1,0 +1,22 @@
+.woocommerce-product-gallery{
+    padding-left: 7.5%;
+    .flex-control-nav{
+        position: absolute;
+        width: 12.5%;
+        top: 0;
+        left: 0;
+        max-height: 100%;
+        overflow: scroll;
+
+        li{
+            width: 100% !important;
+            margin-bottom: 5% !important;
+            border: 1px solid $grey;
+           
+        }
+    }
+
+    &__image{
+        border: 1px solid $grey;
+    }
+}
