@@ -2,3 +2,7 @@ button, .btn, input[type=submit], .wp-block-button__link{
    @include button;
     
 }
+
+.has-text-align-center+.wp-block-buttons { // Center alignent after centered text
+   text-align: center;
+}
