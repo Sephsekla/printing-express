@@ -13,7 +13,7 @@ export default registerBlockType( 'printing/charity', {
 
     title: 'Printing Express - Charity Grid',
     description: 'An example of how to use the Inspector component for a block.',
-    category: 'common',
+    category: 'printing-express',
     supports: { align: ["full"], default: 'full' },
 
     attributes: {
