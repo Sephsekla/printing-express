@@ -27,7 +27,7 @@ export default registerBlockType( 'printing/charity', {
         },
         customBackground: {
             type: "string"
-        }
+      }
 
     },
             
