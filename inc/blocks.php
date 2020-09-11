@@ -87,14 +87,17 @@ function render_charity($block_attributes,$content)
 add_action('after_setup_theme', __NAMESPACE__ . '\\register_charity');
 
 function block_category( $categories, $post ) {
-	return array_merge(
-		$categories,
-		array(
-			array(
-				'slug' => 'printing-express',
-				'title' => 'Printing Express',
-			),
-		)
-	);
+    $category_slugs = wp_list_pluck( $categories, 'slug' );
+    return in_array( 'printing-express', $category_slugs, true ) ? $categories : array_merge(
+        
+        array(
+            array(
+                'slug'  => 'printing-express',
+                'title' => 'Printing Express',
+                'icon'  => null,
+            ),
+        ),
+        $categories
+    );
 }
 add_filter( 'block_categories', __NAMESPACE__.'\\block_category', 10, 2);
