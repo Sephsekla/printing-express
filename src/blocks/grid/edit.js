@@ -21,24 +21,35 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder } = props.attributes;
+    const { imgID, imgURL, imgAlt, reverseOrder, imgArray } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
         let setBackground = props.setBackground;
 
-        console.log(background);
         console.log(props.attributes);
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
-        
+
 
         const onSelectImage = img => {
+
+            console.log(img);
+
             setAttributes( {
                 imgID: img.id,
                 imgURL: img.url,
                 imgAlt: img.alt,
+
+                imgArray: img.map(
+                    imageValue => ({
+                        url: imageValue.url,
+                        id: imageValue.id
+                    })
+                )
             } );
+
+
         };
         const onRemoveImage = () => {
             setAttributes({
@@ -91,6 +102,7 @@ const editGrid = withColors('background')(( props ) => {
 
                     <MediaUpload
                         onSelect={ onSelectImage }
+                        multiple="true"
                         type="image"
                         value={ imgID }
                         render={ ( { open } ) => (

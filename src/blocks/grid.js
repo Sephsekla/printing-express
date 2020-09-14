@@ -42,6 +42,10 @@ export default registerBlockType( 'printing/grid', {
         },
         customBackground: {
             type: "string"
+        },
+
+        imgArray: {
+            type: "array"
         }
 
     },
