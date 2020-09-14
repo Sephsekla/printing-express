@@ -56,6 +56,7 @@ const editGrid = withColors('background')(( props ) => {
                 imgID: null,
                 imgURL: null,
                 imgAlt: null,
+                imgArray: {}
             });
         }
 

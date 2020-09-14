@@ -45,7 +45,8 @@ export default registerBlockType( 'printing/grid', {
         },
 
         imgArray: {
-            type: "array"
+            type: "array",
+            default: {}
         }
 
     },
