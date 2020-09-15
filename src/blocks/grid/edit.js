@@ -13,8 +13,10 @@ function __($input,$a){
 return $input;
 }
 
+import {CreateInnerImage} from '../shared/multi-images.js';
 
 
+console.log(CreateInnerImage);
 
 /**
  * Edit grid
@@ -66,67 +68,7 @@ const editGrid = withColors('background')(( props ) => {
             });
         }
 
-        /**
- * 
- * @param {*} props 
- * 
- * Create inner image loop
- */
-const CreateInnerImage = props => {
 
-    console.log('PROPS: '.props);
-
-    const {isSelected} = props;
-
-    const {imgArray} = props.attributes;
-
-    let images = [<p>Test 1</p>];
-
-    for (let i = 0; i < imgArray.length; i++) {
-
-        const imgURL = imgArray[i].url, imgALT = imgArray[i].alt;
-
-
-        images.push(   
-
-            <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
-            <picture>
-            <img
-                src={ imgURL }
-                alt={ imgAlt }
-            />
-            </picture>
-        
-        
-        
-        </div>)
-      }
-
-    return (
-
-    <div className = "image-wrapper-outer">
-
-        {images};
-
-
-        { isSelected ? (
-
-        <Button
-            className="remove-image"
-            onClick={ onRemoveImage }
-        >
-        Remove Images
-        </Button>
-
-        ) : null }
-
-    </div>
-
-    )
-
-
-
-}
 
     return [
         <InspectorControls>
@@ -166,9 +108,9 @@ const CreateInnerImage = props => {
 
         <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
-                <div className={'col-12 col-lg-6 image-column'}>
+               
                 { ! imgArray ? (
-
+                <div className={'col-12 col-lg-6 image-column'}>
                     <MediaUpload
                         onSelect={ onSelectImage }
                         multiple="true"
@@ -183,17 +125,32 @@ const CreateInnerImage = props => {
                         ) }
                     >
                     </MediaUpload>
+                </div>
 
                     ) : (
 
+                        <div className={'col-12 col-lg-6 image-column'}>  
+
                         
 
-                        <CreateInnerImage {...props}/>
+                        <CreateInnerImage {...props }/>
+
+                        {isSelected ? (
+
+                            <Button
+                                className="remove-image"
+                                onClick={ onRemoveImage }
+                            >
+                            Remove Images
+                            </Button>
+                    
+                            ) : null}
 
             
+                    </div>
                     )}
 
-                </div>
+                
                 <div className={'col-12 col-lg-6 grid-content-wrapper'}>
                     <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
                         <InnerBlocks />
