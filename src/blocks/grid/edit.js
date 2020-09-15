@@ -14,6 +14,11 @@ return $input;
 }
 
 
+
+
+/**
+ * Edit grid
+ */
 const editGrid = withColors('background')(( props ) => {
 
     const {className, setAttributes, isSelected} = props;
@@ -27,24 +32,25 @@ const editGrid = withColors('background')(( props ) => {
         let customBackground = props.attributes.customBackground;
         let setBackground = props.setBackground;
 
-        console.log(props.attributes);
+
 
         const toggleReverse = () => setAttributes( { reverseOrder: ! reverseOrder } );
 
 
         const onSelectImage = img => {
 
-            console.log(img);
+
 
             setAttributes( {
-                imgID: img.id,
+            /*   imgID: img.id,
                 imgURL: img.url,
-                imgAlt: img.alt,
+                imgAlt: img.alt, */
 
                 imgArray: img.map(
                     imageValue => ({
                         url: imageValue.url,
-                        id: imageValue.id
+                        id: imageValue.id,
+                        alt: imageValue.alt
                     })
                 )
             } );
@@ -59,6 +65,68 @@ const editGrid = withColors('background')(( props ) => {
                 imgArray: {}
             });
         }
+
+        /**
+ * 
+ * @param {*} props 
+ * 
+ * Create inner image loop
+ */
+const CreateInnerImage = props => {
+
+    console.log('PROPS: '.props);
+
+    const {isSelected} = props;
+
+    const {imgArray} = props.attributes;
+
+    let images = [<p>Test 1</p>];
+
+    for (let i = 0; i < imgArray.length; i++) {
+
+        const imgURL = imgArray[i].url, imgALT = imgArray[i].alt;
+
+
+        images.push(   
+
+            <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
+            <picture>
+            <img
+                src={ imgURL }
+                alt={ imgAlt }
+            />
+            </picture>
+        
+        
+        
+        </div>)
+      }
+
+    return (
+
+    <div className = "image-wrapper-outer">
+
+        {images};
+
+
+        { isSelected ? (
+
+        <Button
+            className="remove-image"
+            onClick={ onRemoveImage }
+        >
+        Remove Images
+        </Button>
+
+        ) : null }
+
+    </div>
+
+    )
+
+
+
+}
 
     return [
         <InspectorControls>
@@ -99,7 +167,7 @@ const editGrid = withColors('background')(( props ) => {
         <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 image-column'}>
-                { ! imgID ? (
+                { ! imgArray ? (
 
                     <MediaUpload
                         onSelect={ onSelectImage }
@@ -118,26 +186,11 @@ const editGrid = withColors('background')(( props ) => {
 
                     ) : (
 
-                    <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
-                        <picture>
-                        <img
-                            src={ imgURL }
-                            alt={ imgAlt }
-                        />
-                        </picture>
+                        
 
-                        { isSelected ? (
+                        <CreateInnerImage {...props}/>
 
-                            <Button
-                                className="remove-image"
-                                onClick={ onRemoveImage }
-                            >
-                            Remove Image
-                            </Button>
-
-                        ) : null }
-
-                    </div>
+            
                     )}
 
                 </div>
