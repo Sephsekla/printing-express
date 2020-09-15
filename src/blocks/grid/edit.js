@@ -16,8 +16,6 @@ return $input;
 import {CreateInnerImage} from '../shared/multi-images.js';
 
 
-console.log(CreateInnerImage);
-
 /**
  * Edit grid
  */
@@ -109,7 +107,7 @@ const editGrid = withColors('background')(( props ) => {
         <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                
-                { ! imgArray ? (
+                { ! imgArray.length ? (
                 <div className={'col-12 col-lg-6 image-column'}>
                     <MediaUpload
                         onSelect={ onSelectImage }
