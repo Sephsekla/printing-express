@@ -33,6 +33,8 @@ add_action( 'woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format' 
 
 // define the woocommerce_output_related_products_args callback 
 function filter_woocommerce_output_related_products_args( $args ) { 
+
+    print_r($args);
     
     // make filter magic happen here... 
 
@@ -56,6 +58,8 @@ function filter_woocommerce_output_related_products_args( $args ) {
      );
 
     }
+
+    print_r($args);
 
 
     return $args; 
