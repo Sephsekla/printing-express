@@ -31,39 +31,20 @@ function exclude_large_format( $q ) {
 add_action( 'woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format' );  
 
 
-// define the woocommerce_output_related_products_args callback 
-function filter_woocommerce_output_related_products_args( $args ) { 
 
-    print_r($args);
-    
-    // make filter magic happen here... 
+function exclude_product_category_from_related_products( $related_posts, $product_id, $args  ){
+    // HERE define your product category slug
+    $term_slug = 'large-format';
 
-    if(has_term('large-format','product_cat',null)){
+    // Get the product Ids in the defined product category
+    $exclude_ids = wc_get_products( array(
+        'status'    => 'publish',
+        'limit'     => -1,
+        'category'  => array($term_slug),
+        'return'    => 'ids',
+    ) );
 
-        $args['tax_query'][] = array(
-            'taxonomy' => 'product_cat',
-            'field' => 'slug',
-            'terms' => array( 'large-format' ), // Don't display products in the large format category on the shop page.
-            'operator' => 'IN'
-     );
+    return array_diff( $related_posts, $exclude_ids );
+}
 
-    }
-    else{
-
-        $args['tax_query'][] = array(
-            'taxonomy' => 'product_cat',
-            'field' => 'slug',
-            'terms' => array( 'large-format' ), // Don't display products in the large format category on the shop page.
-            'operator' => 'NOT IN'
-     );
-
-    }
-
-    print_r($args);
-
-
-    return $args; 
-}; 
-         
-// add the filter 
-add_filter( 'woocommerce_output_related_products_args',  __NAMESPACE__.'\\filter_woocommerce_output_related_products_args', 10, 1);
+add_filter( 'woocommerce_related_products', __NAMESPACE__.'\\exclude_product_category_from_related_products', 10, 3 );
