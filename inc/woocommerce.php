@@ -31,7 +31,14 @@ function exclude_large_format( $q ) {
 add_action( 'woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format' );  
 
 
-
+/**
+ * Separate large format from personal in related
+ *
+ * @param [type] $related_posts
+ * @param [type] $product_id
+ * @param [type] $args
+ * @return void
+ */
 function exclude_product_category_from_related_products( $related_posts, $product_id, $args  ){
     // HERE define your product category slug
     $term_slug = 'large-format';
@@ -43,6 +50,15 @@ function exclude_product_category_from_related_products( $related_posts, $produc
         'category'  => array($term_slug),
         'return'    => 'ids',
     ) );
+
+        if(has_term($term_slug,'product_cat',null)){
+            return array_intersect( $related_posts, $exclude_ids );
+
+        }
+        else{
+            return array_diff( $related_posts, $exclude_ids );
+        }
+
 
     return array_diff( $related_posts, $exclude_ids );
 }
