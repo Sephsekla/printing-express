@@ -52,7 +52,8 @@ $breakpoint_header: 991px;
         }
     }
 
-    .menu, .menu>ul {
+    .menu,
+    .menu>ul {
         text-align: center;
         transform: translatex(100%);
         transition: 0.2s;
@@ -66,20 +67,64 @@ $breakpoint_header: 991px;
 
 
         //ul {
-            list-style: none;
+        list-style: none;
 
-            li {
+        li {
 
-                margin-bottom: 20px;
-                font-size: 1rem;
-                font-weight: bold;
-                text-transform: uppercase;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-transform: uppercase;
 
-                a {
-                    text-decoration: none;
-                    color: $black;
+            a {
+                text-decoration: none;
+                color: $black;
+            }
+
+            ul {
+
+                list-style: none;
+                margin-top: 20px;
+                padding-left: 0;
+
+                
+
+            }
+
+            @media(min-width: $breakpoint_header) {
+                position: relative;
+                ul{
+                display: none;
+                position: absolute;
+                text-align: center;
+                top: 100%;
+                left: 0;
+                min-width: 100%;
+                min-width: calc( 100% + 40px );
+                background-color: $white;
+                padding: 20px;
+                margin-left: -20px;
+                margin-right: -20px;
+
+                margin-top: 0;
+
+                @include shadow;
+
+                li{
+                    margin-left: 0;
+                }
+                }
+
+                &:hover{
+                    ul{
+                        display: block;
+                        }
                 }
             }
+
+
+        }
+
         //}
 
         @media(min-width: $breakpoint_header) {
@@ -87,16 +132,17 @@ $breakpoint_header: 991px;
             transform: none;
             position: static;
 
-           // ul {
+            // ul {
 
-                li {
+            li {
 
-                    margin-bottom: 0;
-                    display: inline-block;
-                    margin-left: 20px;
+                margin-bottom: 0;
+                display: inline-block;
+                margin-left: 20px;
 
-                }
-           // }
+            }
+
+            // }
         }
     }
 }
