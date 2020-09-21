@@ -11,11 +11,12 @@
  namespace printing\woocommerce;
 
  /**
- * Exclude products from a particular category on the shop page
- */
-function exclude_large_format( $q ) {
+  * Exclude products from a particular category on the shop page
+  */
+function exclude_large_format( $q )
+{
 
-    $tax_query = (array) $q->get( 'tax_query' );
+    $tax_query = (array) $q->get('tax_query');
 
     $tax_query[] = array(
            'taxonomy' => 'product_cat',
@@ -25,51 +26,67 @@ function exclude_large_format( $q ) {
     );
 
 
-    $q->set( 'tax_query', $tax_query );
+    $q->set('tax_query', $tax_query);
 
 }
-add_action( 'woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format' );  
+add_action('woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format');  
+
+
+
+function related_products_args( $args )
+{
+    $args['posts_per_page'] = 6; // 4 related products
+    $args['columns'] = 6; // arranged in 2 columns
+    return $args;
+}
+
+  add_filter('woocommerce_output_related_products_args',  __NAMESPACE__.'\\related_products_args', 20);
+
 
 
 /**
  * Separate large format from personal in related
  *
- * @param [type] $related_posts
- * @param [type] $product_id
- * @param [type] $args
+ * @param  [type] $related_posts
+ * @param  [type] $product_id
+ * @param  [type] $args
  * @return void
  */
-function exclude_product_category_from_related_products( $related_posts, $product_id, $args  ){
+function exclude_product_category_from_related_products( $related_posts, $product_id, $args  )
+{
     // HERE define your product category slug
     $term_slug = 'large-format';
 
     // Get the product Ids in the defined product category
-    $exclude_ids = wc_get_products( array(
+    $exclude_ids = wc_get_products(
+        array(
         'status'    => 'publish',
         'limit'     => -1,
         'category'  => array($term_slug),
         'return'    => 'ids',
-    ) );
+        ) 
+    );
 
-        if(has_term($term_slug,'product_cat',null)){
-            return array_intersect( $related_posts, $exclude_ids );
+    if(has_term($term_slug, 'product_cat', null)) {
+        return array_intersect($related_posts, $exclude_ids);
 
-        }
-        else{
-            return array_diff( $related_posts, $exclude_ids );
-        }
+    }
+    else{
+        return array_diff($related_posts, $exclude_ids);
+    }
 
 
-    return array_diff( $related_posts, $exclude_ids );
+    return array_diff($related_posts, $exclude_ids);
 }
 
-add_filter( 'woocommerce_related_products', __NAMESPACE__.'\\exclude_product_category_from_related_products', 10, 3 );
+add_filter('woocommerce_related_products', __NAMESPACE__.'\\exclude_product_category_from_related_products', 10, 3);
 
 
-function get_featured(){
+function get_featured()
+{
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => 12,
+        'posts_per_page' => 6,
         'tax_query' => array(
                 array(
                     'taxonomy' => 'product_visibility',
@@ -78,13 +95,13 @@ function get_featured(){
                 ),
             ),
         );
-    $loop = new \WP_Query( $args );
-    if ( $loop->have_posts() ) {
+    $loop = new \WP_Query($args);
+    if ($loop->have_posts() ) {
         while ( $loop->have_posts() ) : $loop->the_post();
-            wc_get_template_part( 'content', 'product' );
+            wc_get_template_part('content', 'product');
         endwhile;
     } else {
-        echo __( 'No products found' );
+        echo __('No products found');
     }
     wp_reset_postdata();
 }
