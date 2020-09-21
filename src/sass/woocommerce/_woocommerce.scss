@@ -1,5 +1,13 @@
 .products{
-    padding-top: 50px;
+
+   ul{
+       @extend .row;
+       justify-content: center;
+
+       li{
+           @extend .col-2;
+       }
+   }
 
     .product{
         background-color: $blue;
@@ -25,6 +33,12 @@
             color: $white;
         }
     }
+
+    &.related{
+
+        padding-top: 50px;
+    
+        }
 }
 
 .woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
