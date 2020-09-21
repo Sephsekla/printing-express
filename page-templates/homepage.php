@@ -9,8 +9,6 @@
 
 get_header();
 
-use printing\woocommerce;
-
 global $wp_query; 
 $found_posts = $wp_query->found_posts;
 ?>
@@ -20,9 +18,7 @@ $found_posts = $wp_query->found_posts;
 
 		<?php
 
-		printing\woocommerce\get_featured();
-
-		get_template_part( 'template-parts/banner' );
+		get_template_part( 'template-parts/banner','home' );
 		
 
 	
