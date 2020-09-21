@@ -64,3 +64,27 @@ function exclude_product_category_from_related_products( $related_posts, $produc
 }
 
 add_filter( 'woocommerce_related_products', __NAMESPACE__.'\\exclude_product_category_from_related_products', 10, 3 );
+
+
+function get_featured(){
+    $args = array(
+        'post_type' => 'product',
+        'posts_per_page' => 12,
+        'tax_query' => array(
+                array(
+                    'taxonomy' => 'product_visibility',
+                    'field'    => 'name',
+                    'terms'    => 'featured',
+                ),
+            ),
+        );
+    $loop = new WP_Query( $args );
+    if ( $loop->have_posts() ) {
+        while ( $loop->have_posts() ) : $loop->the_post();
+            wc_get_template_part( 'content', 'product' );
+        endwhile;
+    } else {
+        echo __( 'No products found' );
+    }
+    wp_reset_postdata();
+}

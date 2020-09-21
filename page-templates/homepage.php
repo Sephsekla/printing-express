@@ -9,6 +9,8 @@
 
 get_header();
 
+use printing\woocommerce;
+
 global $wp_query; 
 $found_posts = $wp_query->found_posts;
 ?>
@@ -16,9 +18,9 @@ $found_posts = $wp_query->found_posts;
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-	Banner deals go here
-
 		<?php
+
+		printing\woocommerce\get_featured();
 
 		get_template_part( 'template-parts/banner' );
 		
