@@ -21,7 +21,7 @@
     font-weight: bold;
     text-transform: uppercase;
     font-size: 0.875rem;
-   
+
     background-color: $blue;
 
     @include inc_states {
@@ -55,5 +55,36 @@
             }
         }
 
+    }
+}
+
+@mixin wc-tab {
+    display: block;
+    width: 100%;
+    background: transparent !important;
+    border: 0 !important;
+    border-radius: 0;
+    border-top: 2px solid !important;
+    padding: 0px 15px !important;
+
+    border-color: $yellow !important;
+
+    &::before,
+    &::after {
+        display: none;
+    }
+
+    &:last-child {
+        border-bottom: 2px solid $yellow !important;
+    }
+
+    a {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        display: block;
+
+        font-weight: bold;
+        color: $black;
+        text-decoration: none;
     }
 }

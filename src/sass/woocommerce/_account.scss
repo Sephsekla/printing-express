@@ -1,0 +1,15 @@
+.woocommerce-MyAccount-navigation {
+    width: 25%;
+
+    ul {
+        padding-left: 0;
+    }
+
+    li {
+        @include wc-tab;
+    }
+}
+
+.woocommerce-account .woocommerce-MyAccount-content{
+    width: 60%;
+}
