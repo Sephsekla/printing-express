@@ -118,7 +118,7 @@ function set_upload_folder( $value ) {
 
         $team = $team[0];
 
-        return 'client-uploads/'.$team->name;
+        return 'client-uploads/'.$team->get_name();
 
 
     }
