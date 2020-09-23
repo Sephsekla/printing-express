@@ -108,5 +108,26 @@ function get_featured()
 
 add_filter( 'gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder' );
 function set_upload_folder( $value ) {
-    return 'boom';
+
+    $teams = wc_memberships_for_teams_get_teams();
+    
+
+    if($teams){
+
+        $team = $team[0];
+
+        return 'client-uploads/'.$team->name;
+
+
+    }
+    else{
+
+        $user = wp_get_current_user();
+
+
+        return 'client-uploads/unregistered/'.$user->user_nicename;
+    }
+
+
+    
 }
