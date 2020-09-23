@@ -134,7 +134,7 @@ function set_upload_folder( $value ) {
     
 }
 
-
+/*
 
 function ajax_variation_threshold( $default, $product ) {
 	return 3000;
@@ -152,3 +152,5 @@ add_filter( 'woocommerce_rest_batch_items_limit', __NAMESPACE__.'//rest_batch_it
 @ini_set( 'upload_max_size' , '256M' );
 @ini_set( 'post_max_size', '256M');
 @ini_set( 'max_execution_time', '300' );
+
+*/
