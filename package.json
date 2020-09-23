@@ -12,7 +12,7 @@
   "author": "",
   "license": "",
   "dependencies": {
-    "@sephsekla/picture-cover": "^1.1.0",
+    "@sephsekla/picture-cover": "^2.0.0",
     "@sephsekla/split-container": "^1.0.0",
     "@wordpress/block-editor": "^4.3.1",
     "@wordpress/blocks": "^6.20.1",

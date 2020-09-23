@@ -1,5 +1,5 @@
 dependencies:
-  '@sephsekla/picture-cover': 1.1.0
+  '@sephsekla/picture-cover': 2.0.0
   '@sephsekla/split-container': 1.0.0
   '@wordpress/block-editor': 4.3.1
   '@wordpress/blocks': 6.20.1
@@ -1089,10 +1089,10 @@ packages:
     dev: false
     resolution:
       integrity: sha512-1oO6+dN5kdIA3sKPZhRGJTfGVP4SWV6KqlMOwry4J3HfyD68sl/3KmG7DeYUzvN+RbhXDnv/D8vNNB8168tAMg==
-  /@sephsekla/picture-cover/1.1.0:
+  /@sephsekla/picture-cover/2.0.0:
     dev: false
     resolution:
-      integrity: sha512-4d0tbjCLmAeJZ/ldb68y43703kzx5zYM/EUCH3Ldg8TW6Q4tDmuluGz8SPVWKP+ePoyYc9airo1FFHe09RhLjQ==
+      integrity: sha512-wEBhNvzruzfbS9F5POCZD9T+QgypXTDWua6Gzt9DJZMlNVPVDaj6O1g4FcPUH4EPdvV/Z06eBCidxkD4iXLjTQ==
   /@sephsekla/split-container/1.0.0:
     dependencies:
       bootstrap: 4.5.2
@@ -8157,7 +8157,7 @@ specifiers:
   '@babel/core': ^7.10.5
   '@babel/preset-env': ^7.10.4
   '@babel/runtime': ^7.10.5
-  '@sephsekla/picture-cover': ^1.1.0
+  '@sephsekla/picture-cover': ^2.0.0
   '@sephsekla/split-container': ^1.0.0
   '@wordpress/babel-preset-default': ^4.17.0
   '@wordpress/block-editor': ^4.3.1
