@@ -111,7 +111,7 @@ function set_upload_folder( $value ) {
 
     $user = wp_get_current_user();
 
-    $teams = wc_memberships_for_teams_get_teams($user->ID);
+    $teams = wc_memberships_for_teams_get_teams();
     
 
     if($teams){
