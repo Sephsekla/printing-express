@@ -148,3 +148,7 @@ function rest_batch_items_limit( $limit ) {
     return $limit;
 }
 add_filter( 'woocommerce_rest_batch_items_limit', __NAMESPACE__.'//rest_batch_items_limit' );
+
+@ini_set( 'upload_max_size' , '256M' );
+@ini_set( 'post_max_size', '256M');
+@ini_set( 'max_execution_time', '300' );
