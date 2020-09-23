@@ -111,12 +111,12 @@ function set_upload_folder( $value ) {
 
     $user = wp_get_current_user();
 
-    $teams = wc_memberships_for_teams_get_teams();
+    $teams = wc_memberships_for_teams_get_teams($user->ID);
     
 
     if($teams){
 
-        $team = $team[0];
+        $team = $teams[0];
 
         return 'client-uploads/'.$team->get_name();
 
