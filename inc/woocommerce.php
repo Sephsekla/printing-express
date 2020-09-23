@@ -137,7 +137,7 @@ function set_upload_folder( $value ) {
 
 
 function ajax_variation_threshold( $default, $product ) {
-	return 300;
+	return 3000;
 }
 
 add_filter( 'woocommerce_ajax_variation_threshold', __NAMESPACE__.'\\ajax_variation_threshold', 10, 2 );
