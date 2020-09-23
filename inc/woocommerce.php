@@ -118,7 +118,7 @@ function set_upload_folder( $value ) {
 
         $team = $teams[0];
 
-        return 'client-uploads/'.$team->get_name();
+        return $team->get_name();
 
 
     }
@@ -127,7 +127,7 @@ function set_upload_folder( $value ) {
         
 
 
-        return 'client-uploads/unregistered/'.$user->user_nicename;
+        return $user->user_nicename.' (Unregistered)';
     }
 
 
