@@ -105,3 +105,8 @@ function get_featured()
     }
     wp_reset_postdata();
 }
+
+add_filter( 'gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder' );
+function set_upload_folder( $value ) {
+    return 'boom';
+}
