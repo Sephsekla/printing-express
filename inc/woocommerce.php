@@ -143,7 +143,7 @@ function ajax_variation_threshold( $default, $product ) {
 add_filter( 'woocommerce_ajax_variation_threshold', __NAMESPACE__.'\\ajax_variation_threshold', 10, 2 );
 
 function rest_batch_items_limit( $limit ) {
-    $limit = 300;
+    $limit = 3000;
 
     return $limit;
 }
