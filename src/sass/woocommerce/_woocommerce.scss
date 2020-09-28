@@ -1,22 +1,27 @@
-.products{
+.products {
 
-   ul{
-       @extend .row;
-       justify-content: center;
+    ul {
+        @extend .row;
+        justify-content: center;
 
-       li{
-           @extend .col-12;
-           @extend .col-sm-6; 
-           @extend .col-md-3;
-           @extend .col-lg-2;
-       }
-   }
+        li {
+            @extend .col-12;
+            @extend .col-sm-6;
+            @extend .col-md-3;
+            @extend .col-lg-2;
 
-    &.related{
+            padding-top: 15px;
+            padding-bottom: 15px;
+            width: 100% !important;
+            margin: 0 !important;
+        }
+    }
+
+    &.related {
 
         padding-top: 50px;
-    
-        }
+
+    }
 }
 
 @import 'card';
@@ -26,7 +31,8 @@
 @import 'buttons';
 
 
-.woocommerce div.product p.price, .woocommerce div.product span.price{
+.woocommerce div.product p.price,
+.woocommerce div.product span.price {
     font-weight: bold;
     color: $black;
 }
@@ -41,6 +47,6 @@
 
 @import 'account';
 
-.related{
+.related {
     width: 100%;
 }
