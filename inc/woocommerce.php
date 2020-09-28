@@ -158,7 +158,7 @@ add_filter( 'woocommerce_rest_batch_items_limit', __NAMESPACE__.'//rest_batch_it
 
 
 add_action('woocommerce_before_shop_loop_item',function(){
-    echo '<div class="inner">';
+    echo '<div class="product-loop-inner">';
 },0);
 
 add_action('woocommerce_after_shop_loop_item',function(){

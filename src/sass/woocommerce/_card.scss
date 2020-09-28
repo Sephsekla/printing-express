@@ -1,0 +1,27 @@
+
+.product-loop-inner{
+    background-color: $blue;
+    color: $white;
+    text-align: center;
+    height: 100%;
+
+
+    @include shadow;
+
+    img{
+        background-color: $white;
+    }
+
+    .button{
+        display: none;
+    }
+
+    h2{
+       font-size: 1rem;
+       text-transform: none;
+    }
+
+    h2, .price{
+        color: $white;
+    }
+}

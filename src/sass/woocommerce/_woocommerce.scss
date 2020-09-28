@@ -5,36 +5,12 @@
        justify-content: center;
 
        li{
-           @extend .col-2;
+           @extend .col-12;
+           @extend .col-sm-6; 
+           @extend .col-md-3;
+           @extend .col-lg-2;
        }
    }
-
-    .product .inner{
-        background-color: $blue;
-        color: $white;
-        text-align: center;
-        height: 100%;
-
-
-        @include shadow;
-
-        img{
-            background-color: $white;
-        }
-
-        .button{
-            display: none;
-        }
-
-        h2{
-           font-size: 1rem;
-           text-transform: none;
-        }
-
-        h2, .price{
-            color: $white;
-        }
-    }
 
     &.related{
 
@@ -43,39 +19,12 @@
         }
 }
 
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button,
+@import 'card';
 
-.woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt
+@import 'single';
 
-{
-    @include button;
+@import 'buttons';
 
-    background-color: $yellow;
-}
-
-.woocommerce-variation-add-to-cart{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-
-    //flex-direction: column;
-}
-
-.variations{
-   &_form{
-       max-width: 220px;
-       select{
-        width: 100%;
-        margin-right: 0;
-    }
-   }
-    tr, td{
-        display: block;
-        width: 100%;
-    }
-
-   
-}
 
 .woocommerce div.product p.price, .woocommerce div.product span.price{
     font-weight: bold;
@@ -86,10 +35,6 @@
 
 @import 'tabs';
 
-.woocommerce #respond input#submit.alt.disabled, .woocommerce #respond input#submit.alt.disabled:hover, .woocommerce #respond input#submit.alt:disabled, .woocommerce #respond input#submit.alt:disabled:hover, .woocommerce #respond input#submit.alt:disabled[disabled], .woocommerce #respond input#submit.alt:disabled[disabled]:hover, .woocommerce a.button.alt.disabled, .woocommerce a.button.alt.disabled:hover, .woocommerce a.button.alt:disabled, .woocommerce a.button.alt:disabled:hover, .woocommerce a.button.alt:disabled[disabled], .woocommerce a.button.alt:disabled[disabled]:hover, .woocommerce button.button.alt.disabled, .woocommerce button.button.alt.disabled:hover, .woocommerce button.button.alt:disabled, .woocommerce button.button.alt:disabled:hover, .woocommerce button.button.alt:disabled[disabled], .woocommerce button.button.alt:disabled[disabled]:hover, .woocommerce input.button.alt.disabled, .woocommerce input.button.alt.disabled:hover, .woocommerce input.button.alt:disabled, .woocommerce input.button.alt:disabled:hover, .woocommerce input.button.alt:disabled[disabled], .woocommerce input.button.alt:disabled[disabled]:hover{
-    color: $dark;
-    background-color: $yellow;
-}
 
 
 @import 'checkout';

@@ -1,0 +1,23 @@
+.woocommerce-variation-add-to-cart{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+
+    //flex-direction: column;
+}
+
+.variations{
+   &_form{
+       max-width: 220px;
+       select{
+        width: 100%;
+        margin-right: 0;
+    }
+   }
+    tr, td{
+        display: block;
+        width: 100%;
+    }
+
+   
+}
