@@ -73,6 +73,16 @@ add_theme_support( 'editor-color-palette', array(
 		'color'	=> '#FFF200',
 	),
 	array(
+		'name'  => 'Green',
+		'slug'  => 'green',
+		'color'	=> '#90C96D',
+	),
+	array(
+		'name'  => 'Purple',
+		'slug'  => 'purple',
+		'color'	=> '#8750B3',
+	),
+	array(
 		'name'  => 'White',
 		'slug'  => 'white',
 		'color'	=> '#FFFFFF',

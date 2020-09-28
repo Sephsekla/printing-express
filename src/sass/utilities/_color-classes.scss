@@ -6,7 +6,10 @@ dark: $dark,
 
 blue: $blue,
 pink: $pink,
-yellow: $yellow
+yellow: $yellow,
+
+green: $green,
+purple: $purple
 );
 
 @each $name, $color in $colors {
