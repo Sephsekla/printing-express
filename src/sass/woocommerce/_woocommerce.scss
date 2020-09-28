@@ -9,10 +9,12 @@
        }
    }
 
-    .product{
+    .product .inner{
         background-color: $blue;
         color: $white;
         text-align: center;
+        height: 100%;
+
 
         @include shadow;
 
