@@ -163,4 +163,4 @@ add_action('woocommerce_before_shop_loop_item',function(){
 
 add_action('woocommerce_after_shop_loop_item',function(){
     echo '</div>';
-},0);
+},100);
