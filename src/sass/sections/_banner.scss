@@ -36,4 +36,15 @@
     img{
         opacity: 0.8;
     }
+
+    &.products{
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+        .container{
+            position: relative;
+            z-index: 10;
+        }
+    }
 }
