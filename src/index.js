@@ -9,8 +9,6 @@ initMenu();
 
 $(document).ready(function(){
 
-    $('.woocommerce-product-gallery').append('<div class="woocommerce-product-gallery__main"></div>');
-
     $('.woocommerce-product-gallery__image').click(function(e){
         e.preventDefault();
         $(this).css("border","2px solid blue");
