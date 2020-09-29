@@ -39,12 +39,16 @@
 
     &.products{
         height: auto;
-        padding-top: 30px;
-        padding-bottom: 30px;
+        
 
-        .container{
+        .container-wrapper{
             position: relative;
-            z-index: 10;
+            text-align: center;
+            z-index: 21;
+            padding-top: 30px;
+            padding-bottom: 30px;
+            background-color: rgba($white,0.5);
+
         }
     }
 }

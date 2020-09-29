@@ -15,10 +15,13 @@ $color = 'blue';
 
 <?php utilities\picture($banner_id,'banner') ?>
 
-    <div class="container">
-        <ul class="products columns-6">
-            <?php printing\woocommerce\get_featured(); ?>
-        </ul>
+    <div class="container-wrapper">
+        <div class="container">
+            <h2>Current Deals</h2>
+            <ul class="products columns-6">
+                <?php printing\woocommerce\get_featured(); ?>
+            </ul>
+         </div>
     </div>
 
 </section>
