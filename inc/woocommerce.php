@@ -183,3 +183,7 @@ add_action('woocommerce_after_main_content',function(){
     echo '</div>';
     echo '</section>';
 },100);
+
+add_action('woocommerce_product_thumbnails',function(){
+    the_post_thumbnail();
+},100);
