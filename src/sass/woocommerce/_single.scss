@@ -35,5 +35,35 @@
 }
 
 .woocommerce div.product form.cart .reset_variations{
-    display: none;
+    display: none !important;
+}
+
+.woocommerce-wrap .related-wrap{
+    width: 100vw;
+    margin: 0 calc(50% - 50vw);
+    margin-bottom: -50px;
+    background-color: $light;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    .container{
+        position: relative;
+        z-index: 3;
+    }
+
+    &::before{
+        content: "";
+        display: block;
+        background-image: url('./assets/spirograph.svg');
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        opacity: 0.06;
+    }
+    
 }
