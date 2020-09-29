@@ -13,3 +13,17 @@ select, input{
     background-color: $light;
     padding: 8px 15px;
 }
+
+td.value{
+    position: relative;
+    select{
+        padding-right: 25px;
+    }
+    &::after{
+        content: "^";
+        position: abolute;
+        right: 15px;
+        top: 50%;
+        transform: translatey(-50%);
+    }
+}
