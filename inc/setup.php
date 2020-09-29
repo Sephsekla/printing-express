@@ -97,6 +97,8 @@ add_theme_support( 'editor-color-palette', array(
 // Disables custom colors in block color palette.
 add_theme_support( 'disable-custom-colors' );
 
+add_theme_support( 'woocommerce' );
+
 
 }
 
