@@ -174,9 +174,12 @@ add_action('init', __NAMESPACE__.'\\disable_woo_commerce_sidebar');
 
 add_action('woocommerce_before_main_content',function(){
     get_template_part( 'template-parts/banner' );
+
+    echo '<section class="woocommerce-wrap">';
     echo '<div class="container">';
 },0);
 
 add_action('woocommerce_after_main_content',function(){
     echo '</div>';
+    echo '</section>';
 },100);
