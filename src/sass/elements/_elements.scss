@@ -20,10 +20,16 @@ td.value{
         padding-right: 25px;
     }
     &::after{
-        content: "^";
-        position: abolute;
+        content: "";
+        display: block;
+        position: absolute;
         right: 15px;
-        top: 50%;
-        transform: translatey(-50%);
+        top: 0;
+        width: 20px;
+        height: 34px;
+        pointer-events: none;
+        background-image: url('./assets/arrow-grey.svg');
+        background-position: center;
+        background-repeat: no-repeat;
     }
 }
