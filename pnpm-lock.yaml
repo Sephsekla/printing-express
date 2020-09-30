@@ -6,6 +6,7 @@ dependencies:
   bootstrap: 4.5.0
   compass-mixins: 0.12.10
   flickity: 2.2.1
+  flickity-fade: 1.0.0
   gsap: 2.1.3
   he: 1.2.0
   ifdef-loader: 2.1.5
@@ -3884,6 +3885,13 @@ packages:
     dev: false
     resolution:
       integrity: sha512-CZXDVXQ1If3/r8s0T+v+qVeMshhfcuq0rqIFgJnrtd+Bu8GmDmqMjntjUePypVtjHXKJ6V4sw9zeyox34n9aCg==
+  /flickity-fade/1.0.0:
+    dependencies:
+      fizzy-ui-utils: 2.0.7
+      flickity: 2.2.1
+    dev: false
+    resolution:
+      integrity: sha512-5iXHN+nqjQcph6fqOw+/wAr0FHxIrcVQyKfwyVoI325CYrl9sVsx7cr6cyAih9sDYiUCGzrM6OykG7mSb5LPMg==
   /flickity/2.2.1:
     dependencies:
       desandro-matches-selector: 2.0.2
@@ -8175,6 +8183,7 @@ specifiers:
   extract-text-webpack-plugin: ^4.0.0-beta.0
   file-loader: ^1.1.11
   flickity: ^2.2.1
+  flickity-fade: ^1.0.0
   gsap: ^2.1.3
   he: ^1.2.0
   ifdef-loader: ^2.1.5
