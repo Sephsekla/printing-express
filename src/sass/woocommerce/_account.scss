@@ -10,6 +10,18 @@
     }
 }
 
-.woocommerce-account .woocommerce-MyAccount-content{
+.woocommerce-account{ .woocommerce-MyAccount-content{
+
+    @media(min-width: 769px){
     width: 60%;
+    }
+}
+
+.woocommerce-Address{
+    width: 100% !important;
+    max-width: 100%;
+    float: none;
+    padding: 0;
+}
+
 }
