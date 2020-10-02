@@ -100,11 +100,12 @@ const editGrid = withColors('background')(( props ) => {
         </InspectorControls>,
 
 
-        <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
+        <section className={ classnames('pe-about_wrapper',className) }>
+
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                
                 { ! imgArray.length ? (
-                <div className={'col-12 col-lg-6 image-column'}>
+                <div className={'col-12 col-lg-4 image-column'}>
                     <MediaUpload
                         onSelect={ onSelectImage }
                         multiple="true"
@@ -123,7 +124,7 @@ const editGrid = withColors('background')(( props ) => {
 
                     ) : (
 
-                        <div className={'col-12 col-lg-6 image-column'}>  
+                        <div className={'col-12 col-lg-4 image-column'}>  
 
                         
 
@@ -145,10 +146,8 @@ const editGrid = withColors('background')(( props ) => {
                     )}
 
                 
-                <div className={'col-12 col-lg-6 grid-content-wrapper'}>
-                    <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
+                <div className={'col-12 col-lg-8 grid-content-wrapper'}>
                         <InnerBlocks />
-                    </div>
                 </div>
             </div>
             

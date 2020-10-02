@@ -13,10 +13,6 @@ const {withSelect} = wp.data;
 
 const {compose, createHigherOrderComponent} = wp.compose;
 
-function __($input,$a){
-return $input;
-}
-
 const CharityImage  = withSelect( ( select, props) => {
     const {featured_media} =  props;
     return {
@@ -93,17 +89,17 @@ const editGrid = ( props ) => {
     return [
         <InspectorControls>
              <PanelBody
-                        title={ __( 'Grid Layout', 'jsforwpblocks' ) }
+                        title={ 'Grid Layout' }
                     >
                         <PanelRow>
                             <label
                                 htmlFor="reverse-form-toggle"
                             >
-                                { __( 'Reverse Order', 'jsforwpblocks' ) }
+                                { 'Reverse Order' }
                             </label>
                             <FormToggle
                                 id="reverse-form-toggle"
-                                label={ __( 'Reverse Order', 'jsforwpblocks' ) }
+                                label={ 'Reverse Order' }
                                 checked={ reverseOrder }
                                 onChange={ toggleReverse }
                                 
@@ -113,13 +109,13 @@ const editGrid = ( props ) => {
 
                     </PanelBody>
                     <PanelColorSettings
-          title={__("Color Settings", "jsforwpblocks")}
+          title={"Color Settings"}
           colorSettings={[
             {
                // colors: colorSamples,
               value: background.value,
               onChange: setBackground,
-              label: __("Background Color")
+              label: "Background Color"
             }
           ]}
         />
