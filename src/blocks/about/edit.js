@@ -103,9 +103,15 @@ const editGrid = withColors('background')(( props ) => {
         <section className={ classnames('pe-about_wrapper',className) }>
 
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
+
+                
+
+                
                
                 { ! imgArray.length ? (
-                <div className={'col-12 col-lg-4 image-column'}>
+                <div className={classnames('col-12 col-lg-4',`bg-${props.attributes.background}`)}>
+                    <p>Test goes here</p>
+                    <div className="image-column">
                     <MediaUpload
                         onSelect={ onSelectImage }
                         multiple="true"
@@ -120,11 +126,14 @@ const editGrid = withColors('background')(( props ) => {
                         ) }
                     >
                     </MediaUpload>
+                    </div>
                 </div>
 
                     ) : (
 
-                        <div className={'col-12 col-lg-4 image-column'}>  
+                        <div className={classnames('col-12 col-lg-4',`bg-${props.attributes.background}`)}>  
+                        <p>Test goes here</p>
+                        <div className="image-column">
 
                         
 
@@ -141,7 +150,7 @@ const editGrid = withColors('background')(( props ) => {
                     
                             ) : null}
 
-            
+                            </div>
                     </div>
                     )}
 
