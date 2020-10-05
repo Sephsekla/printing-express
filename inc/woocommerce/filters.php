@@ -117,7 +117,7 @@ add_filter('the_title', __NAMESPACE__.'\\new_title', 10, 2);
 function new_title($title, $id)
 {
 
-    if(!is_singular('product')) {
+    if(!is_admin() && !is_singular('product')) {
 
         $related = \Iconic_WLV_Product::get_linked_variations_data($id);
 
