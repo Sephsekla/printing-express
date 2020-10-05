@@ -7,7 +7,8 @@ const {  Toolbar,
     PanelBody,
     PanelRow,
     FormToggle,
-    ColorPalette } = wp.components;
+    ColorPalette,
+    RichText } = wp.components;
 
 import {CreateInnerImage} from '../shared/multi-images.js';
 
@@ -22,7 +23,7 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder, imgArray } = props.attributes;
+    const { imgID, imgURL, imgAlt, reverseOrder, imgArray, quote } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
@@ -60,7 +61,11 @@ const editGrid = withColors('background')(( props ) => {
                 imgAlt: null,
                 imgArray: {}
             });
-        }
+        };
+
+        const onChangeQuote = ( newQuote ) => {
+            setAttributes( { quote: newQuote } );
+        };
 
 
 
@@ -110,7 +115,12 @@ const editGrid = withColors('background')(( props ) => {
                
                 { ! imgArray.length ? (
                 <div className={classnames('col-12 col-lg-4',`bg-${props.attributes.background}`)}>
-                    <p>Test goes here</p>
+                    <RichText
+                tagName="p"
+              
+                onChange={ onChangeQuote }
+                value={ quote }
+            />
                     <div className="image-column">
                     <MediaUpload
                         onSelect={ onSelectImage }
@@ -132,7 +142,12 @@ const editGrid = withColors('background')(( props ) => {
                     ) : (
 
                         <div className={classnames('col-12 col-lg-4',`bg-${props.attributes.background}`)}>  
-                        <p>Test goes here</p>
+                        <RichText
+                tagName="p"
+               
+                onChange={ onChangeQuote }
+                value={ quote }
+            />
                         <div className="image-column">
 
                         

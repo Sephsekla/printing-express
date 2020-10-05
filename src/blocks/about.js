@@ -47,7 +47,12 @@ export default registerBlockType( 'printing/about', {
         imgArray: {
             type: "array",
             default: [],
-        }
+        },
+        quote: {
+            type: "string",
+            default: "Your quote here..."
+        
+        },
 
     },
             
