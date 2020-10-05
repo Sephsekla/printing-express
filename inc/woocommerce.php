@@ -12,7 +12,10 @@
 
 require_once 'woocommerce/filters.php';
 
-require_once 'woocommerce/linked_variations.php';
+if(class_exists('Iconic_WLV_Linked_Variations_Group')){
+    require_once 'woocommerce/linked_variations.php';
+}
+
 
  /**
   * Exclude products from a particular category on the shop page
