@@ -33,3 +33,37 @@ function custom_form_submit( $html ) {
 }
 
 add_filter( 'forminator_render_button_markup', __NAMESPACE__ . '\\custom_form_submit', 1000000 );
+
+/**
+ * Set Onedrive upload folder
+ *
+ * @param  string $value
+ * @return string
+ */
+function set_upload_folder( $value )
+{
+
+    $user = wp_get_current_user();
+
+    $teams = wc_memberships_for_teams_get_teams($user->ID);
+    
+
+    if($teams) {
+
+        $team = $teams[0];
+
+        return $team->get_name();
+
+
+    }
+    else{
+
+        
+
+
+        return $user->user_nicename.' (Unregistered)';
+    }
+
+
+    
+}

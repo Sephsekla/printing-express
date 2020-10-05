@@ -12,6 +12,8 @@
 
 require_once 'woocommerce/filters.php';
 
+require_once 'woocommerce/linked_variations.php';
+
  /**
   * Exclude products from a particular category on the shop page
   */
