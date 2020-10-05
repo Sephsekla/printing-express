@@ -243,3 +243,40 @@ function exclude_variations_from_related_products( $related_posts, $product_id, 
 }
 
 add_filter('woocommerce_related_products', __NAMESPACE__.'\\exclude_variations_from_related_products', 10, 3);
+
+
+// Add the custom columns to the book post type:
+add_filter( 'manage_product_posts_columns', __NAMESPACE__.'\\add_linked_variation_columns',100 );
+function add_linked_variation_columns($columns) {
+   
+    $columns['variation'] = 'Variation Group';
+
+    unset($columns['product_tag']);
+
+    return $columns;
+}
+
+add_action( 'manage_product_posts_custom_column', __NAMESPACE__.'\\add_linked_variation_to_column', 10, 2 );
+
+function add_linked_variation_to_column( $column, $postid ) {
+    if ( $column == 'variation' ) {
+
+        $group = \Iconic_WLV_Product::get_linked_variations_group($postid);
+
+        if($group){
+
+        $post = $group->post;
+
+        echo '<a href="'.get_edit_post_link( $post->ID ).'">'.$post->post_title.'</a>';
+
+        }
+        else{
+            echo '-';
+        }
+
+
+
+
+       // echo 'test';
+    }
+}
