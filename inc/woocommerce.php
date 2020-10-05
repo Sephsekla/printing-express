@@ -99,20 +99,6 @@ add_action('woocommerce_product_thumbnails',function(){
 
 add_action('woocommerce_after_single_product_summary',function(){
 
-    $related = \Iconic_WLV_Product::get_linked_variations_data(get_the_id());
-
-    $vars = \Iconic_WLV_Product::get_product_linked_variations(get_the_id());
-
-
-    echo '<pre>';
-    print_r($related['group']->product_ids);
-    echo '</pre>';
-
-    echo '<hr style="width: 100%; border-bottom: 5px solid red">';
-
-    echo '<pre>';
-    print_r($vars);
-    echo '</pre>';
 
     echo '<section class="related-wrap">';
     echo '<div class="container">';
