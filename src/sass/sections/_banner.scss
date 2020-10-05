@@ -33,12 +33,16 @@
         border-color: inherit;
     }
 
-    img{
-        opacity: 0.8;
-    }
+   
 
     &.products{
         height: auto;
+
+        > picture{
+            opacity: 0.8
+        }
+
+
         
 
         .container-wrapper{
