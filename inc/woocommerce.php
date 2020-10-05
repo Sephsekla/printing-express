@@ -98,7 +98,6 @@ add_action('woocommerce_product_thumbnails',function(){
 
 
 add_action('woocommerce_after_single_product_summary',function(){
-    get_template_part( 'template-parts/banner' );
 
     echo '<section class="related-wrap">';
     echo '<div class="container">';
