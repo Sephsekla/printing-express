@@ -138,12 +138,26 @@ $breakpoint_header: 991px;
 
                 margin-bottom: 0;
                 display: inline-block;
-                margin-left: 20px;
+                margin-left: 10px;
+                font-size: 0.9rem;
+
+                &:first-child{
+                    margin-left: 0;
+                }
 
             }
 
             // }
         }
+
+        @media(min-width: 1200px) {
+            li{
+                margin-left: 20px;
+                font-size: 1rem;
+            }
+        }
+
+
     }
 }
 
