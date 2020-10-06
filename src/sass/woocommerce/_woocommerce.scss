@@ -58,3 +58,10 @@
 }
 
 @import 'archive';
+.woocommerce-breadcrumb{
+    color: $dark;
+
+    a{
+        font-weight: bold;
+    }
+}
