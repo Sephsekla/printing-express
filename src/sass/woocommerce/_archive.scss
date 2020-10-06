@@ -1,0 +1,19 @@
+.woocommmerce-pagination{
+    .page-numbers{
+        border: 0;
+
+        li{
+            border-right: 0;
+
+            a{
+                color: $dark !important;
+            }
+
+            span{
+                color: $blue;
+                background-color: transparent;
+                font-weight: bold;
+            }
+        }
+    }
+}
