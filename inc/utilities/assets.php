@@ -25,22 +25,30 @@ function images()
 
 add_action('after_setup_theme', __NAMESPACE__.'\images');
 
-function get_social()
+function get_social($color=false)
 {
+
+if($color){
+    $folder = '/'.$color;
+}
+else{
+    $folder='';
+}
+
     ?>
 
 <ul class="social">
     <li>
-        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons/facebook.svg') ?>" width="28" height="28"></a>
+        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/facebook.svg') ?>" width="28" height="28"></a>
     </li>
     <li>
-        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons/linkedin.svg') ?>" width="28" height="28"></a>
+        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/linkedin.svg') ?>" width="28" height="28"></a>
     </li>
     <li>
-        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons/instagram.svg') ?>" width="28" height="28"></a>
+        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/instagram.svg') ?>" width="28" height="28"></a>
     </li>
     <li>
-        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons/twitter.svg') ?>" width="28" height="28"></a>
+        <a href="https://facebook.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/twitter.svg') ?>" width="28" height="28"></a>
     </li>
 </ul>
 

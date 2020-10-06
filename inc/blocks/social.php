@@ -44,12 +44,12 @@ function render_social($block_attributes,$content)
 
     ?>
 
-<section class="wp-block-printing-grid pe-grid_wrapper bg-<?php echo $block_attributes['background'] ?>">
+<section class="wp-block-printing-social pe-grid_wrapper bg-<?php echo $block_attributes['background'] ?>">
     <div class="row no-gutters <?php echo $block_attributes['reverseOrder'] ? 'flex-row-reverse' : '' ?>">
         <div class="col-12 col-lg-6 bg-white color-dark">
             <div class="container split-lg-container grid-content <?php echo !$block_attributes['reverseOrder'] ? 'left' : 'right' ?>">
             <h2>Follow Us</h2>
-            <p><?php assets\get_social() ?></p>
+            <p><?php assets\get_social('blue') ?></p>
             </div>
         </div>
         <div class="col-12 col-lg-6 grid-content-wrapper">

@@ -1,0 +1,17 @@
+$social-block-padding: 25px;
+
+.wp-block-printing-social{
+
+    .social{
+        margin-left: -1*$social-block-padding;
+        margin-right: -1*$social-block-padding;
+        li{
+            width: 25%;
+            margin-left: 0;
+            padding: 0 $social-block-padding;
+        img{
+            width: 100%;
+        }
+    }
+    }
+}
