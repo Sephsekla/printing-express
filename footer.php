@@ -24,7 +24,7 @@
                 <p>01234 567890</p>
             </div>
 
-            <div class="col-12 col-lg-6 right">
+            <div class="col-12 col-lg-6 align-right">
 				<?php get_social() ?>
                 <p>&copy; Printing Express <?php echo date('Y') ?> | Website by JBR Digital</p>
             </div>
