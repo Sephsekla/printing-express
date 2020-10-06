@@ -54,8 +54,21 @@ html, body, p{
 
 .flickity-button{
     min-width: 0;
-    background-color: transparent;
+  
     color: $blue;
 
+    @media(min-width: 576px){
+
+    background-color: transparent;
+
+    &.previous{
+        left: -50px;
+    }
+
+    &.right{
+        right: -50px;
+    }
+
+}
 
 }
