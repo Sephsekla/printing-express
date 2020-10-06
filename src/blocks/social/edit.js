@@ -95,13 +95,13 @@ const editGrid = ( props ) => {
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 grid-charity-wrapper'}>
                 <div className={classnames('container split-lg-container grid-content charity', !reverseOrder ? 'left' : 'right')}>
-                        <p>Social Feed goes here</p>
+                        <p>Social Icons go here</p>
                     </div>
 
                 </div>
                 <div className={'col-12 col-lg-6 grid-content-wrapper'}>
                     <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
-                        <InnerBlocks />
+                        <p>Social feed goes here</p>
                     </div>
                 </div>
             </div>
