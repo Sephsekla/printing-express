@@ -19,7 +19,7 @@
  */
 function related_products_args( $args )
 {
-    $args['posts_per_page'] = 6; // 4 related products
+    $args['posts_per_page'] = 18; // 4 related products
     $args['columns'] = 6; // arranged in 2 columns
     return $args;
 }

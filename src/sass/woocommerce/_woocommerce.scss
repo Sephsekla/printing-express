@@ -5,6 +5,51 @@
         justify-content: center;
         padding-left: 0;
 
+        &.flickity-enabled{
+            display: block;
+           
+
+            
+        }
+
+        &:after{
+            content: 'flickity';
+            display: none;
+        }
+
+
+        &.no-slider{
+            &:after{
+                content: '';
+            }
+    
+        }
+
+        &.slider-sm{
+            &:after{
+                @media(min-width: 576px){
+                content: '';
+                }
+            }
+        }
+
+        &.slider-med{
+            &:after{
+                @media(min-width: 768px){
+                content: '';
+                }
+            }
+        }
+
+        &.slider-lg{
+            &:after{
+                @media(min-width: 992px){
+                content: '';
+                }
+            }
+        }
+
+
         li {
             @extend .col-12;
             @extend .col-sm-6;

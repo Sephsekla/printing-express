@@ -45,7 +45,7 @@ function get_featured()
 {
     $args = array(
         'post_type' => 'product',
-        'posts_per_page' => 6,
+        'posts_per_page' => 18,
         'tax_query' => array(
                 array(
                     'taxonomy' => 'product_visibility',
