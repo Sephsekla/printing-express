@@ -58,10 +58,12 @@
 }
 
 @import 'archive';
-.woocommerce-breadcrumb{
-    color: $dark;
+.woocommerce .woocommerce-breadcrumb{
+    color: $dark !important;
 
     a{
         font-weight: bold;
+        color: $dark !important;
+        text-decoration: none;
     }
 }
