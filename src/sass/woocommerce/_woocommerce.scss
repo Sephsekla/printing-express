@@ -3,6 +3,7 @@
     ul {
         @extend .row;
         justify-content: center;
+        padding-left: 0;
 
         li {
             @extend .col-12;
