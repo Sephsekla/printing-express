@@ -48,12 +48,14 @@ function render_social($block_attributes,$content)
     <div class="row no-gutters <?php echo $block_attributes['reverseOrder'] ? 'flex-row-reverse' : '' ?>">
         <div class="col-12 col-lg-6 bg-white color-dark">
             <div class="container split-lg-container grid-content <?php echo !$block_attributes['reverseOrder'] ? 'left' : 'right' ?>">
+            <h2>Follow Us</h2>
             <p><?php assets\get_social() ?></p>
             </div>
         </div>
         <div class="col-12 col-lg-6 grid-content-wrapper">
             <div
                 class="container split-lg-container grid-content <?php echo $block_attributes['reverseOrder'] ? 'left' : 'right' ?>">
+                <h2>Latest News</h2>
                 <?php 
                 
                 echo do_shortcode( '[instagram-feed]' )

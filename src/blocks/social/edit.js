@@ -94,13 +94,15 @@ const editGrid = ( props ) => {
         <section className={ classnames('pe-grid_wrapper',className, `bg-${props.attributes.background}`) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={'col-12 col-lg-6 grid-charity-wrapper'}>
-                <div className={classnames('container split-lg-container grid-content charity', !reverseOrder ? 'left' : 'right')}>
+                <div className={classnames('container split-lg-container grid-content color-dark bg-white', !reverseOrder ? 'left' : 'right')}>
+                    <h2>Follow Us</h2>
                         <p>Social Icons go here</p>
                     </div>
 
                 </div>
                 <div className={'col-12 col-lg-6 grid-content-wrapper'}>
                     <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
+                        <h2>Latest News</h2>
                         <p>Social feed goes here</p>
                     </div>
                 </div>
