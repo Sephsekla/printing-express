@@ -1,4 +1,4 @@
-.woocommerce-pagination{
+.woocommerce nav.woocommerce-pagination{
     .page-numbers{
         border: 0;
 
@@ -21,11 +21,15 @@
                 background-position: right;
                 background-size: contain;
                 background-repeat: no-repeat;
+                transform-origin: center;
             }
 
             .prev{
-                transform-origin: center;
-                transform: scalex(-1);
+                transform: rotate(90deg);
+            }
+
+            .next{
+                transform: rotate(-90deg);
             }
         }
     }
