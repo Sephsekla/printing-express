@@ -14,22 +14,15 @@ select, input{
     padding: 8px 15px;
 }
 
-td.value{
-    position: relative;
-    select{
-        padding-right: 25px;
-    }
-    &::after{
-        content: "";
-        display: block;
-        position: absolute;
-        right: 10px;
-        top: 0;
-        width: 20px;
-        height: 34px;
-        pointer-events: none;
-        background-image: url('./assets/arrow-grey.svg');
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+select, select.iconic-wlv-terms{
+    padding: 8px 25px 8px 15px !important;
+    background-image: url('./assets/arrow-grey.svg');
+    background-position: right center;
+    background-position: right 5px center;
+    background-repeat: no-repeat;
+    background-size: auto 40%;
+}
+
+.iconic-wlv-terms{
+    margin-bottom: 20px !important;
 }
