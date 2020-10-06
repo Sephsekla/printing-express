@@ -66,9 +66,6 @@ add_filter('woocommerce_related_products', __NAMESPACE__.'\\exclude_product_cate
 
 
 
-add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
-
-
 add_filter(
     'woocommerce_product_related_products_heading',
     function () {
