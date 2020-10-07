@@ -34,3 +34,13 @@ select, select.iconic-wlv-terms{
 .iconic-wlv-terms{
     margin-bottom: 20px !important;
 }
+
+a{
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+
+    &:visited{
+        color: inherit;
+    }
+}
