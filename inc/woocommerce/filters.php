@@ -92,7 +92,7 @@ add_filter('woocommerce_product_subcategories_args', __NAMESPACE__.'\\exclude_la
 function exclude_large_format_subcat( $array ) { 
     // make filter magic happen here... 
 
-    $term_slug = 'large-format';
+    $term_slug = 8;
 
     $array['exclude'] = array($term_slug);
 
