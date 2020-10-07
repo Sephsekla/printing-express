@@ -105,6 +105,10 @@ const editGrid = withColors('background')(( props ) => {
                
                 { ! imgArray.length ? (
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>
+                    <div className="container quote-wrapper">
+                        <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
+                        <p class="name">Nick & Mark <br/>Directors</p>
+                    </div>
                     <MediaUpload
                         onSelect={ onSelectImage }
                         multiple="true"
@@ -124,7 +128,10 @@ const editGrid = withColors('background')(( props ) => {
                     ) : (
 
                         <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>  
-
+                            <div className="container quote-wrapper">
+                                <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
+                                <p class="name">Nick & Mark <br/>Directors</p>
+                            </div>
                         
 
                         <CreateInnerImage {...props }/>
@@ -146,7 +153,7 @@ const editGrid = withColors('background')(( props ) => {
 
                 
                 <div className={'col-12 col-lg-8 grid-content-wrapper color-dark'}>
-                    <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
+                    <div className={classnames('container grid-content')}>
                         <InnerBlocks />
                     </div>
                 </div>

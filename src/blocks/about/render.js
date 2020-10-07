@@ -14,10 +14,14 @@ className, setAttributes, isSelected } = props;
         <section className={ classnames('pe-about_wrapper',className) }>
             <div className={classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${background}`)}>
+                    <div className="container quote-wrapper">
+                    <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
+                    <p class="name">Nick & Mark <br/>Directors</p>
+                    </div>
                     <CreateInnerImage {...props }/>
                 </div>
                 <div className={'col-12 col-lg-8 grid-content-wrapper color-dark'}>
-                    <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
+                    <div className={classnames('container grid-content')}>
                         <InnerBlocks.Content />
                     </div>
                 </div>

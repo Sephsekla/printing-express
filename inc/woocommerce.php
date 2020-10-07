@@ -73,7 +73,15 @@ add_action('woocommerce_before_shop_loop_item',function(){
     echo '<div class="product-loop-inner">';
 },0);
 
+add_action('woocommerce_before_subcategory',function(){
+    echo '<div class="product-loop-inner">';
+},0);
+
 add_action('woocommerce_after_shop_loop_item',function(){
+    echo '</div>';
+},100);
+
+add_action('woocommerce_after_subcategory',function(){
     echo '</div>';
 },100);
 
