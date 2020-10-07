@@ -1,0 +1,32 @@
+.pe-about_wrapper{
+
+    .image-column{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        color: $white;
+
+        &.bg-white,
+        &.bg-yellow {
+            color: $dark;
+        }
+
+
+    }
+
+    .name{
+        @include title-font;
+        font-size: 1.4rem;
+    }
+
+    .quote{
+        font-weight: bold;
+        font-size: 1.2rem;
+
+        &::before, &::after{
+            content: "\0022";
+            display: inline;
+        }
+    }
+}

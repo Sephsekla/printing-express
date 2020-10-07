@@ -53,6 +53,11 @@ export default registerBlockType( 'printing/about', {
             default: "Your quote here..."
         
         },
+        name: {
+            type: "string",
+            default: "Your name here..."
+        
+        },
 
     },
             

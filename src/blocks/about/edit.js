@@ -9,6 +9,8 @@ const {  Toolbar,
     FormToggle,
     ColorPalette } = wp.components;
 
+const {Fragment} = wp.element;
+
 import {CreateInnerImage} from '../shared/multi-images.js';
 
 
@@ -22,7 +24,7 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder, imgArray, quote } = props.attributes;
+    const { imgID, imgURL, imgAlt, reverseOrder, imgArray, quote, name } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
@@ -103,7 +105,7 @@ const editGrid = withColors('background')(( props ) => {
         <section className={ classnames('pe-about_wrapper',className) }>
             <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                
-                { ! imgArray.length ? (
+               
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>
                     <div className="container quote-wrapper">
                     <RichText
@@ -114,8 +116,17 @@ const editGrid = withColors('background')(( props ) => {
                 onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
                 placeholder={ 'Quote...' } // Display this text before any content has been added by the user
             />
-                        <p class="name">Nick & Mark <br/>Directors</p>
+                         <RichText
+                tagName="p" // The tag here is the element output and editable in the admin
+                className={ 'name' }
+                value={ name } // Any existing content, either from the database or an attribute default
+                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+                onChange={ ( name ) => setAttributes( { name } ) } // Store updated content as a block attribute
+                placeholder={ 'Name...' } // Display this text before any content has been added by the user
+            />
                     </div>
+                    { ! imgArray.length ? (
+               
                     <MediaUpload
                         onSelect={ onSelectImage }
                         multiple="true"
@@ -130,23 +141,12 @@ const editGrid = withColors('background')(( props ) => {
                         ) }
                     >
                     </MediaUpload>
-                </div>
+
 
                     ) : (
 
-                        <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>  
-                            <div className="container quote-wrapper">
-                            <RichText
-                tagName="p" // The tag here is the element output and editable in the admin
-                className={ 'quote' }
-                value={ quote } // Any existing content, either from the database or an attribute default
-                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
-                onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
-                placeholder={ 'Quote...' } // Display this text before any content has been added by the user
-            />
-                                <p class="name">Nick & Mark <br/>Directors</p>
-                            </div>
                         
+                        <Fragment>
 
                         <CreateInnerImage {...props }/>
 
@@ -159,11 +159,17 @@ const editGrid = withColors('background')(( props ) => {
                             Remove Images
                             </Button>
                     
-                            ) : null}
+                            ) : null} 
 
-            
-                    </div>
+                    </Fragment>
+
+                        
+
+                    
+
                     )}
+                </div>
+
 
                 
                 <div className={'col-12 col-lg-8 grid-content-wrapper color-dark'}>

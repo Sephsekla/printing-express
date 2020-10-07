@@ -6,7 +6,7 @@ import {CreateInnerImage} from '../shared/multi-images.js';
 
 const renderGrid = props => {
 
-const { attributes: { imgID, imgURL, imgAlt, reverseOrder, background, quote },
+const { attributes: { imgID, imgURL, imgAlt, reverseOrder, background, quote, name },
 className, setAttributes, isSelected } = props;
 
 
@@ -16,7 +16,7 @@ className, setAttributes, isSelected } = props;
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${background}`)}>
                     <div className="container quote-wrapper">
                     <RichText.Content tagName="p" value={ quote } className="quote"/>
-                    <p className="name">Nick & Mark <br/>Directors</p>
+                    <RichText.Content tagName="p" value={ name } className="name"/>
                     </div>
                     <CreateInnerImage {...props }/>
                 </div>
