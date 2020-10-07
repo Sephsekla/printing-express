@@ -18,6 +18,10 @@ select, input, textarea{
     @include input;
 }
 
+input[type="checkbox"], input[type="radio"]{
+    appearance: auto;
+}
+
 select, select.iconic-wlv-terms{
     padding: 8px 25px 8px 15px !important;
     background-image: url('./assets/arrow-grey.svg');
