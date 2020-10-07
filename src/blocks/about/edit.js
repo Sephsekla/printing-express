@@ -1,6 +1,6 @@
 var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks, MediaUpload, Editable, InspectorControls, BlockControls, withColors, PanelColorSettings, getColorClassName} = wp.blockEditor;
+const { InnerBlocks, MediaUpload, Editable, InspectorControls, BlockControls, withColors, PanelColorSettings, getColorClassName, RichText} = wp.blockEditor;
 const {  Toolbar,
     Button,
     Tooltip,
@@ -22,7 +22,7 @@ const editGrid = withColors('background')(( props ) => {
 
 
 
-    const { imgID, imgURL, imgAlt, reverseOrder, imgArray } = props.attributes;
+    const { imgID, imgURL, imgAlt, reverseOrder, imgArray, quote } = props.attributes;
     
         let background = props.background;
         let customBackground = props.attributes.customBackground;
@@ -106,7 +106,14 @@ const editGrid = withColors('background')(( props ) => {
                 { ! imgArray.length ? (
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>
                     <div className="container quote-wrapper">
-                        <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
+                    <RichText
+                tagName="p" // The tag here is the element output and editable in the admin
+                className={ 'quote' }
+                value={ quote } // Any existing content, either from the database or an attribute default
+                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+                onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
+                placeholder={ 'Quote...' } // Display this text before any content has been added by the user
+            />
                         <p class="name">Nick & Mark <br/>Directors</p>
                     </div>
                     <MediaUpload
@@ -129,7 +136,14 @@ const editGrid = withColors('background')(( props ) => {
 
                         <div className={classnames('col-12 col-lg-4 image-column', `bg-${props.attributes.background}`)}>  
                             <div className="container quote-wrapper">
-                                <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
+                            <RichText
+                tagName="p" // The tag here is the element output and editable in the admin
+                className={ 'quote' }
+                value={ quote } // Any existing content, either from the database or an attribute default
+                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+                onChange={ ( quote ) => setAttributes( { quote } ) } // Store updated content as a block attribute
+                placeholder={ 'Quote...' } // Display this text before any content has been added by the user
+            />
                                 <p class="name">Nick & Mark <br/>Directors</p>
                             </div>
                         

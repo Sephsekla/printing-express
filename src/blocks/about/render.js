@@ -1,12 +1,12 @@
 var classnames = require('classnames');
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks } = wp.blockEditor;
+const { InnerBlocks, RichText } = wp.blockEditor;
 
 import {CreateInnerImage} from '../shared/multi-images.js';
 
 const renderGrid = props => {
 
-const { attributes: { imgID, imgURL, imgAlt, reverseOrder, background },
+const { attributes: { imgID, imgURL, imgAlt, reverseOrder, background, quote },
 className, setAttributes, isSelected } = props;
 
 
@@ -15,8 +15,8 @@ className, setAttributes, isSelected } = props;
             <div className={classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
                 <div className={classnames('col-12 col-lg-4 image-column', `bg-${background}`)}>
                     <div className="container quote-wrapper">
-                    <p class="quote">“We are professional, fun-loving and transparent people who wanted to build a business that demonstrates exactly those things”</p>
-                    <p class="name">Nick & Mark <br/>Directors</p>
+                    <RichText.Content tagName="p" value={ quote } className="quote"/>
+                    <p className="name">Nick & Mark <br/>Directors</p>
                     </div>
                     <CreateInnerImage {...props }/>
                 </div>
