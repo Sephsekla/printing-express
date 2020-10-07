@@ -11,38 +11,19 @@ className, setAttributes, isSelected } = props;
 
 
     return (
-        <section className={ classnames('pe-about_wrapper',className) }>
-
-        <div className={ classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
-
-            
-
-            
-           
-          
-
-                    <div className={classnames('col-12 col-lg-4',`bg-${props.attributes.background}`)}>  
-                    <p>Test goes here</p>
-                    <div className="image-column">
-
-                    
-
+        <section className={ classnames('pe-grid_wrapper',className) }>
+            <div className={classnames('row', 'no-gutters', reverseOrder ? 'flex-row-reverse' : '')}>
+                <div className={classnames('col-12 col-lg-6 image-column', `bg-${background}`)}>
                     <CreateInnerImage {...props }/>
-
-
-
-                        </div>
                 </div>
-       
-
-            
-            <div className={'col-12 col-lg-8 grid-content-wrapper'}>
-                    <InnerBlocks.content />
+                <div className={'col-12 col-lg-6 grid-content-wrapper'}>
+                    <div className={classnames('container split-lg-container grid-content', reverseOrder ? 'left' : 'right')}>
+                        <InnerBlocks.Content />
+                    </div>
+                </div>
             </div>
-        </div>
-        
-    </section>
-
+            
+        </section>
     );
 }
 
