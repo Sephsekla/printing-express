@@ -84,3 +84,18 @@ function change_breadcrumb_delimiter( $defaults ) {
 	$defaults['delimiter'] = ' &gt; ';
 	return $defaults;
 }
+
+
+add_filter('woocommerce_product_subcategories_args', __NAMESPACE__.'\\exclude_large_format_subcat',10,1);
+
+// define the woocommerce_product_subcategories_args callback 
+function exclude_large_format_subcat( $array ) { 
+    // make filter magic happen here... 
+
+    $term_slug = 'large-format';
+
+    $array['exclude'] = array($term_slug);
+
+
+    return $array; 
+}; 
