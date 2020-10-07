@@ -6,3 +6,7 @@ button, .btn, input[type=submit], .wp-block-button__link{
 .has-text-align-center+.wp-block-buttons { // Center alignent after centered text
    text-align: center;
 }
+
+.woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover{
+   background-color: $yellow;
+}

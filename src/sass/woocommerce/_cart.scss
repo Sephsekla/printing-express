@@ -1,0 +1,19 @@
+
+.woocommerce {
+    table.shop_table {
+        border: none;
+    }
+}
+
+#add_payment_method table.cart td.actions .coupon .input-text, .woocommerce-cart table.cart td.actions .coupon .input-text, .woocommerce-checkout table.cart td.actions .coupon .input-text{
+    @include input;
+    width: auto !important;
+    min-width: 80px;
+}
+
+.cart_item{
+    a{
+        color: $dark;
+        text-decoration: none;
+    }
+}

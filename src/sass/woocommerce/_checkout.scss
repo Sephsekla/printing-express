@@ -1,3 +1,54 @@
-.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-1{
+.woocommerce .col2-set .col-1, .woocommerce-page .col2-set .col-2{
     max-width: 100%;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.woocommerce-message, .woocommerce-info{
+    
+   &::before{
+    color: $dark;
+
+    }
+
+    border-top-color: transparent;
+
+}
+
+.woocommerce-checkout-review-order{
+
+}
+
+#add_payment_method #payment, .woocommerce-cart #payment, .woocommerce-checkout #payment{
+    border-radius: 0;
+    background-color: transparent;
+    border: 2px solid $yellow;
+}
+
+.place-order, #add_payment_method #payment ul.payment_methods, .woocommerce-cart #payment ul.payment_methods, .woocommerce-checkout #payment ul.payment_methods{
+    border-top: 0;
+    border-bottom: 0;
+}
+
+.showcoupon{
+    @include button;
+    float: right;
+    background-color: $yellow;
+    text-decoration: none;
+}
+
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register{
+border-radius: 0;
+border: 2px solid $yellow;
+}
+
+.select2-container .select2-selection--single{
+    @extend select;
+    border-radius: 0;
+    height: auto;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+    display: none;
 }

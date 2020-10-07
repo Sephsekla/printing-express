@@ -7,11 +7,15 @@ img{
     height: auto;
 }
 
-select, input, textarea{
+@mixin input{
     border: 0;
     appearance: none;
     background-color: $light;
     padding: 8px 15px;
+}
+
+select, input, textarea{
+    @include input;
 }
 
 select, select.iconic-wlv-terms{
