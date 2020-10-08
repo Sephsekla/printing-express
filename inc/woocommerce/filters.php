@@ -99,3 +99,6 @@ function exclude_large_format_subcat( $array ) {
 
     return $array; 
 }; 
+
+
+

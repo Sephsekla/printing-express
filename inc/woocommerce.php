@@ -38,6 +38,9 @@ add_action('woocommerce_product_query', __NAMESPACE__.'\\exclude_large_format');
 
 function get_featured()
 {
+
+    remove_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_price',10);
+
     $args = array(
         'post_type' => 'product',
         'posts_per_page' => 18,
@@ -58,6 +61,8 @@ function get_featured()
         echo __('No products found');
     }
     wp_reset_postdata();
+
+    add_action('woocommerce_after_shop_loop_item_title','woocommerce_template_loop_price',10);
 }
 
 
