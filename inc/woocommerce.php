@@ -129,8 +129,12 @@ add_action('woocommerce_before_shop_loop',function(){
 },15);
 
 
-add_action('woocommerce_before_main_content',function(){
-    if(is_singular('product') && current_user_can('administrator')){
-        echo 'Customisable: '.get_post_meta( get_the_id(), 'pf_customizable', true );
+add_action('woocommerce_after_single_product_summary',function(){
+    if(!get_post_meta( get_the_id(), 'pf_customizable', true ) && !has_term('large-format', 'product_cat', null)){
+
+        $message = "Please contact us after placing your order to provide customisation artwork.";
+
+        
+        echo '<p class="woocommerce-info" style="width: 100%">'.$message.'</p>';
     }
 },1);
