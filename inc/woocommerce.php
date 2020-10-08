@@ -127,3 +127,10 @@ add_action('woocommerce_before_shop_loop',function(){
     get_product_search_form();
 
 },15);
+
+
+add_action('woocommerce_before_main_content',function(){
+    if(is_singular('product') && current_user_can('administrator')){
+        echo 'Customisable: '.get_post_meta( get_the_id(), 'pf_customizable', true );
+    }
+},1);
