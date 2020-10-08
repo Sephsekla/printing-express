@@ -96,6 +96,7 @@ add_action('init', __NAMESPACE__.'\\disable_woo_commerce_sidebar');
 add_action('woocommerce_before_main_content',function(){
     get_template_part( 'template-parts/banner' );
 
+
     echo '<section class="woocommerce-wrap">';
     echo '<div class="container">';
 },0);
@@ -119,3 +120,10 @@ add_action('woocommerce_after_single_product_summary',function(){
     echo '</div>';
     echo '</section>';
 },21);
+
+add_action('woocommerce_before_shop_loop',function(){
+
+
+    get_product_search_form();
+
+},15);
