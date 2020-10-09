@@ -25,11 +25,15 @@ const CharityImage  = withSelect( ( select, props) => {
     }
     else{
 
+
+        let thumbnail = media.media_details.sizes.medium ? media.media_details.sizes.medium : media.media_details.sizes.full
+
     
 
 
 
-        return[console.log(media.media_details.mime_type),console.log(media),<p><img src={media.media_details.sizes.medium.source_url} width={media.media_details.sizes.medium.width} height={media.media_details.sizes.medium.height} /></p>]; 
+        return[console.log(media.media_details.mime_type),
+        <p><img src={thumbnail.source_url} width={thumbnail.width} height={thumbnail.height} /></p>]; 
 
     }
 }
