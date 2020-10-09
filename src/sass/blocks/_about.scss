@@ -27,10 +27,22 @@
     .quote{
         font-weight: bold;
         font-size: 1.2rem;
+        line-height: 1.5;
 
         &::before, &::after{
             content: "\0022";
             display: inline;
+        }
+
+        &-wrapper.container{
+            padding-top: 80px;
+            padding-bottom: 80px;
+
+            @media(min-width: 992px){
+                max-width: 500px;
+                padding-left: 50px;
+                padding-right: 50px;
+            }
         }
     }
 }
