@@ -2,10 +2,9 @@
 // import { InnerBlocks } from '@wordpress/block-editor';
 
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks, InspectorControls } = wp.blockEditor;
+const { InnerBlocks, InspectorControls, RichText } = wp.blockEditor;
 
-import { editGrid } from './about/edit.js';
-import { renderGrid } from './about/render.js';
+import { editServices } from './services/edit.js';
 
 
  
@@ -25,6 +24,11 @@ export default registerBlockType( 'printing/services', {
         customBackground: {
             type: "string"
         },
+        title: {
+            type: "string",
+            default: "Your title here..."
+        
+        },
 
     },
             
@@ -35,19 +39,15 @@ export default registerBlockType( 'printing/services', {
  
    // edit: editGrid,
 
-   edit: () => {
-       return <section className="bg-blue color-white pe-services_wrapper">
-                <div className="container">
-                    <p>Hello</p>
-                </div>
-              </section>
-       
-   },
+   edit: editServices,
 
-   save: () => {
+   save: (props) => {
+
+    const {title} = props.attributes;
+
     return <section className="bg-blue color-white pe-services_wrapper">
                 <div className="container">
-                    <p>Hello</p>
+                    <h2>{title}</h2>
                 </div>
               </section>
        

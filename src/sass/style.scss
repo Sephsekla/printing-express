@@ -32,6 +32,7 @@ html, body, p{
 @import 'blocks/table';
 @import 'blocks/social';
 @import 'blocks/about';
+@import 'blocks/services';
 
 
 
@@ -44,7 +45,7 @@ html, body, p{
 
     margin-top: 80px;
 
-    &+.pe-grid_wrapper{
+    &+.pe-grid_wrapper, &+.pe-about_wrapper, &+.pe-services_wrapper{
         margin-top: 0;
     }
 
