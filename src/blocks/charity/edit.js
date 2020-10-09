@@ -23,10 +23,15 @@ const CharityImage  = withSelect( ( select, props) => {
     if ( ! media ) {
         return 'Loading...';
     }
+    else{
+
+    
 
 
 
-return[console.log(media.media_details.mime_type),console.log(media),<p><img src={media.media_details.sizes.medium.source_url} width={media.media_details.sizes.medium.width} height={media.media_details.sizes.medium.height} /></p>]; 
+        return[console.log(media.media_details.mime_type),console.log(media),<p><img src={media.media_details.sizes.medium.source_url} width={media.media_details.sizes.medium.width} height={media.media_details.sizes.medium.height} /></p>]; 
+
+    }
 }
 
 )
