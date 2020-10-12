@@ -104,3 +104,38 @@ function exclude_large_format_subcat( $array ) {
 
 
 
+
+  
+function disable_invoice_personal( $available_gateways ) {
+     
+   if ( ! is_admin() ) {
+
+        
+     
+      if ( ! WC()->cart->is_empty() ) {
+        // Loop though cart items
+        foreach(WC()->cart->get_cart() as $cart_item ) {
+   
+
+            $product = get_product($cart_item['product_id']);
+
+            if($product && ! $product->is_type('subscription') ){
+
+            unset($available_gateways['bacs']);
+            unset($available_gateways['cheque']);
+
+            }
+          
+    }
+        
+   }
+
+   remove_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_invoice_personal',10 );
+     
+   return $available_gateways;
+   
+}
+
+}
+
+add_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_invoice_personal',10 );
