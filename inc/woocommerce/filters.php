@@ -121,6 +121,8 @@ function disable_invoice_personal( $available_gateways ) {
 
             if($product && ! $product->is_type('subscription') ){
 
+                echo $product->get_type();
+
             unset($available_gateways['bacs']);
             unset($available_gateways['cheque']);
 
