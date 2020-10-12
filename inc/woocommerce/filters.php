@@ -92,9 +92,9 @@ add_filter('woocommerce_product_subcategories_args', __NAMESPACE__.'\\exclude_la
 function exclude_large_format_subcat( $array ) { 
     // make filter magic happen here... 
 
-    $term_slug = 22;
+    $term_slugs = [22, 15];
 
-    $array['exclude'] = array($term_slug);
+    $array['exclude'] = $term_slugs;
 
    // print_r($array);
 
