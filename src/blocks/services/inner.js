@@ -2,7 +2,8 @@
 // import { InnerBlocks } from '@wordpress/block-editor';
 
 const { registerBlockType} = wp.blocks;
-const { InnerBlocks, InspectorControls, RichText } = wp.blockEditor;
+const { InnerBlocks, InspectorControls, RichText, URLInput } = wp.blockEditor;
+const {Fragment} = wp.element;
 
 
 
@@ -28,6 +29,9 @@ export default registerBlockType( 'printing/services-inner', {
             default: "icon"
         
         },
+        url: {
+            type: "string"
+        }
 
 
     },
@@ -41,12 +45,19 @@ export default registerBlockType( 'printing/services-inner', {
 
    edit: (props) => {
 
-    const {title, icon} = props.attributes;
+    const {title, icon, url} = props.attributes;
 
     const {className, setAttributes, isSelected} = props;
 
     return <div className="service">
+
+
+                <div style={{backgroundImage: `url(${localize.themeUri}dist/assets/icons/services/${icon}.svg)`}} >
+                </div>   
+
                 {isSelected ? 
+
+                <Fragment>
 
                 <RichText
                 tagName="p" // The tag here is the element output and editable in the admin
@@ -57,9 +68,15 @@ export default registerBlockType( 'printing/services-inner', {
                 placeholder={ 'Your icon here...' } // Display this text before any content has been added by the user
                 />
 
-                :
+                <URLInput
+				value={ url }
+				onChange={ ( url, post ) => setAttributes( { url } ) }
+			/>
+            </Fragment>
 
-                <img src={`${localize.themeUri}/dist/assets/icons/services/${icon}.svg`} /> }
+            : ""
+
+            }
 
                     <RichText
                 tagName="p" // The tag here is the element output and editable in the admin
@@ -69,6 +86,9 @@ export default registerBlockType( 'printing/services-inner', {
                 onChange={ ( title ) => setAttributes( { title } ) } // Store updated content as a block attribute
                 placeholder={ 'Your title here...' } // Display this text before any content has been added by the user
                 />
+
+
+               
                 </div>
              
        
@@ -77,12 +97,15 @@ export default registerBlockType( 'printing/services-inner', {
 
    save: (props) => {
 
-    const {title, icon} = props.attributes;
+    const {title, icon, url} = props.attributes;
 
     return <div className="service col-12 service-column">
-           <img src={`${localize.themeUri}/dist/assets/icons/services/${icon}.svg`} />
-                    <p>{title}</p>
+                <a href="{url}">
+                <div style={{backgroundImage: `url(${localize.themeUri}dist/assets/icons/services/${icon}.svg)`}} >
                 </div>
+                    <p>{title}</p>
+                </a>
+            </div>
              
        
     
