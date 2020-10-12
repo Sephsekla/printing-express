@@ -20,6 +20,7 @@ const editServices = withColors('background')(( props ) => {
 
     const {className, setAttributes, isSelected} = props;
 
+    const ALLOWED_BLOCKS = [ 'printing/services-inner' ];
 
 
 
@@ -41,6 +42,7 @@ const editServices = withColors('background')(( props ) => {
                 onChange={ ( title ) => setAttributes( { title } ) } // Store updated content as a block attribute
                 placeholder={ 'title' } // Display this text before any content has been added by the user
                 />
+                <InnerBlocks orientation="horizontal" allowedBlocks={ ALLOWED_BLOCKS }/>
                 </div>
               </section>
 })

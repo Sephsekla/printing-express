@@ -6,6 +6,8 @@ const { InnerBlocks, InspectorControls, RichText } = wp.blockEditor;
 
 import { editServices } from './services/edit.js';
 
+import './services/inner.js';
+
 
  
 export default registerBlockType( 'printing/services', {
@@ -48,6 +50,9 @@ export default registerBlockType( 'printing/services', {
     return <section className="bg-blue color-white pe-services_wrapper">
                 <div className="container">
                     <h2>{title}</h2>
+                    <div className="row justify-content-center">
+                        <InnerBlocks.Content/>
+                    </div>
                 </div>
               </section>
        
