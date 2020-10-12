@@ -34,12 +34,17 @@ function init() {
   */
  function blocks(){
 
-	wp_enqueue_script(
+	wp_register_script(
 		'printing-blocks-js',
 		get_template_directory_uri() . '/dist/blocks/blocks.js',
 		[ 'wp-i18n', 'wp-element', 'wp-blocks', 'wp-components', 'wp-editor' ],
 		filemtime( get_template_directory() . '/dist/blocks/blocks.js' )
 	);
+
+
+	wp_localize_script('printing-blocks-js', 'localize', ['themeUri'=> trailingslashit(get_template_directory_uri())]);
+
+	wp_enqueue_script('printing-blocks-js');
 
 	// Enqueue optional editor only styles
 	wp_enqueue_style(

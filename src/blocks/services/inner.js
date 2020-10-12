@@ -23,6 +23,12 @@ export default registerBlockType( 'printing/services-inner', {
             default: "Your title here..."
         
         },
+        icon: {
+            type: "string",
+            default: "icon"
+        
+        },
+
 
     },
             
@@ -35,11 +41,26 @@ export default registerBlockType( 'printing/services-inner', {
 
    edit: (props) => {
 
-    const {title} = props.attributes;
+    const {title, icon} = props.attributes;
 
     const {className, setAttributes, isSelected} = props;
 
     return <div className="service">
+                {isSelected ? 
+
+                <RichText
+                tagName="p" // The tag here is the element output and editable in the admin
+                //className={ }
+                value={ icon } // Any existing content, either from the database or an attribute default
+                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+                onChange={ ( icon ) => setAttributes( { icon } ) } // Store updated content as a block attribute
+                placeholder={ 'Your icon here...' } // Display this text before any content has been added by the user
+                />
+
+                :
+
+                <img src={`${localize.themeUri}/dist/assets/icons/services/${icon}.svg`} /> }
+
                     <RichText
                 tagName="p" // The tag here is the element output and editable in the admin
                 //className={ }
@@ -56,9 +77,10 @@ export default registerBlockType( 'printing/services-inner', {
 
    save: (props) => {
 
-    const {title} = props.attributes;
+    const {title, icon} = props.attributes;
 
     return <div className="service col-12 service-column">
+           <img src={`${localize.themeUri}/dist/assets/icons/services/${icon}.svg`} />
                     <p>{title}</p>
                 </div>
              
