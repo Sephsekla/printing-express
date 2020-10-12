@@ -37,8 +37,17 @@ export default registerBlockType( 'printing/services-inner', {
 
     const {title} = props.attributes;
 
+    const {className, setAttributes, isSelected} = props;
+
     return <div className="service">
-                    <p>{title}</p>
+                    <RichText
+                tagName="p" // The tag here is the element output and editable in the admin
+                //className={ }
+                value={ title } // Any existing content, either from the database or an attribute default
+                formattingControls={ [ ] } // Allow the content to be made bold or italic, but do not allow other formatting options
+                onChange={ ( title ) => setAttributes( { title } ) } // Store updated content as a block attribute
+                placeholder={ 'Your title here...' } // Display this text before any content has been added by the user
+                />
                 </div>
              
        
