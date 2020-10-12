@@ -1,3 +1,5 @@
+$font-path: '../assets/fonts/BigJohnPRO/BigJohnPRO-Bold.otf';
+
 @import '~bootstrap/scss/bootstrap-grid';
 
 @import '~@sephsekla/picture-cover/mixin';
@@ -11,7 +13,7 @@
 @import 'blocks/table';
 @import 'blocks/social';
 @import 'blocks/about';
-
+@import 'blocks/services';
 
 
 .wp-block-button__link{

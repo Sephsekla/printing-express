@@ -1,3 +1,5 @@
+$font-path: './assets/fonts/BigJohnPRO/BigJohnPRO-Bold.otf';
+
 
 @import 'variables/variables';
 @import '~compass-mixins';
@@ -32,19 +34,20 @@ html, body, p{
 @import 'blocks/table';
 @import 'blocks/social';
 @import 'blocks/about';
+@import 'blocks/services';
 
 
 
 @import 'sections/sections';
 
-.alignfull.wp-block-group, .pe-grid_wrapper, .pe-about_wrapper{
+.alignfull.wp-block-group, .pe-grid_wrapper, .pe-about_wrapper, .pe-services_wrapper{
     margin: 0 calc(50% - 50vw);
     max-width: 100vw;
     width: 100vw;
 
     margin-top: 80px;
 
-    &+.pe-grid_wrapper{
+    &+.pe-grid_wrapper, &+.pe-about_wrapper, &+.pe-services_wrapper{
         margin-top: 0;
     }
 

@@ -1,0 +1,43 @@
+.pe-services_wrapper {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 80px;
+
+    .block-editor-block-list__layout {
+        @extend .row;
+        justify-content: center;
+    }
+
+    .wp-block {
+        @extend .col-12;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .service-column,
+    .wp-block {
+        @extend .col-sm-6;
+        @extend .col-md-4;
+        @extend .col-lg-3;
+
+
+        @media (min-width: 1200px) {
+            flex: 0 0 20%;
+            max-width: 20%;
+
+        }
+
+    }
+
+    .service{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        div{
+            padding-top: 40%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-bottom: 20px;
+        }
+    }
+}

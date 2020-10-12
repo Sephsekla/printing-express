@@ -135,6 +135,6 @@ add_action('woocommerce_after_single_product_summary',function(){
         $message = "Please contact us after placing your order to provide customisation artwork.";
 
         
-        echo '<p class="woocommerce-info" style="width: 100%">'.$message.'</p>';
+        echo '<p class="woocommerce-info bg-yellow" style="width: 100%">'.$message.'</p>';
     }
 },1);

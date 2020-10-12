@@ -74,7 +74,8 @@ module.exports = {
 
   //When run in WordPress we want to use external jquery
   externals: {
-    jquery: 'jQuery'
+    jquery: 'jQuery',
+    lodash: 'lodash'
   },
   module: {
     rules: [{
@@ -84,6 +85,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             presets: ['babel-preset-env'],
+            plugins: ["lodash"],
           }
         }, {
           loader: "ifdef-loader",
