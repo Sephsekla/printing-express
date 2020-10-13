@@ -59,6 +59,7 @@ module.exports = {
 
     'main': './src/index.js',
     'blocks/blocks': './src/blocks.js',
+    'meta': './src/meta.js'
 
   },
   plugins: [

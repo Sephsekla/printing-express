@@ -109,3 +109,12 @@ add_theme_support( 'wc-product-gallery-zoom' );
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\init' );
 
+add_action( 'init', function(){
+ 
+	register_meta( 'post', 'printing_banner', array(
+ 		'type'		=> 'string',
+ 		'single'	=> true,
+ 		'show_in_rest'	=> true,
+ 	) );
+ 
+});

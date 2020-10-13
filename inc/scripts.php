@@ -54,6 +54,15 @@ function init() {
 		filemtime( get_template_directory() . '/dist/blocks/editor-blocks.css' )
 	);
 
+	wp_register_script(
+		'printing-meta',
+		get_template_directory_uri() . '/dist/meta.js',
+		[ 'wp-i18n', 'wp-blocks', 'wp-edit-post', 'wp-element', 'wp-editor', 'wp-components', 'wp-data', 'wp-plugins', 'wp-edit-post' ],
+		filemtime( get_template_directory() . '/dist/meta.js' )
+	);
+
+	wp_enqueue_script( 'printing-meta' );
+
  }
 
  add_action( 'enqueue_block_editor_assets', __NAMESPACE__ . '\blocks' );
