@@ -4,22 +4,28 @@ const { PluginSidebar, PluginSidebarMoreMenuItem, PluginDocumentSettingPanel } =
 const { registerPlugin } = wp.plugins;
 const {TextControl, SelectControl} = wp.components;
 const {widthState} = wp.compose;
-const { withColors, PanelColorSettings, getColorClassName} = wp.blockEditor;
+const { withColors, PanelColorSettings, getColorClassName, getColorObjectByColorValue} = wp.blockEditor;
 const {withSelect, withDispatch} = wp.data;
 
 const mapSelectToProps = ( select ) => {
    
        return {printingBanner: select( 'core/editor' )
             .getEditedPostAttribute( 'meta' )
-            [ 'printing_banner' ]}
+            [ 'printing_banner' ],
+            colorPalette: wp.data.select( "core/editor" ).getEditorSettings().colors
+        
+        }
 }
 
 const mapPropsToDispatch = ( dispatch ) => {
    
     return {
-        setMetaFieldValue: function( value ) {
+        setMetaFieldValue: function( value, valueClass ) {
             dispatch( 'core/editor' ).editPost(
                 { meta: { printing_banner: value } }
+            );
+            dispatch( 'core/editor' ).editPost(
+                { meta: { printing_banner_class: valueClass } }
             );
         }
     }
@@ -28,7 +34,7 @@ const mapPropsToDispatch = ( dispatch ) => {
 
 const MetaBlockField = (props) => {
 
-    const {printingBanner, setMetaFieldValue} = props;
+    const {printingBanner, setMetaFieldValue, colorPalette} = props;
 
     console.log(props);
   
@@ -38,7 +44,10 @@ const MetaBlockField = (props) => {
             {
                // colors: colorSamples,
               value: printingBanner,
-              onChange: (value)=> {console.log(value); setMetaFieldValue(value)},
+              onChange: (value)=> {
+                  const colorObject = getColorObjectByColorValue(colorPalette,value);
+                  setMetaFieldValue(value, colorObject.slug)
+                },
               label: "Banner Color"
             }
           ]}

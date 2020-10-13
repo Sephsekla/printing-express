@@ -4,7 +4,8 @@ use printing\utilities as utilities;
 
 $banner_id = utilities\get_banner_id();
 
-$color = 'blue';
+$color = get_post_meta(get_the_id(),'printing_banner_class', true);
+
 
 ?>
 

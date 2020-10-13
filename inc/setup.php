@@ -116,6 +116,11 @@ add_action( 'init', function(){
  		'single'	=> true,
  		'show_in_rest'	=> true,
 	 ) );
+	 register_meta( 'post', 'printing_banner_class', array(
+		'type'		=> 'string',
+		'single'	=> true,
+		'show_in_rest'	=> true,
+	) );
 	 
 	 
  
