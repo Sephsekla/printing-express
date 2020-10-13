@@ -5,7 +5,7 @@ const { registerPlugin } = wp.plugins;
 const {TextControl, SelectControl} = wp.components;
 const {widthState} = wp.compose;
 const { withColors, PanelColorSettings, getColorClassName} = wp.blockEditor;
-const {withSelect} = wp.data;
+const {withSelect, withDispatch} = wp.data;
 
 const mapSelectToProps = ( select ) => {
    
@@ -14,10 +14,21 @@ const mapSelectToProps = ( select ) => {
             [ 'printing_banner' ]}
 }
 
+const mapPropsToDispatch = ( dispatch ) => {
+   
+    return {
+        setMetaFieldValue: function( value ) {
+            dispatch( 'core/editor' ).editPost(
+                { meta: { printing_banner: value } }
+            );
+        }
+    }
+}
+
 
 const MetaBlockField = (props) => {
 
-    const {printingBanner} = props;
+    const {printingBanner, setMetaFieldValue} = props;
 
     console.log(props);
   
@@ -27,7 +38,7 @@ const MetaBlockField = (props) => {
             {
                // colors: colorSamples,
               value: printingBanner,
-              onChange: (value)=> {console.log(value)},
+              onChange: (value)=> {console.log(value); setMetaFieldValue(value)},
               label: "Banner Color"
             }
           ]}
@@ -50,8 +61,10 @@ const Component = (props) => {
 };
 
 const ComponentWithSelect = withSelect(mapSelectToProps)(Component);
+
+const ComponentWithDispatch = withDispatch(mapPropsToDispatch)(ComponentWithSelect);
  
 registerPlugin( 'printing-banner', {
     //icon: 'admin-post',
-    render: ComponentWithSelect,
+    render: ComponentWithDispatch,
 } );
