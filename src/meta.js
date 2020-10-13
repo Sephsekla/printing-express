@@ -2,7 +2,18 @@
 
 const { PluginSidebar, PluginSidebarMoreMenuItem, PluginDocumentSettingPanel } = wp.editPost;
 const { registerPlugin } = wp.plugins;
-//const { more } = wp.icons;
+const {TextControl, SelectControl} = wp.components;
+const {widthState} = wp.compose;
+
+const MetaBlockField = () => (
+    <SelectControl label="Banner Border" value="blue"
+    onChange={(value)=> {console.log(value)}} 
+    options = {[
+        {label: 'Blue', value: 'blue'},
+        {label: 'Yellow', value: 'yellow'},
+    ]}
+    />
+);
  
 const Component = () => (
     <PluginDocumentSettingPanel
@@ -10,7 +21,7 @@ const Component = () => (
     title="Custom Panel"
     className="custom-panel"
 >
-    Custom Panel Contents
+    <MetaBlockField/>
 </PluginDocumentSettingPanel>
 );
  
