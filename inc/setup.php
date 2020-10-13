@@ -115,6 +115,8 @@ add_action( 'init', function(){
  		'type'		=> 'string',
  		'single'	=> true,
  		'show_in_rest'	=> true,
- 	) );
+	 ) );
+	 
+	 
  
 });
