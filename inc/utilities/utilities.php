@@ -66,3 +66,17 @@ function get_banner_id()
     return $id;
 
 }
+
+function get_banner_color(){
+
+    if(\is_singular() && $meta = \get_post_meta(get_the_id(),'printing_banner_class', true) /*Deliberate variable assignment*/){
+        return $meta;
+    }
+    elseif(is_woo_related()){
+        return 'yellow';
+    }
+
+    else{
+        return 'blue';
+    }
+}

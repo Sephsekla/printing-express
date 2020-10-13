@@ -7,7 +7,7 @@ use printing\woocommerce;
 
 $banner_id = utilities\get_banner_id();
 
-$color = 'blue';
+$color = utilities\get_banner_color();
 
 ?>
 
