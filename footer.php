@@ -17,16 +17,16 @@
             </div>
             <div class="col-12 col-sm-6 col-lg-3">
                 <p><strong>Printing Express</strong><br />
-                    399 London Rd, <br />
-                    Camberley, <br />
-                    Surrey, <br />
-                    GU15 3HL</p>
-                <p>01234 567890</p>
+                <?php echo WC_Countries::get_base_address() ?> <br />
+                <?php echo WC_Countries::get_base_address_2() ?> <br />
+                <?php echo WC_Countries::get_base_city() ?> <br/>
+                <?php echo WC_Countries::get_base_postcode() ?></p>
+                <p>01276 415709</p>
             </div>
 
             <div class="col-12 col-lg-6 align-right">
 				<?php get_social() ?>
-                <p>&copy; Printing Express <?php echo date('Y') ?> | Website by JBR Digital</p>
+                <p>&copy; Printing Express <?php echo date('Y') ?> | Website by <a href="https://jbr.digital" target="_blank">JBR Digital</p>
             </div>
 
         </div>
