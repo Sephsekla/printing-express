@@ -100,7 +100,7 @@ export default registerBlockType( 'printing/services-inner', {
     const {title, icon, url} = props.attributes;
 
     return <div className="service col-12 service-column">
-                <a href="{url}">
+                <a href={url}>
                 <div style={{backgroundImage: `url(${localize.themeUri}dist/assets/icons/services/${icon}.svg)`}} >
                 </div>
                     <p>{title}</p>
