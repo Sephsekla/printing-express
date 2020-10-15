@@ -35,6 +35,8 @@ const CreateInnerImage = props => {
 
             <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
             <picture>
+            <source srcset={ `${imgURL}.webp` } type={imgURL.endsWith(".jpg") || imgURL.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+            <source srcset={ imgURL } type="image/webp"/>
             <img
                 src={ imgURL }
                 alt={ imgAlt }
