@@ -109,7 +109,6 @@ const editGrid = withColors('background')(( props ) => {
                         onSelect={ onSelectImage }
                         multiple="true"
                         type="image"
-                        value={ imgID }
                         render={ ( { open } ) => (
                             <Button
                                 className={ "button button-large" }
@@ -130,13 +129,23 @@ const editGrid = withColors('background')(( props ) => {
                         <CreateInnerImage {...props }/>
 
                         {isSelected ? (
-
-                            <Button
-                                className="remove-image"
-                                onClick={ onRemoveImage }
-                            >
-                            Remove Images
-                            </Button>
+                           
+                            <MediaUpload
+                            onSelect={ onSelectImage }
+                            multiple="true"
+                            type="image"
+                            value={ imgArray.map(
+                                image => image.id
+                            ) }
+                            render={ ( { open } ) => (
+                                <Button
+                                    className={ "button button-large" }
+                                    onClick={ open }
+                                >Edit Images
+                                </Button>
+                            ) }
+                        >
+                        </MediaUpload>
                     
                             ) : null}
 
