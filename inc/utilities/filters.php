@@ -68,7 +68,7 @@ function set_upload_folder( $value )
     
 }
 
-//add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
+add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
 
 
 /**
