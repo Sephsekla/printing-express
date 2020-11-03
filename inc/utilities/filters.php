@@ -3,7 +3,7 @@
  * Filter functions for hooks
  *
  * @package printing-express
- * @since 0.0.4
+ * @since   0.0.4
  */
 
  namespace printing\filters;
@@ -11,28 +11,30 @@
 use printing\assets as assets;
 
 
-function custom_logo() {
-	$html = sprintf(
-		'<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
-		esc_url( home_url( '/' ) ),
-		'<img src="' . assets\get_asset_path( 'logo.svg' ) . '" class="custom-logo"width="267" height="78">'
-	);
-	return $html;
+function custom_logo()
+{
+    $html = sprintf(
+        '<a href="%1$s" class="custom-logo-link" rel="home" itemprop="url">%2$s</a>',
+        esc_url(home_url('/')),
+        '<img src="' . assets\get_asset_path('logo.svg') . '" class="custom-logo"width="267" height="78">'
+    );
+    return $html;
 }
 
 
-add_filter( 'get_custom_logo', __NAMESPACE__ . '\\custom_logo' );
+add_filter('get_custom_logo', __NAMESPACE__ . '\\custom_logo');
 
 
 
-function custom_form_submit( $html ) {
-	// return '123';
-	$btn     = '<button class="forminator-button forminator-button-submit">Send</button>';
-	$new_btn = '<button class="forminator-button forminator-button-submit more-link"><span class="left"></span><span class="inner">Send</span></button>';
-	return str_replace( $btn, $new_btn, $html );
+function custom_form_submit( $html )
+{
+    // return '123';
+    $btn     = '<button class="forminator-button forminator-button-submit">Send</button>';
+    $new_btn = '<button class="forminator-button forminator-button-submit more-link"><span class="left"></span><span class="inner">Send</span></button>';
+    return str_replace($btn, $new_btn, $html);
 }
 
-add_filter( 'forminator_render_button_markup', __NAMESPACE__ . '\\custom_form_submit', 1000000 );
+add_filter('forminator_render_button_markup', __NAMESPACE__ . '\\custom_form_submit', 1000000);
 
 /**
  * Set Onedrive upload folder
@@ -80,11 +82,6 @@ add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder
 function set_upload_folder_2( $private_folder_name, $processor )
 {
 
-	if(is_woocommerce() || is_cart() || is_checkout() || is_account_page()
-	){
-		return $private_folder_name;
-	}
-
     $user = wp_get_current_user();
 
     $teams = wc_memberships_for_teams_get_teams($user->ID);
@@ -110,5 +107,20 @@ function set_upload_folder_2( $private_folder_name, $processor )
     
 }
 
+/**
+ * We only filter if not a woocommerce upload
+ */
+add_action(
+    'wp_head', function () {
+    
+        if(is_woocommerce() || is_cart() || is_checkout() || is_account_page()
+        ) {
+        
+        }
+        else{
+            add_filter('shareonedrive_private_folder_name', __NAMESPACE__.'\\set_upload_folder_2', 9, 2);
+        }
 
-add_filter('shareonedrive_private_folder_name', __NAMESPACE__.'\\set_upload_folder_2', 9, 2);
+    
+    }
+);
