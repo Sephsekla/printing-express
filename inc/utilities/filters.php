@@ -80,7 +80,8 @@ add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder
 function set_upload_folder_2( $private_folder_name, $processor )
 {
 
-	if(is_woocommerce() || is_cart() || is_checkout()){
+	if(is_woocommerce() || is_cart() || is_checkout() || is_account_page()
+	){
 		return $private_folder_name;
 	}
 
