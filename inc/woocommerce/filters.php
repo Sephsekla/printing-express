@@ -145,7 +145,7 @@ add_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_i
 
 function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 
-    if(!in_array($meta_key, ['shareonedrive_upload_box_shortcode','shareonedrive_upload_box_folder_template','shareonedrive_upload_box', '_uploadable','shareonedrive_upload_box_active_on_status'])){
+    if(!in_array($meta_key, ['shareonedrive_upload_box_shortcode','shareonedrive_upload_box_folder_template','shareonedrive_upload_box', '_uploadable','shareonedrive_upload_box_active_on_status', 'shareonedrive_upload_box_title'])){
         return $metadata;
     }
 	elseif(get_post_meta( $object_id, 'pf_customizable', true ) || has_term('large-format', 'product_cat', $object_id)){
@@ -153,13 +153,24 @@ function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 			$metadata = 'no';
 		}
 		return $metadata;
-	}
+    }
+    elseif( class_exists( 'WC_Subscriptions_Product' ) && \WC_Subscriptions_Product::is_subscription( wc_get_product($object_id) ) ) {
+        if(in_array($meta_key, ['shareonedrive_upload_box', '_uploadable'])){
+			$metadata = 'no';
+		}
+		return $metadata;
+    }
 
     else{
+        
+
 
         switch($meta_key){
             case 'shareonedrive_upload_box_shortcode':
                 $metadata = '[shareonedrive dir="3D07FF6BA4270E23!232" account="3d07ff6ba4270e23" mode="files" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
+            break;
+            case 'shareonedrive_upload_box_title':
+                $metadata = 'Artwork for %wc_product_name%';
             break;
 
             case 'shareonedrive_upload_box_folder_template':
