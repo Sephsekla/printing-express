@@ -68,4 +68,42 @@ function set_upload_folder( $value )
     
 }
 
-add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
+//add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
+
+
+/**
+ * Set Onedrive upload folder
+ *
+ * @param  string $value
+ * @return string
+ */
+function set_upload_folder_2( $private_folder_name, $processor )
+{
+
+    $user = wp_get_current_user();
+
+    $teams = wc_memberships_for_teams_get_teams($user->ID);
+    
+
+    if($teams) {
+
+        $team = $teams[0];
+
+        return $team->get_name();
+
+
+    }
+    else{
+
+        
+
+
+        return $user->user_nicename.' (Unregistered)';
+    }
+
+
+    
+}
+
+
+dd_filter('shareonedrive_private_folder_name', __NAMESPACE__.'\\set_upload_folder_2', 9, 2);
