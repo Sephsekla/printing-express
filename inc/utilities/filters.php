@@ -80,6 +80,10 @@ add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder
 function set_upload_folder_2( $private_folder_name, $processor )
 {
 
+	if(is_woocommerce() || is_cart() || is_checkout()){
+		return $private_folder_name;
+	}
+
     $user = wp_get_current_user();
 
     $teams = wc_memberships_for_teams_get_teams($user->ID);
