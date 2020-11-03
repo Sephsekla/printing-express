@@ -145,6 +145,10 @@ add_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_i
 
 function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 
+    if(!in_array($metadata, ['shareonedrive_upload_box_shortcode','shareonedrive_upload_box_folder_template','shareonedrive_upload_box', '_uploadable'])){
+        return $metadata;
+    }
+
     if(!get_post_meta( $object_id, 'pf_customizable', true ) && !has_term('large-format', 'product_cat', $object_id)){
 
         switch($meta_key){
