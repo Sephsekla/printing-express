@@ -145,19 +145,28 @@ add_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_i
 
 function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 
-    if(!in_array($meta_key, ['shareonedrive_upload_box_shortcode','shareonedrive_upload_box_folder_template','shareonedrive_upload_box', '_uploadable'])){
+    if(!in_array($meta_key, ['shareonedrive_upload_box_shortcode','shareonedrive_upload_box_folder_template','shareonedrive_upload_box', '_uploadable','shareonedrive_upload_box_active_on_status'])){
         return $metadata;
     }
+	elseif(get_post_meta( $object_id, 'pf_customizable', true ) || has_term('large-format', 'product_cat', $object_id)){
+		if(in_array($meta_key, ['shareonedrive_upload_box', '_uploadable'])){
+			$metadata = 'no';
+		}
+		return $metadata;
+	}
 
-    if(!get_post_meta( $object_id, 'pf_customizable', true ) && !has_term('large-format', 'product_cat', $object_id)){
+    else{
 
         switch($meta_key){
             case 'shareonedrive_upload_box_shortcode':
-                $metadata = '[shareonedrive dir="3D07FF6BA4270E23!232" account="3d07ff6ba4270e23" mode="upload" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
+                $metadata = '[shareonedrive dir="3D07FF6BA4270E23!232" account="3d07ff6ba4270e23" mode="files" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
             break;
 
             case 'shareonedrive_upload_box_folder_template':
                 $metadata = '%wc_order_id% - %wc_product_name% - %user_email%';
+            break;
+            case 'shareonedrive_upload_box_active_on_status':
+                $metadata = ['wc-pending', 'wc-processing', 'wc-completed'];
             break;
 
             case '_uploadable':
@@ -166,14 +175,14 @@ function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
             break;
         }
 
-
+        return $metadata;
 
     }
    
 
     
 
-   return $metadata;
+   
 
 
 }
