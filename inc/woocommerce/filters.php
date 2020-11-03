@@ -141,3 +141,37 @@ function disable_invoice_personal( $available_gateways ) {
 }
 
 add_filter( 'woocommerce_available_payment_gateways', __NAMESPACE__.'\\disable_invoice_personal',10 );
+
+
+function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
+
+    if(!get_post_meta( $object_id, 'pf_customizable', true ) && !has_term('large-format', 'product_cat', $object_id)){
+
+        switch($meta_key){
+            case 'shareonedrive_upload_box_shortcode':
+                $metadata = '[shareonedrive dir="3D07FF6BA4270E23!232" account="3d07ff6ba4270e23" mode="upload" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
+            break;
+
+            case 'shareonedrive_upload_box_folder_template':
+                $metadata = '%wc_order_id% - %wc_product_name% - %user_email%';
+            break;
+
+            case '_uploadable':
+            case 'shareonedrive_upload_box':
+                $metadata = 'yes';
+            break;
+        }
+
+
+
+    }
+   
+
+    
+
+   return $metadata;
+
+
+}
+//Specify 4 arguments for this filter in the last parameter.
+add_filter('get_post_metadata', __NAMESPACE__.'\\filter_wc_upload_shortcode', 10, 4);
