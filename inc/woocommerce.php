@@ -132,7 +132,7 @@ add_action('woocommerce_before_shop_loop',function(){
 add_action('woocommerce_after_single_product_summary',function(){
     if(!get_post_meta( get_the_id(), 'pf_customizable', true ) && !has_term('large-format', 'product_cat', null)){
 
-        $message = "Please contact us after placing your order to provide customisation artwork.";
+        $message = "Please supply your customisation artwork after the order is complete. You can do this after the checkout, or from your Account.";
 
         
         echo '<p class="woocommerce-info bg-yellow" style="width: 100%">'.$message.'</p>';
