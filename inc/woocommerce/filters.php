@@ -235,3 +235,27 @@ function account_link_endpoint( $url, $endpoint, $value, $permalink ){
 }
 
 add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoint', 10, 4 );
+
+
+add_action('woocommerce_before_checkout_form',function(){
+    if($_GET['total']){
+        WC()->cart->add_to_cart( 9351 );
+        
+    }
+});
+
+
+
+
+function ipe_apply_custom_price_to_cart_item( $cart_object ) {
+    if( !WC()->session->__isset( "reload_checkout" )) {
+    
+        foreach ( $cart_object->cart_contents as $key => $value ) {
+            print_r($key);
+            print_r($value);
+            
+        }
+    }
+}
+
+add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
