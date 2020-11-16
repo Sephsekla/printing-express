@@ -251,8 +251,9 @@ function ipe_apply_custom_price_to_cart_item( $cart_object ) {
     if( !WC()->session->__isset( "reload_checkout" )) {
     
         foreach ( $cart_object->cart_contents as $key => $value ) {
-            print_r($key);
+            echo '<pre>';
             print_r($value);
+            echo '</pre>';
             
         }
     }
