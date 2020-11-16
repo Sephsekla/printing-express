@@ -284,8 +284,6 @@ function after_submission( $entry, $form ) {
     $post = get_post( $entry['post_id'] );
 
    // print_r($entry);
-
-    $entry[16];
     
     if($entry[16]){
         WC()->cart->add_to_cart( 9351 );
