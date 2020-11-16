@@ -237,13 +237,13 @@ function account_link_endpoint( $url, $endpoint, $value, $permalink ){
 add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoint', 10, 4 );
 
 
-add_action('woocommerce_before_checkout_form',function(){
+/* add_action('woocommerce_before_checkout_form',function(){
     if($_GET['total']){
         WC()->cart->add_to_cart( 9351 );
         
     }
 });
-
+*/
 
 
 
@@ -273,4 +273,17 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
 
 }
 
-add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
+//add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
+
+
+add_action( 'gform_after_submission_1', __NAMESPACE__.'\\after_submission', 10, 2 );
+
+function after_submission( $entry, $form ) {
+ 
+    //getting post
+    $post = get_post( $entry['post_id'] );
+
+    print_r($entry);
+ 
+  
+}
