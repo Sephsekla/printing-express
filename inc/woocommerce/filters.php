@@ -247,20 +247,30 @@ add_action('woocommerce_before_checkout_form',function(){
 
 
 
-function ipe_apply_custom_price_to_cart_item( $cart_object ) {
-    if( !WC()->session->__isset( "reload_checkout" )) {
-    
-        foreach ( $cart_object->cart_contents as $key => $value ) {
-            /* echo '<pre>';
-             print_r($value);
-            echo '</pre>'; */
+function ipe_apply_custom_price_to_cart_item( $cart ) {
 
-            if(9351===$value['product_id'] && $_GET['total']){
-                $value['data']->set_price(sanitize_text_field($_GET['total']));
-            }
-            
-        }
+           // This is necessary for WC 3.0+
+    if ( is_admin() && ! defined( 'DOING_AJAX' ) ){
+    return;
     }
+
+// Avoiding hook repetition (when using price calculations for example)
+    if ( did_action( 'woocommerce_before_calculate_totals' ) >= 2 ){
+        return;
+    }
+
+    // Loop through cart items
+    foreach ( $cart->get_cart() as $item ) {
+        $item['data']->set_price( 40 );
+    }
+
+    
+       
+         /*   if(9351===$value['product_id'] && $_GET['total']){
+                $value['data']->set_price(sanitize_text_field($_GET['total']));
+            } */
+
+
 }
 
 add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
