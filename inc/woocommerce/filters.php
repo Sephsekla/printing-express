@@ -276,7 +276,7 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
 //add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
 
 
-add_action( 'gform_after_submission_1', __NAMESPACE__.'\\after_submission', 10, 2 );
+add_action( 'gform_pre_submission_1', __NAMESPACE__.'\\after_submission', 10, 2 );
 
 function after_submission( $entry, $form ) {
  
