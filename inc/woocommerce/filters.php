@@ -285,7 +285,7 @@ function after_submission( $entry, $form ) {
 
    // print_r($entry);
     
-    if($entry[16]){
+    if(true || $entry[16]){
         WC()->cart->add_to_cart( 9351 );
 
 
