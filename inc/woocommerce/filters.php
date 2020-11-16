@@ -199,3 +199,39 @@ function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 }
 //Specify 4 arguments for this filter in the last parameter.
 add_filter('get_post_metadata', __NAMESPACE__.'\\filter_wc_upload_shortcode', 10, 4);
+
+
+
+function add_account_link( $menu_links ){
+ 
+	// we will hook "portal" later
+	$new = array( 'portal' => 'Large Format upload' );
+ 
+
+	// array_slice() is good when you want to add an element between the other ones
+	$menu_links = array_slice( $menu_links, 0, 1, true ) 
+	+ $new 
+	+ array_slice( $menu_links, 1, NULL, true );
+ 
+ 
+	return $menu_links;
+ 
+ 
+}
+
+add_filter ( 'woocommerce_account_menu_items', __NAMESPACE__.'\\add_account_link' );
+ 
+
+function account_link_endpoint( $url, $endpoint, $value, $permalink ){
+ 
+	if( $endpoint === 'portal' ) {
+ 
+		// ok, here is the place for your custom URL, it could be external
+		$url = get_permalink(191);
+ 
+	}
+	return $url;
+ 
+}
+
+add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoint', 10, 4 );
