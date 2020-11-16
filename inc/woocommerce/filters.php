@@ -251,9 +251,9 @@ function ipe_apply_custom_price_to_cart_item( $cart_object ) {
     if( !WC()->session->__isset( "reload_checkout" )) {
     
         foreach ( $cart_object->cart_contents as $key => $value ) {
-           // echo '<pre>';
-            // print_r($value);
-           // echo '</pre>';
+            echo '<pre>';
+             print_r($value);
+            echo '</pre>';
 
             if(9351===$value['product_id'] && $_GET['total']){
                 $value['data']->price = sanitize_text_field($_GET['total']);
