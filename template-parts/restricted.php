@@ -7,7 +7,7 @@
   <h2>Login</h2>
   <?php woocommerce_login_form(
     [
-      'redirect' => get_permalink( 0 );
+      'redirect' => get_permalink( 0 )
     ]
   ) ?>
 
