@@ -256,7 +256,7 @@ function ipe_apply_custom_price_to_cart_item( $cart_object ) {
             echo '</pre>';
 
             if(9351===$value['product_id'] && $_GET['total']){
-                $value['data']->price = sanitize_text_field($_GET['total']);
+                $value['data']->set_price(sanitize_text_field($_GET['total']));
             }
             
         }
