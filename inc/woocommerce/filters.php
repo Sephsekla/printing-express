@@ -287,7 +287,7 @@ function after_submission( $entry, $form ) {
 
     $entry[16];
     
-    if($entry[16] && $entry[16] > 0){
+    if($entry[16]){
         WC()->cart->add_to_cart( 9351 );
 
 
@@ -295,7 +295,7 @@ function after_submission( $entry, $form ) {
             $item['data']->set_price( 40 );
 
             if(9351===$item['product_id']){
-                $item['data']->set_price( $entry[16] );
+                $item['data']->set_price( GFCommon::to_number( rgar( $entry, '16' ) ) );
             }
         }
     }
