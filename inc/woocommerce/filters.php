@@ -279,9 +279,7 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
 add_action( 'gform_post_process_1', __NAMESPACE__.'\\after_submission', 10, 2 );
 
 function after_submission( $entry, $form ) {
- 
-    //getting post
-    $post = get_post( $entry['post_id'] );
+
 
    // print_r($entry);
     
