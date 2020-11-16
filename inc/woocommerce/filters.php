@@ -283,7 +283,21 @@ function after_submission( $entry, $form ) {
     //getting post
     $post = get_post( $entry['post_id'] );
 
-    print_r($entry);
- 
+   // print_r($entry);
+
+    $entry[16];
+    
+    if($entry[16] && $entry[16] > 0){
+        WC()->cart->add_to_cart( 9351 );
+
+
+        foreach ( WC()->cart->get_cart() as $item ) {
+            $item['data']->set_price( 40 );
+
+            if(9351===$item['product_id']){
+                $item['data']->set_price( $entry[16] );
+            }
+        }
+    }
   
 }
