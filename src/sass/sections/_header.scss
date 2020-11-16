@@ -139,7 +139,7 @@ $breakpoint_header: 991px;
 
                 margin-bottom: 0;
                 display: inline-block;
-                margin-left: 10px;
+                margin-left: 5px;
                 font-size: 0.9rem;
 
                 &:first-child{
@@ -153,8 +153,8 @@ $breakpoint_header: 991px;
 
         @media(min-width: 1200px) {
             li{
-                margin-left: 20px;
-                font-size: 1rem;
+                margin-left: 10px;
+                //font-size: 1rem;
             }
         }
 
