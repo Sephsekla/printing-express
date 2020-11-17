@@ -272,6 +272,7 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
        
             if(9351===$item['product_id']){
                 $item['data']->set_price($item['lf_print_job']);
+                $item['data']->set_price('10');
             }
 
     }
