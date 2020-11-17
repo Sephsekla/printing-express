@@ -329,3 +329,14 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
    
 
 }
+
+function output_large_format_details($order){
+
+    echo get_post_meta($order, 'Large Format Items');
+
+}
+
+add_action('woocommerce_email_before_order_table', __NAMESPACE__.'\\output_large_format_details', 10, 1);
+add_action('woocommerce_order_details_before_order_table', __NAMESPACE__.'\\output_large_format_details', 10, 1);
+add_action('woocommerce_admin_order_data_after_order_details', __NAMESPACE__.'\\output_large_format_details', 10, 1);
+
