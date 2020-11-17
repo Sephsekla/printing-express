@@ -375,5 +375,5 @@ add_action('woocommerce_admin_order_data_after_order_details', function(){
 
 
 function add_lf_box(){
-    echo "TEST".get_post_meta(get_the_id(), 'Large Format Items', true);
+    echo get_post_meta(get_the_id(), 'Large Format Items', true);
 }
