@@ -237,7 +237,7 @@ function account_link_endpoint( $url, $endpoint, $value, $permalink ){
 add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoint', 10, 4 );
 
 
-add_action('woocommerce_before_checkout_form',function(){
+add_action('woocommerce_checkout_before_order_review',function(){
 
   
     echo WC()->session->get('lf_print_job_items');
