@@ -262,12 +262,16 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
     // Loop through cart items
     foreach ( $cart->get_cart() as $item ) {
        // $item['data']->set_price( 40 );
+
+       echo '<pre>';
+       print_r($item);
+       echo '</pre>';
     
 
     
        
-            if(9351===$value['product_id'] && $_GET['total']){
-                $value['data']->set_price($value['data']['lf_print_job']);
+            if(9351===$item['product_id']){
+                $item['data']->set_price($item['data']['lf_print_job']);
             }
 
     }
