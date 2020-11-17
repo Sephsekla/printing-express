@@ -298,7 +298,8 @@ function after_submission( $entry, $form ) {
 
        WC()->session->set('lf_print_job_all_items',\GFCommon::get_submitted_fields($form, $entry, 'html'));
 
-
+        echo \GFCommon::get_submitted_fields($form, $entry, 'html');
+        die;
 
 
     }
