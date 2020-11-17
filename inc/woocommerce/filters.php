@@ -279,10 +279,10 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
       // echo '</pre>';
     
 
-    
+        $price = WC()->session->get('lf_print_job');
        
             if(9351===$item['product_id']){
-                $item['data']->set_price('12'); //$item['lf_print_job']);
+                $item['data']->set_price($price); //$item['lf_print_job']);
                 //$item['data']->set_price('10');
             }
 
@@ -306,8 +306,10 @@ function after_submission( $entry, $form ) {
         WC()->cart->add_to_cart( 9351 );
        // WC()->cart->set_total('10');
 
+       WC()->session->set('lf_print_job',\GFCommon::to_number( rgar( $entry, '16' ) ));
 
-        foreach ( WC()->cart->get_cart() as $item ) {
+
+      /*  foreach ( WC()->cart->get_cart() as $item ) {
             //$item['data']->set_price( 40 );
 
             if(9351===$item['product_id']){
@@ -316,7 +318,7 @@ function after_submission( $entry, $form ) {
                $item['lf_print_job'] = \GFCommon::to_number( rgar( $entry, '16' ) );
 
             }
-        } 
+        } */
         
     }
   
