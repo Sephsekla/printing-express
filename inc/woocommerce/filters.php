@@ -261,19 +261,20 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
 
     // Loop through cart items
     foreach ( $cart->get_cart() as $item ) {
-        $item['data']->set_price( 40 );
-    }
+       // $item['data']->set_price( 40 );
+    
 
     
        
-         /*   if(9351===$value['product_id'] && $_GET['total']){
-                $value['data']->set_price(sanitize_text_field($_GET['total']));
-            } */
+            if(9351===$value['product_id'] && $_GET['total']){
+                $value['data']->set_price($value['data']['lf_print_job']);
+            }
 
+    }
 
 }
 
-//add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
+add_action( 'woocommerce_before_calculate_totals', __NAMESPACE__.'\\ipe_apply_custom_price_to_cart_item', 99 );  
 
 
 add_action('gform_after_submission_1', __NAMESPACE__.'\\after_submission', 10, 2 );
@@ -287,17 +288,20 @@ function after_submission( $entry, $form ) {
 
         WC()->cart->empty_cart();
         WC()->cart->add_to_cart( 9351 );
-        WC()->cart->set_total('10');
+       // WC()->cart->set_total('10');
 
 
-      /*  foreach ( WC()->cart->get_cart() as $item ) {
+        foreach ( WC()->cart->get_cart() as $item ) {
             //$item['data']->set_price( 40 );
 
             if(9351===$item['product_id']){
-                $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
+               // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
+
+               $item['data']['lf_print_job'] = \GFCommon::to_number( rgar( $entry, '16' ) );
+
             }
         } 
-        */
+        
     }
   
 }
