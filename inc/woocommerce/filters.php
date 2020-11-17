@@ -361,7 +361,7 @@ add_action('woocommerce_order_details_before_order_table', __NAMESPACE__.'\\outp
 
 add_action('woocommerce_admin_order_data_after_order_details', function(){
 
-    $items = get_post_meta($order->get_id(), 'Large Format Items', true);
+    $items = get_post_meta(0, 'Large Format Items', true);
 
     if($items){
         add_meta_box( 'lf_details','Large Format Details', 'add_lf_box', 'shop_order', 'normal');
