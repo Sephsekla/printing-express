@@ -301,3 +301,9 @@ function after_submission( $entry, $form ) {
     }
   
 }
+
+add_filter('gf_order_label_1',function($label, $form_id){
+   
+    return 'Large Format Order';
+    
+},10,2);
