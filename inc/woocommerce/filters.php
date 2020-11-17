@@ -294,7 +294,7 @@ function after_submission( $entry, $form ) {
        WC()->session->set('lf_print_job',\GFCommon::to_number( rgar( $entry, '16' ) ));
 
 
-       WC()->session->set('lf_print_job_items',GFCommon::get_submitted_pricing_fields($form, $entry, 'html'));
+       WC()->session->set('lf_print_job_items',\GFCommon::get_submitted_pricing_fields($form, $entry, 'html'));
 
 
 
