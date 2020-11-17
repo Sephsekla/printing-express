@@ -239,20 +239,9 @@ add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoi
 
 add_action('woocommerce_before_checkout_form',function(){
 
-    echo '<pre>';
-    print_r(WC()->cart->get_cart());
-    echo '</pre>';
-   
-    foreach ( WC()->cart->get_cart() as $item ) {
-        //$item['data']->set_price( 40 );
+  
+    echo WC()->session->get('lf_print_job_items');
 
-        if(9351===$item['product_id']){
-           // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
-
-       
-
-        }
-    } 
 });
 
 
@@ -274,10 +263,6 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
     foreach ( $cart->get_cart() as $item ) {
        // $item['data']->set_price( 40 );
 
-     //  echo '<pre>';
-      // print_r($item);
-      // echo '</pre>';
-    
 
         $price = WC()->session->get('lf_print_job');
        
@@ -309,17 +294,10 @@ function after_submission( $entry, $form ) {
        WC()->session->set('lf_print_job',\GFCommon::to_number( rgar( $entry, '16' ) ));
 
 
-      /*  foreach ( WC()->cart->get_cart() as $item ) {
-            //$item['data']->set_price( 40 );
+       WC()->session->set('lf_print_job_items',GFCommon::get_submitted_pricing_fields($form, $entry, 'html'));
 
-            if(9351===$item['product_id']){
-               // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
 
-               $item['lf_print_job'] = \GFCommon::to_number( rgar( $entry, '16' ) );
 
-            }
-        } */
-        
     }
   
 }
