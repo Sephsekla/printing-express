@@ -332,7 +332,7 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
 
 function output_large_format_details($order){
 
-    echo get_post_meta($order->get_id(), 'Large Format Items');
+    echo get_post_meta($order->get_id(), 'Large Format Items', true);
 
 }
 
