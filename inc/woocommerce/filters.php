@@ -321,9 +321,11 @@ add_action('woocommerce_checkout_update_order_meta', __NAMESPACE__.'\\my_custom_
 function my_custom_checkout_field_update_order_meta( $order_id ) {
 
     $items =  WC()->session->get('lf_print_job_all_items');
+    $charged_items =  WC()->session->get('lf_print_job_items');
 
     if($items){
         update_post_meta( $order_id, 'Large Format Items', $items);
+        update_post_meta( $order_id, 'Large Format Charged Items', $charged_items);
     }
 
    
@@ -333,6 +335,12 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
 function output_large_format_details($order){
 
     echo get_post_meta($order->get_id(), 'Large Format Items', true);
+
+}
+
+function output_large_format_charged_details($order){
+
+    echo get_post_meta($order->get_id(), 'Large Format Charged Items', true);
 
 }
 
