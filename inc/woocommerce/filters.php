@@ -344,7 +344,34 @@ function output_large_format_charged_details($order){
 
 }
 
-add_action('woocommerce_email_before_order_table', __NAMESPACE__.'\\output_large_format_details', 10, 1);
-add_action('woocommerce_order_details_before_order_table', __NAMESPACE__.'\\output_large_format_details', 10, 1);
-add_action('woocommerce_admin_order_data_after_order_details', __NAMESPACE__.'\\output_large_format_details', 10, 1);
+function output_details_in_email($order, $sent_to_admin, $plain_text, $email){
+    if($sent_to_admin){
+        output_large_format_details($order);
+    }
+    else{
+        output_large_format_charged_details($order);
+    }
+}
+
+
+
+add_action('woocommerce_email_after_order_table', __NAMESPACE__.'\\output_details_in_email', 10, 4);
+
+add_action('woocommerce_order_details_before_order_table', __NAMESPACE__.'\\output_large_format_charged_details', 10, 1);
+
+add_action('woocommerce_admin_order_data_after_order_details', function(){
+
+    $items = get_post_meta($order->get_id(), 'Large Format Items', true);
+
+    if($items){
+        add_meta_box( 'lf_details','Large Format Details', 'add_lf_box', 'shop_order', 'normal');
+    }
+    
+    function add_lf_box(){
+        return $items;
+    }
+
+    
+
+}, 10, 1);
 
