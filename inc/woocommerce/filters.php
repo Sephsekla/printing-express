@@ -284,16 +284,20 @@ function after_submission( $entry, $form ) {
    // print_r($entry);
     
     if(true || $entry[16]){
+
+        WC()->cart->empty_cart();
         WC()->cart->add_to_cart( 9351 );
+        WC()->cart->set_total('10');
 
 
-        foreach ( WC()->cart->get_cart() as $item ) {
-            $item['data']->set_price( 40 );
+      /*  foreach ( WC()->cart->get_cart() as $item ) {
+            //$item['data']->set_price( 40 );
 
             if(9351===$item['product_id']){
                 $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
             }
-        }
+        } 
+        */
     }
   
 }
