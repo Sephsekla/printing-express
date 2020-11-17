@@ -237,13 +237,22 @@ function account_link_endpoint( $url, $endpoint, $value, $permalink ){
 add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoint', 10, 4 );
 
 
-/* add_action('woocommerce_before_checkout_form',function(){
-    if($_GET['total']){
-        WC()->cart->add_to_cart( 9351 );
-        
-    }
+add_action('woocommerce_before_checkout_form',function(){
+   
+    foreach ( WC()->cart->get_cart() as $item ) {
+        //$item['data']->set_price( 40 );
+
+        if(9351===$item['product_id']){
+           // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
+
+         echo '<pre>';
+         print_r($item);
+         echo '</pre>';
+
+        }
+    } 
 });
-*/
+
 
 
 
