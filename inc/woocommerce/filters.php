@@ -263,9 +263,9 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
     foreach ( $cart->get_cart() as $item ) {
        // $item['data']->set_price( 40 );
 
-       echo '<pre>';
-       print_r($item);
-       echo '</pre>';
+     //  echo '<pre>';
+      // print_r($item);
+      // echo '</pre>';
     
 
     
