@@ -123,8 +123,8 @@ function disable_invoice_personal( $available_gateways ) {
 
                 // echo $product->get_type();
 
-            unset($available_gateways['bacs']);
-            unset($available_gateways['cheque']);
+           // unset($available_gateways['bacs']);
+            // unset($available_gateways['cheque']);
 
             }
           
@@ -296,6 +296,9 @@ function after_submission( $entry, $form ) {
 
        WC()->session->set('lf_print_job_items',\GFCommon::get_submitted_pricing_fields($form, $entry, 'html'));
 
+       WC()->session->set('lf_print_job_all_items',\GFCommon::get_submitted_fields($form, $entry, 'html'));
+
+
 
 
     }
@@ -307,3 +310,21 @@ add_filter('gf_order_label_1',function($label, $form_id){
     return 'Large Format Order';
     
 },100,2);
+
+
+/**
+ * Update the order meta with field value
+ **/
+add_action('woocommerce_checkout_update_order_meta', __NAMESPACE__.'\\my_custom_checkout_field_update_order_meta');
+
+function my_custom_checkout_field_update_order_meta( $order_id ) {
+
+    $items =  WC()->session->get('lf_print_job_all_items');
+
+    if($items){
+        update_post_meta( $order_id, 'Large Format Items', esc_attr($_POST['my_field_name']));
+    }
+
+   
+
+}
