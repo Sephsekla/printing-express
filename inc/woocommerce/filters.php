@@ -298,8 +298,8 @@ function after_submission( $entry, $form ) {
 
        WC()->session->set('lf_print_job_all_items',\GFCommon::get_submitted_fields($form, $entry, 'html'));
 
-        echo \GFCommon::get_submitted_fields($form, $entry, 'html');
-        die;
+       //echo \GFCommon::get_submitted_fields($form, $entry, 'html');
+       // die;
 
 
     }
@@ -323,7 +323,7 @@ function my_custom_checkout_field_update_order_meta( $order_id ) {
     $items =  WC()->session->get('lf_print_job_all_items');
 
     if($items){
-        update_post_meta( $order_id, 'Large Format Items', esc_attr($_POST['my_field_name']));
+        update_post_meta( $order_id, 'Large Format Items', $items);
     }
 
    
