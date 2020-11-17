@@ -271,7 +271,7 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
     
        
             if(9351===$item['product_id']){
-                $item['data']->set_price($item['data']['lf_print_job']);
+                $item['data']->set_price($item['lf_print_job']);
             }
 
     }
@@ -301,7 +301,7 @@ function after_submission( $entry, $form ) {
             if(9351===$item['product_id']){
                // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
 
-               $item['data']['lf_print_job'] = \GFCommon::to_number( rgar( $entry, '16' ) );
+               $item['lf_print_job'] = \GFCommon::to_number( rgar( $entry, '16' ) );
 
             }
         } 
