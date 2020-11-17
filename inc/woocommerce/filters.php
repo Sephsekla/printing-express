@@ -238,6 +238,10 @@ add_filter( 'woocommerce_get_endpoint_url', __NAMESPACE__.'\\account_link_endpoi
 
 
 add_action('woocommerce_before_checkout_form',function(){
+
+    echo '<pre>';
+    print_r(WC()->cart->get_cart());
+    echo '</pre>';
    
     foreach ( WC()->cart->get_cart() as $item ) {
         //$item['data']->set_price( 40 );
@@ -245,9 +249,7 @@ add_action('woocommerce_before_checkout_form',function(){
         if(9351===$item['product_id']){
            // $item['data']->set_price( \GFCommon::to_number( rgar( $entry, '16' ) ) );
 
-         echo '<pre>';
-         print_r($item);
-         echo '</pre>';
+       
 
         }
     } 
@@ -280,7 +282,7 @@ function ipe_apply_custom_price_to_cart_item( $cart ) {
     
        
             if(9351===$item['product_id']){
-                $item['data']->set_price($item['lf_print_job']);
+                $item['data']->set_price('12'); //$item['lf_print_job']);
                 //$item['data']->set_price('10');
             }
 
