@@ -364,14 +364,16 @@ add_action('woocommerce_admin_order_data_after_order_details', function(){
     $items = get_post_meta(get_the_id(), 'Large Format Items', true);
 
     if($items){
-        add_meta_box( 'lf_details','Large Format Details', 'add_lf_box', 'shop_order', 'normal');
+        add_meta_box( 'lf_details','Large Format Details', __NAMESPACE__.'\\add_lf_box', 'shop_order', 'normal');
     }
     
-    function add_lf_box(){
-        echo "TEST".get_post_meta(get_the_id(), 'Large Format Items', true);
-    }
+ 
 
     
 
 }, 10, 1);
 
+
+function add_lf_box(){
+    echo "TEST".get_post_meta(get_the_id(), 'Large Format Items', true);
+}
