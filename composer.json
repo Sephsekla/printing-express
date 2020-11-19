@@ -9,5 +9,7 @@
             "email": "dev@jbr.digital"
         }
     ],
-    "require": {}
+    "require": {
+        "htmlburger/carbon-fields": "^3.2"
+    }
 }
