@@ -55,6 +55,11 @@ function get_banner_id()
         $id = get_post_thumbnail_id(wp_get_post_parent_id(0));
 
     }
+    elseif (is_tax('product_cat') && carbon_get_term_meta( get_queried_object()->term_id, 'crb_thumb' )){
+
+        $id = carbon_get_term_meta( get_queried_object()->term_id, 'crb_thumb' );
+
+    }
     elseif (is_woo_related() && has_post_thumbnail(wc_get_page_id('shop'))) {
         // code...
         $id = get_post_thumbnail_id(wc_get_page_id('shop'));

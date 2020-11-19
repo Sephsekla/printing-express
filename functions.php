@@ -13,3 +13,5 @@ require_once 'inc/cpts.php';
 require_once 'inc/blocks.php';
 
 require_once 'inc/woocommerce.php';
+
+require_once 'inc/fields.php';
