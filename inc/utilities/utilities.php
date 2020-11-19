@@ -61,8 +61,11 @@ function get_banner_id()
 
         $id = carbon_get_term_meta( get_queried_object()->term_id, 'crb_thumb' );
        }
-       elseif(get_queried_object()->parent && carbon_get_term_meta( get_queried_object()->parent->term_id, 'crb_thumb' )){
-           $id = carbon_get_term_meta( get_queried_object()->parent->term_id, 'crb_thumb' );
+       elseif(get_queried_object()->parent && carbon_get_term_meta( get_queried_object()->parent, 'crb_thumb' )){
+           $id = carbon_get_term_meta( get_queried_object()->parent, 'crb_thumb' );
+       }
+       else{
+        $id = get_post_thumbnail_id(wc_get_page_id('shop'));
        }
 
     }
