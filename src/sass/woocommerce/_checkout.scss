@@ -61,12 +61,16 @@ border: 2px solid $yellow;
     table{
         border: 0 !important;
         width: 100% !important;
-        
+
 
         td, th{
             background-color: transparent !important;
             border-right: 0 !important;
 
+        }
+
+        tbody strong{
+            color: $blue !important;
         }
     }
 }
