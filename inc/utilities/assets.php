@@ -42,14 +42,14 @@ else{
         <a href="https://www.facebook.com/Printing-Express-106452437808448/" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/facebook.svg') ?>" width="28" height="28"></a>
     </li>
     <li>
-        <a href="https://linkedin.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/linkedin.svg') ?>" width="28" height="28"></a>
+        <a href="https://www.linkedin.com/company/printing-express-ltd/" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/linkedin.svg') ?>" width="28" height="28"></a>
     </li>
     <li>
         <a href="https://www.instagram.com/the_printing_express/" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/instagram.svg') ?>" width="28" height="28"></a>
     </li>
-    <li>
+   <?php/* <li>
         <a href="https://twitter.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/twitter.svg') ?>" width="28" height="28"></a>
-    </li>
+    </li> */?>
 </ul>
 
     <?php
