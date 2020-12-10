@@ -75,7 +75,7 @@ function set_upload_folder( $value )
 add_filter('gform_field_value_upload_folder', __NAMESPACE__.'\\set_upload_folder');
 
 add_shortcode('custom_form_upload',function(){
-    return '[shareonedrive class="gf_upload_box" dir="3D07FF6BA4270E23!209" account="3d07ff6ba4270e23" mode="files" viewrole="administrator|author|contributor|editor|subscriber|guest" userfolders="auto" downloadrole="all" upload="1" uploadrole="all" delete="1" deletefilesrole="administrator|editor|customer|subscriber|shop_manager"]';
+    return do_shortcode('[shareonedrive class="gf_upload_box" dir="3D07FF6BA4270E23!209" account="3d07ff6ba4270e23" mode="files" viewrole="administrator|author|contributor|editor|subscriber|guest" userfolders="auto" downloadrole="all" upload="1" uploadrole="all" delete="1" deletefilesrole="administrator|editor|customer|subscriber|shop_manager"]');
 
   /* $folder = set_upload_folder(null);
     $folder = '/Lorem Ipsum';
