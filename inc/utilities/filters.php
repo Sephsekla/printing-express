@@ -80,7 +80,7 @@ add_shortcode('custom_form_upload',function(){
     $folder = set_upload_folder(null);
     $folder = 'Lorem Ipsum';
 
-    return do_shortcode('[shareonedrive class="gf_upload_box" dir="'.$upload_folder.'" account="3d07ff6ba4270e23" mode="files" viewrole="administrator|author|contributor|editor|subscriber|guest" userfolders="auto" downloadrole="all" upload="1" uploadrole="all" delete="1" deletefilesrole="administrator|editor|customer|subscriber|shop_manager" addfolder="1" addfolderrole="administrator|editor|customer|subscriber|shop_manager"]' );
+    return do_shortcode('[shareonedrive class="gf_upload_box" dir="'.$folder.'" account="3d07ff6ba4270e23" mode="files" viewrole="administrator|author|contributor|editor|subscriber|guest" userfolders="auto" downloadrole="all" upload="1" uploadrole="all" delete="1" deletefilesrole="administrator|editor|customer|subscriber|shop_manager" addfolder="1" addfolderrole="administrator|editor|customer|subscriber|shop_manager"]' );
 });
 
 /**
