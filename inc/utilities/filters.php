@@ -49,7 +49,7 @@ function set_upload_folder( $value )
 
     $teams = wc_memberships_for_teams_get_teams($user->ID);
 
-    $date = date('Y/m/d');
+    $date = date('/Y/m/d');
     
 
     if($teams) {
