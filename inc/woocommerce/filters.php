@@ -123,8 +123,8 @@ function disable_invoice_personal( $available_gateways ) {
 
                 // echo $product->get_type();
 
-           // unset($available_gateways['bacs']);
-            // unset($available_gateways['cheque']);
+            unset($available_gateways['bacs']);
+             unset($available_gateways['cheque']);
 
             }
           
