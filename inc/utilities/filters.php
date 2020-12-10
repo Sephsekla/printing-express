@@ -109,7 +109,7 @@ add_action(
         
         }
         else{
-            add_filter('shareonedrive_private_folder_name', __NAMESPACE__.'\\set_upload_folder_2', 9, 2);
+            add_filter('shareonedrive_private_folder_name', __NAMESPACE__.'\\set_upload_folder_2', 900, 2);
         }
 
     
