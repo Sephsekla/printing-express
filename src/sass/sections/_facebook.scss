@@ -10,13 +10,15 @@
 		}
 
 		&-title span{
-			font-weight: bold;
-			font-style: normal;
+			font-weight: bold !important;
+			font-style: normal !important;
+			color: $white;
 		}
 	}
 
 	&-feed-content{
 		padding-top: 80px;
+		color: $white;
 
 		@extend .split-sm-container;
 	}

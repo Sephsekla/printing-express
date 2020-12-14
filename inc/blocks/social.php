@@ -65,8 +65,9 @@ function render_social($block_attributes,$content)
         </div>
     </div>
                 </section>
+    <section class="pe-grid_wrapper">
     <?php echo do_shortcode('[efb_feed fanpage_id="106452437808448" words_limit="50" post_limit="1" skin_id="6098" cache_unit="1" cache_duration="days" links_new_tab="0" show_like_box="0"]') ?>
-
+</section>
 
     <?php
 
