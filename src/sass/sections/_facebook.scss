@@ -2,6 +2,15 @@
 	
 	&-halfwidth-skin{
 		padding: 0;
+		margin-bottom: 0;
+	}
+
+	&-thumbnail-col{
+		padding: 0;
+
+		a{
+			pointer-events: none;
+		}
 	}
 
 	&-profile{
@@ -21,6 +30,11 @@
 		color: $white;
 
 		@extend .split-sm-container;
+	}
+
+
+	&-share-wrapper{
+		display: none;
 	}
 
 }
