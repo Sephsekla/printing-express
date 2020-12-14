@@ -1,0 +1,24 @@
+.efbl{
+	
+	&-halfwidth-skin{
+		padding: 0;
+	}
+
+	&-profile{
+		&-title-wrap, &-image{
+			display: none;
+		}
+
+		&-title span{
+			font-weight: bold;
+			font-style: normal;
+		}
+	}
+
+	&-feed-content{
+		padding-top: 80px;
+
+		@extend .split-sm-container;
+	}
+
+}
