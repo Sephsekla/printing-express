@@ -21,7 +21,7 @@
 		&-title span{
 			font-weight: bold !important;
 			font-style: normal !important;
-			color: $white;
+			color: $white !important;
 		}
 	}
 
@@ -30,11 +30,22 @@
 		color: $white;
 
 		@extend .split-sm-container;
-	}
+		
+		@media(min-width: 992px){
+			padding-left: 80px;
+		}
 
 
+
+
+}
+
+.esf{
 	&-share-wrapper{
 		display: none;
 	}
+}
 
+.efbl-halfwidth-skin .efbl-feed-content .description, .efbl-halfwidth-skin .efbl-feed-content .efbl_link_text{
+	color: $white;
 }
