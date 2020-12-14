@@ -44,10 +44,23 @@
 
 .esf{
 	&-share-wrapper{
-		display: none;
+		display: none !important;
 	}
 }
 
 .efbl-halfwidth-skin .efbl-feed-content .description, .efbl-halfwidth-skin .efbl-feed-content .efbl_link_text{
 	color: $white;
+}
+
+.pe-grid_wrapper .efbl-halfwidth-skin .efbl-thumbnail-wrapper .efbl-post-footer .efbl-view-on-fb{
+	padding: 9px 14px;
+    min-width: 140px;
+    border-radius: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 0.875rem;
+    background-color: $white;
+    outline: none;
+    border: 0;
 }
