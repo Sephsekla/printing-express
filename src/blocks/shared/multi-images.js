@@ -21,7 +21,7 @@ const {  Toolbar,
         
     <picture>
     <source srcset={ `${url}.webp` } type="image/webp"/>
-    <source srcset={ urlL } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+    <source srcset={ url } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
     <img
         src={ url }
         alt={ alt }
