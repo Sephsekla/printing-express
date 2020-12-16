@@ -13,6 +13,8 @@ const {Fragment} = wp.element;
 
 import {CreateInnerImage} from '../shared/multi-images.js';
 
+const {useSelect, withSelect} = wp.data;
+
 
 /**
  * Edit grid
@@ -36,7 +38,6 @@ const editGrid = withColors('background')(( props ) => {
 
 
         const onSelectImage = img => {
-
 
 
             setAttributes( {

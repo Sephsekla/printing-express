@@ -9,6 +9,37 @@ const {  Toolbar,
     FormToggle,
     ColorPalette } = wp.components;
 
+    const {useSelect, withSelect} = wp.data;
+
+    const RenderSingleImage = props => {
+
+       
+        const {url, id, alt} = props;
+
+        //const media = useSelect(select => select( 'core').getMedia( id ));
+        const media = false;
+
+
+        
+        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ url })`}}>
+        
+    <picture>
+    <source srcset={ `${url}.webp` } type="image/webp"/>
+    <source srcset={ url } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+    <img
+        src={ url }
+        alt={ alt }
+    />
+    </picture>
+
+
+
+</div>
+
+        }
+
+
+    
 
 /**
  * 
@@ -18,46 +49,24 @@ const {  Toolbar,
  */
 const CreateInnerImage = props => {
 
-    console.log('PROPS: '.props);
 
     const {isSelected} = props;
 
     const {imgArray} = props.attributes;
-
-    let images = [];
-
-    for (let i = 0; i < imgArray.length; i++) {
-
-        const imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
-
-
-        images.push(   
-
-            <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
-            <picture>
-            <source srcset={ `${imgURL}.webp` } type="image/webp"/>
-            <source srcset={ imgURL } type={imgURL.endsWith(".jpg") || imgURL.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
-            <img
-                src={ imgURL }
-                alt={ imgAlt }
-            />
-            </picture>
         
-        
-        
-        </div>)
-      }
 
     return (
 
     <div className = "image-wrapper-outer">
 
-        {images}
+{imgArray.map(img => <RenderSingleImage {...img}/>)}
 
 
     </div>
 
     )
+
+    
 
 
 
