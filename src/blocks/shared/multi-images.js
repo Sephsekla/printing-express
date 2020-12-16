@@ -11,22 +11,6 @@ const {  Toolbar,
 
     const {useSelect, withSelect} = wp.data;
 
-const getImageThumb = (id, fallback)=> {
-
-    const media = useSelect(select => select( 'core').getMedia( id ));
-
-    if(media){
-
-        console.log(media);
-
-       return media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : fallback;
-
-
-    }
-    else{
-       //return fallback;
-    }
-}
 
 /**
  * 
@@ -86,4 +70,4 @@ const CreateInnerImage = props => {
 }
 
 
-export {CreateInnerImage, getImageThumb};
+export {CreateInnerImage};
