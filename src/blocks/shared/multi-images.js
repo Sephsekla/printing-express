@@ -14,7 +14,25 @@ const {  Toolbar,
     const RenderSingleImage = props => {
 
         console.log(props);
-        return <p>Test</p>;
+        
+        const {url, id, alt} = props;
+
+        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ url })`}}>
+        
+    <picture>
+    <source srcset={ `${url}.webp` } type="image/webp"/>
+    <source srcset={ urlL } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+    <img
+        src={ url }
+        alt={ alt }
+    />
+    </picture>
+
+
+
+</div>
+
+
     }
 
 /**
@@ -34,27 +52,13 @@ const CreateInnerImage = props => {
 
     for (let i = 0; i < imgArray.length; i++) {
 
-        let imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
-
+        
 
        
 
         images.push(   
-
-            <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
-                <RenderSingleImage {...imgArray[i]}/>
-            <picture>
-            <source srcset={ `${imgURL}.webp` } type="image/webp"/>
-            <source srcset={ imgURL } type={imgURL.endsWith(".jpg") || imgURL.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
-            <img
-                src={ imgURL }
-                alt={ imgAlt }
-            />
-            </picture>
-        
-        
-        
-        </div>)
+        <RenderSingleImage {...imgArray[i]}/>
+            )
 
         }
         
