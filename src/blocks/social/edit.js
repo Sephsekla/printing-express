@@ -9,7 +9,7 @@ const {  Toolbar,
     FormToggle,
     ColorPalette } = wp.components;
 
-const {withSelect} = wp.data;
+const {useSelect, withSelect} = wp.data;
 
 const {compose, createHigherOrderComponent} = wp.compose;
 

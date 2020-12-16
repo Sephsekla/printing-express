@@ -11,11 +11,16 @@ const {  Toolbar,
 
 import {CreateInnerImage} from '../shared/multi-images.js';
 
+const {useSelect, withSelect} = wp.data;
+
+
 
 /**
  * Edit grid
  */
 const editGrid = withColors('background')(( props ) => {
+
+    return useSelect( select => {
 
     const {className, setAttributes, isSelected} = props;
 
@@ -35,6 +40,7 @@ const editGrid = withColors('background')(( props ) => {
 
         const onSelectImage = img => {
 
+            
 
 
             setAttributes( {
@@ -43,13 +49,20 @@ const editGrid = withColors('background')(( props ) => {
                 imgAlt: img.alt, */
 
                 imgArray: img.map(
-                    imageValue => ({
-                        url: imageValue.url,
+                    imageValue => {
+                        const media = select( 'core').getMedia( imageValue.id );
+
+                        console.log(media);
+                        
+                        return {
+                        url: media && media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : imageValue.url,
                         id: imageValue.id,
                         alt: imageValue.alt
-                    })
+                    }}
                 )
-            } );
+            } )
+
+            
 
 
         };
@@ -163,6 +176,8 @@ const editGrid = withColors('background')(( props ) => {
             
         </section>
     ];
+
+})
 })
 
 export {editGrid};
