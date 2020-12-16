@@ -9,6 +9,7 @@ const {  Toolbar,
     FormToggle,
     ColorPalette } = wp.components;
 
+    const {useSelect, withSelect} = wp.data;
 
 /**
  * 
@@ -28,7 +29,13 @@ const CreateInnerImage = props => {
 
     for (let i = 0; i < imgArray.length; i++) {
 
-        const imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
+        let imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
+
+        const media = useSelect(select => select( 'core').getMedia( imgArray.id ));
+
+        if(media){
+
+            imgURL = media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : imgURL;
 
 
         images.push(   
@@ -46,6 +53,8 @@ const CreateInnerImage = props => {
         
         
         </div>)
+
+        }
       }
 
     return (
