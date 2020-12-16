@@ -17,6 +17,8 @@ const getImageThumb = (id, fallback)=> {
 
     if(media){
 
+        console.log(media);
+
        return media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : fallback;
 
 
