@@ -39,10 +39,6 @@ const editGrid = withColors('background')(( props ) => {
 
         const onSelectImage = img => {
 
-            const media = useSelect(select => select( 'core').getMedia( imageValue.id ));
-
-            console.log(media);
-
 
 
             setAttributes( {

@@ -11,6 +11,11 @@ const {  Toolbar,
 
     const {useSelect, withSelect} = wp.data;
 
+    const RenderSingleImage = props => {
+
+        console.log(props);
+        return <p>Test</p>;
+    }
 
 /**
  * 
@@ -20,7 +25,6 @@ const {  Toolbar,
  */
 const CreateInnerImage = props => {
 
-    console.log('PROPS: '.props);
 
     const {isSelected} = props;
 
@@ -38,6 +42,7 @@ const CreateInnerImage = props => {
         images.push(   
 
             <div className={'image-wrapper'} style={{backgroundImage: `url(${ imgURL })`}}>
+                <RenderSingleImage {...imgArray}/>
             <picture>
             <source srcset={ `${imgURL}.webp` } type="image/webp"/>
             <source srcset={ imgURL } type={imgURL.endsWith(".jpg") || imgURL.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
