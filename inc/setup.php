@@ -105,6 +105,9 @@ add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'widgets' );
 
 
+	add_image_size( 'grid', 1100, 1000, false ); // (not cropped)
+
+
 }
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\\init' );

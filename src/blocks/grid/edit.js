@@ -55,7 +55,7 @@ const editGrid = withColors('background')(( props ) => {
                         console.log(media);
                         
                         return {
-                        url: media && media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : imageValue.url,
+                        url: media && media.media_details.sizes.grid ? media.media_details.sizes.grid.source_url : imageValue.url,
                         id: imageValue.id,
                         alt: imageValue.alt
                     }}

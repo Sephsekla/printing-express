@@ -26,7 +26,7 @@ const CharityImage  = withSelect( ( select, props) => {
     else{
 
 
-        let thumbnail = media.media_details.sizes.medium ? media.media_details.sizes.medium : media.media_details.sizes.full
+        let thumbnail = media.media_details.sizes.grid ? media.media_details.sizes.grid : media.media_details.sizes.full
 
     
 

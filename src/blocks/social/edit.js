@@ -26,7 +26,7 @@ const CharityImage  = withSelect( ( select, props) => {
 
 
 
-return[console.log(media.media_details.mime_type),console.log(media),<p><img src={media.media_details.sizes.medium.source_url} width={media.media_details.sizes.medium.width} height={media.media_details.sizes.medium.height} /></p>]; 
+return[console.log(media.media_details.mime_type),console.log(media),<p><img src={media.media_details.sizes.grid.source_url} width={media.media_details.sizes.grid.width} height={media.media_details.sizes.grid.height} /></p>]; 
 }
 
 )
