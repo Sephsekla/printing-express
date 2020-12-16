@@ -16,22 +16,18 @@ const {  Toolbar,
        
         const {url, id, alt} = props;
 
-        const media = useSelect(select => select( 'core').getMedia( id ));
+        //const media = useSelect(select => select( 'core').getMedia( id ));
+        const media = false;
 
-        if(!media){
-            return 'Loading...'
-        }
-        else{
 
-            const thumbnail =  media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : url;
-
-        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ thumbnail })`}}>
+        
+        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ url })`}}>
         
     <picture>
-    <source srcset={ `${thumbnail}.webp` } type="image/webp"/>
-    <source srcset={ thumbnail } type={thumbnail.endsWith(".jpg") || thumbnail.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+    <source srcset={ `${url}.webp` } type="image/webp"/>
+    <source srcset={ url } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
     <img
-        src={ thumbnail }
+        src={ url }
         alt={ alt }
     />
     </picture>
@@ -43,7 +39,7 @@ const {  Toolbar,
         }
 
 
-    }
+    
 
 /**
  * 
@@ -63,12 +59,14 @@ const CreateInnerImage = props => {
 
     <div className = "image-wrapper-outer">
 
-        {imgArray.map(img => <RenderSingleImage {...img}/>)}
+{imgArray.map(img => <RenderSingleImage {...img}/>)}
 
 
     </div>
 
     )
+
+    
 
 
 

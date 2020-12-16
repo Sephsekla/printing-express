@@ -40,7 +40,6 @@ const editGrid = withColors('background')(( props ) => {
         const onSelectImage = img => {
 
 
-
             setAttributes( {
             /*   imgID: img.id,
                 imgURL: img.url,
