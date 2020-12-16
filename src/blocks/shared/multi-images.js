@@ -31,7 +31,7 @@ const CreateInnerImage = props => {
 
         let imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
 
-        const media = useSelect(select => select( 'core').getMedia( imgArray.id ));
+        const media = useSelect(select => select( 'core').getMedia( imgArray[i].id ));
 
         if(media){
 
@@ -54,6 +54,9 @@ const CreateInnerImage = props => {
         
         </div>)
 
+        }
+        else{
+            images.push( 'Loading...');
         }
       }
 
