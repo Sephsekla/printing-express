@@ -5,45 +5,39 @@ const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 
 const autoprefixer = require('autoprefixer');
 
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
-const extractSass = new ExtractTextPlugin({
-  filename: "main.min.css",
-});
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const FixStyleOnlyEntriesPlugin = require("webpack-fix-style-only-entries");
 
-const extractAdmin = new ExtractTextPlugin({
-  filename: "blocks/editor-blocks.css",
-});
+const sassLoaders = [
+  {
+    loader: 'css-loader',
+    options: {
+      url: false,
+      sourceMap: true
 
-const extractSettings = {
-  use: [{
-      loader: "css-loader",
-      options: {
-        url: false,
-        sourceMap: true
-
-      }
+    }
     },
 
     {
-      loader: 'postcss-loader',
-      options: {
-        plugins: () => [autoprefixer],
-        sourceMap: true
-      }
+    loader: 'postcss-loader',
+    options: {
+      postcssOptions: {
+        plugins: [autoprefixer],
+      },
+      sourceMap: true
+    }
     },
 
     {
-      loader: "sass-loader",
-      options: {
-        sourceMap: true
-      }
+    loader: "sass-loader",
+    options: {
+      sourceMap: true,
+      implementation: require("node-sass")
+    }
 
-    },
+    }
+];
 
-  ],
-  // use style-loader in development
-  fallback: "style-loader"
-}
 
 module.exports = {
 
@@ -59,12 +53,16 @@ module.exports = {
 
     'main': './src/index.js',
     'blocks/blocks': './src/blocks.js',
-    'meta': './src/meta.js'
+    'meta': './src/meta/.js',
+    'blocks/editor-blocks': './src/sass/blocks.scss',
+    'main.min': './src/sass/style.scss'
 
   },
   plugins: [
-    extractSass,
-    extractAdmin
+    new FixStyleOnlyEntriesPlugin(),
+    new MiniCssExtractPlugin({
+      filename: ({ chunk }) => `${chunk.name}.css`,
+    })
   ],
   output: {
     filename: '[name].js',
@@ -76,17 +74,23 @@ module.exports = {
   //When run in WordPress we want to use external jquery
   externals: {
     jquery: 'jQuery',
-    lodash: 'lodash'
+    lodash: 'lodash',
+    wp: 'wp'
   },
   module: {
-    rules: [{
+    rules: [
+      
+      /* JS Files */
+      {
         test: /\.js$/,
         exclude: /(node_modules|bower_components)/,
         use: [{
           loader: 'babel-loader',
           options: {
-            presets: ['babel-preset-env'],
+            presets: 
+              ['@wordpress/babel-preset-default'],
             plugins: ["lodash"],
+            sourceType: "unambiguous",
           }
         }, {
           loader: "ifdef-loader",
@@ -95,6 +99,9 @@ module.exports = {
           }
         }]
       },
+
+
+      /*Images*/
       {
         test: /\.(png|jpg|gif)$/,
         use: [{
@@ -103,29 +110,26 @@ module.exports = {
         }]
       },
 
+      /*SCSS*/
       {
         test: /\.scss$/,
-        exclude: /blocks\.scss$/,
-        use: extractSass.extract(extractSettings)
+        use: [
+          MiniCssExtractPlugin.loader,
+        ].concat(sassLoaders)
       },
 
-      {
-        test: /blocks\.scss$/,
-        use: extractAdmin.extract(extractSettings)
-      },
-
-
-
+      /*CSS*/
       {
         test: /\.css$/,
-        loader: 'style-loader',
-      },
-      {
-        test: /\.css$/,
-        loader: 'css-loader',
-        options: {
-          minimize: true
-        }
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              minimize: true
+            }
+          }
+        ]
       }
 
     ]

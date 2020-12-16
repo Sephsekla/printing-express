@@ -1,7 +1,5 @@
 import Flickity from 'flickity-fade';
 
-import './sass/style.scss';
-
 import './js/menu.js';
 import initMenu from './js/menu.js';
 
