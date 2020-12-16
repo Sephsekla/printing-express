@@ -47,27 +47,13 @@ const CreateInnerImage = props => {
     const {isSelected} = props;
 
     const {imgArray} = props.attributes;
-
-    let images = [];
-
-    for (let i = 0; i < imgArray.length; i++) {
-
-        
-
-       
-
-        images.push(   
-        <RenderSingleImage {...imgArray[i]}/>
-            )
-
-        }
         
 
     return (
 
     <div className = "image-wrapper-outer">
 
-        {images}
+        {imgArray.map(img => <RenderSingleImage {...img}/>)}
 
 
     </div>
