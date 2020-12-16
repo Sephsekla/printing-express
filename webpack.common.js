@@ -53,7 +53,7 @@ module.exports = {
 
     'main': './src/index.js',
     'blocks/blocks': './src/blocks.js',
-    'meta': './src/meta/.js',
+    'meta': './src/meta.js',
     'blocks/editor-blocks': './src/sass/blocks.scss',
     'main.min': './src/sass/style.scss'
 
