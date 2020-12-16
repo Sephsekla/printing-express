@@ -22,7 +22,7 @@ const getImageThumb = (id, fallback)=> {
 
     }
     else{
-        return fallback;
+       //return fallback;
     }
 }
 
