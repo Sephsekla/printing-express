@@ -13,17 +13,25 @@ const {  Toolbar,
 
     const RenderSingleImage = props => {
 
-        console.log(props);
-        
+       
         const {url, id, alt} = props;
 
-        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ url })`}}>
+        const media = useSelect(select => select( 'core').getMedia( id ));
+
+        if(!media){
+            return 'Loading...'
+        }
+        else{
+
+            const thumbnail =  media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : url;
+
+        return <div className={'image-wrapper'} style={{backgroundImage: `url(${ thumbnail })`}}>
         
     <picture>
-    <source srcset={ `${url}.webp` } type="image/webp"/>
-    <source srcset={ url } type={url.endsWith(".jpg") || url.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
+    <source srcset={ `${thumbnail}.webp` } type="image/webp"/>
+    <source srcset={ thumbnail } type={thumbnail.endsWith(".jpg") || thumbnail.endsWith(".jpeg") ? "image/jpeg" : "image/png"}/>
     <img
-        src={ url }
+        src={ thumbnail }
         alt={ alt }
     />
     </picture>
@@ -31,6 +39,8 @@ const {  Toolbar,
 
 
 </div>
+
+        }
 
 
     }
