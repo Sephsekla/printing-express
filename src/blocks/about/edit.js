@@ -11,7 +11,7 @@ const {  Toolbar,
 
 const {Fragment} = wp.element;
 
-import {CreateInnerImage} from '../shared/multi-images.js';
+import {CreateInnerImage, getImageThumb} from '../shared/multi-images.js';
 
 
 /**
@@ -46,7 +46,7 @@ const editGrid = withColors('background')(( props ) => {
 
                 imgArray: img.map(
                     imageValue => ({
-                        url: imageValue.url,
+                        url: getImageThumb(imageValue.id, imageValue.url),
                         id: imageValue.id,
                         alt: imageValue.alt
                     })

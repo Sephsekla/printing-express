@@ -11,6 +11,21 @@ const {  Toolbar,
 
     const {useSelect, withSelect} = wp.data;
 
+const getImageThumb = (id, fallback)=> {
+
+    const media = useSelect(select => select( 'core').getMedia( id ));
+
+    if(media){
+
+       return media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : fallback;
+
+
+    }
+    else{
+        return fallback;
+    }
+}
+
 /**
  * 
  * @param {*} props 
@@ -31,12 +46,8 @@ const CreateInnerImage = props => {
 
         let imgURL = imgArray[i].url, imgAlt = imgArray[i].alt;
 
-        const media = useSelect(select => select( 'core').getMedia( imgArray[i].id ));
 
-        if(media){
-
-            imgURL = media.media_details.sizes.medium ? media.media_details.sizes.medium.source_url : imgURL;
-
+       
 
         images.push(   
 
@@ -55,10 +66,7 @@ const CreateInnerImage = props => {
         </div>)
 
         }
-        else{
-            images.push( 'Loading...');
-        }
-      }
+        
 
     return (
 
@@ -76,4 +84,4 @@ const CreateInnerImage = props => {
 }
 
 
-export {CreateInnerImage};
+export {CreateInnerImage, getImageThumb};
