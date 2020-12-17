@@ -14,8 +14,10 @@
 			overflow: hidden;
 
 			img{
-				margin-top: -5%;
-				margin-bottom: -5%;
+				//margin-top: -5%;
+				//margin-bottom: -5%;
+				margin-top: 0;
+				margin-bottom: 0;
 			}
 		}
 	}
@@ -33,9 +35,9 @@
 	}
 
 	&-feed-content{
-		padding-top: 80px;
+		padding-top: 50px;
 		color: $white;
-		padding-bottom: 100px;
+		padding-bottom: 80px;
 
 		@extend .container;
 		@extend .split-sm-container;
@@ -95,4 +97,10 @@
 
 .efbl-halfwidth-skin .efbl-feed-content .description>*, .efbl-halfwidth-skin .efbl-feed-content .efbl_link_text>*{
 	font-size: 1rem;
+}
+
+.efbl_link_text{
+	background-color: $white !important;
+	color: $dark !important;
+	border: 0 !important;
 }
