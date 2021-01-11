@@ -26,7 +26,7 @@
 
             <div class="col-12 col-lg-6 align-right">
 				<?php get_social() ?>
-                <p>&copy; Printing Express <?php echo date('Y') ?> | Website by <a href="https://jbr.digital" target="_blank">JBR Digital</p>
+                <p>&copy; Printing Express <?php echo date('Y') ?> | Website by <a href="https://jbr.digital" target="_blank">JBR Digital</a></p>
             </div>
 
         </div>
