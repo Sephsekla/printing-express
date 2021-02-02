@@ -121,12 +121,14 @@ add_action('woocommerce_after_single_product_summary',function(){
     echo '</section>';
 },21);
 
-add_action('woocommerce_before_shop_loop',function(){
-
-
+function do_search(){
     get_product_search_form();
+}
 
-},15);
+add_action('woocommerce_before_shop_loop', __NAMESPACE__.'\\do_search', 15);
+add_action('woocommerce_no_products_found', __NAMESPACE__.'\\do_search', 0);
+
+
 
 
 add_action('woocommerce_after_single_product_summary',function(){

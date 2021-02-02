@@ -47,9 +47,6 @@ else{
     <li>
         <a href="https://www.instagram.com/the_printing_express/" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/instagram.svg') ?>" width="28" height="28"></a>
     </li>
-   <?php/* <li>
-        <a href="https://twitter.com" target="_blank"><img src="<?php echo get_asset_path('icons'.$folder.'/twitter.svg') ?>" width="28" height="28"></a>
-    </li> */?>
 </ul>
 
     <?php
