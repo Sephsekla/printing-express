@@ -140,3 +140,5 @@ add_action('woocommerce_after_single_product_summary',function(){
         echo '<p class="woocommerce-info bg-yellow" style="width: 100%">'.$message.'</p>';
     }
 },1);
+
+add_filter( 'woocommerce_product_subcategories_hide_empty', '__return_false', 10, 1 );
