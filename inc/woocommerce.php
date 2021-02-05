@@ -142,3 +142,9 @@ add_action('woocommerce_after_single_product_summary',function(){
 },1);
 
 add_filter( 'woocommerce_product_subcategories_hide_empty', '__return_false', 10, 1 );
+
+function hide_subcategory_count() {
+  /* empty - no count */
+}
+
+add_filter( 'woocommerce_subcategory_count_html', __NAMESPACE__.'\\hide_subcategory_count' );
