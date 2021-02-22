@@ -69,7 +69,7 @@ function get_banner_id()
        }
 
     }
-    elseif (is_woo_related() && has_post_thumbnail(wc_get_page_id('shop'))) {
+    elseif ((is_woo_related() || is_404()) && has_post_thumbnail(wc_get_page_id('shop'))) {
         // code...
         $id = get_post_thumbnail_id(wc_get_page_id('shop'));
     }
@@ -86,7 +86,7 @@ function get_banner_color(){
     if(\is_singular() && $meta = \get_post_meta(get_the_id(),'printing_banner_class', true) /*Deliberate variable assignment*/){
         return $meta;
     }
-    elseif(is_woo_related()){
+    elseif(is_woo_related() || is_404()){
         return 'yellow';
     }
 

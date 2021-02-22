@@ -9,7 +9,7 @@
 
 get_header();
 
-global $wp_query; 
+global $wp_query;
 $found_posts = $wp_query->found_posts;
 ?>
 
@@ -22,15 +22,20 @@ $found_posts = $wp_query->found_posts;
 
 		get_template_part( 'template-parts/banner' );
 
-	
-		
+
+
+		if ( have_posts() ) {
 			while ( have_posts() ) {
 				the_post();
 				get_template_part( 'template-parts/content', get_post_type() );
 			}
-		
+
 
 			the_posts_navigation();
+
+		} else {
+			get_template_part( 'template-parts/404' );
+		}
 
 		?>
 
