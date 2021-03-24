@@ -203,3 +203,12 @@ function show_exc_vat($price, $product) {
 }
 
 
+function fun_select_default_option( $args)
+{
+
+    if(count($args['options']) > 0) //Check the count of available options in dropdown
+        $args['selected'] = $args['options'][0];
+    return $args;
+}
+
+add_filter('woocommerce_dropdown_variation_attribute_options_args', __NAMESPACE__.'\\fun_select_default_option',10,1);
