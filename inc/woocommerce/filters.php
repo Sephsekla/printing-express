@@ -167,7 +167,7 @@ function filter_wc_upload_shortcode($metadata, $object_id, $meta_key, $single){
 
         switch($meta_key){
             case 'shareonedrive_upload_box_shortcode':
-                $metadata = '[shareonedrive dir="3D07FF6BA4270E23!232" account="3d07ff6ba4270e23" mode="files" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
+                $metadata = '[shareonedrive dir="01WFDZCGHHUEOCO66STBGIQPDCBNKYXTII" account="9bf64af4-3366-4dc9-83f6-e1b117a3e776" drive="b!0La3yl0-IUidIl0LwrY3-iERM8UB9aFIix5nfFgwvU3N31wZkAnUQpXBrNljkUbI mode="files" viewrole="all" userfolders="auto" viewuserfoldersrole="none" downloadrole="all" search="0" showbreadcrumb="0" upload="1" upload_auto_start="1" uploadrole="all" uploadext="jpg|png|gif|svg" notificationupload="1" rename="1" renamefilesrole="all" renamefoldersrole="all" editdescription="1" editdescriptionrole="all" delete="1" deletefilesrole="all" deletefoldersrole="all" ]';
             break;
             case 'shareonedrive_upload_box_title':
                 $metadata = 'Artwork for %wc_product_name%';
