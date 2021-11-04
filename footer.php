@@ -21,7 +21,7 @@
                 <?php echo WC_Countries::get_base_address_2() ?> <br />
                 <?php echo WC_Countries::get_base_city() ?> <br/>
                 <?php echo WC_Countries::get_base_postcode() ?></p>
-                <p>01276 415709</p>
+                <p>01276 783121</p>
             </div>
 
             <div class="col-12 col-lg-6 align-right">
